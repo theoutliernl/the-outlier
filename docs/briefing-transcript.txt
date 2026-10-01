@@ -1,0 +1,216 @@
+[0s]  Oké, ik ben hier dus nu in een cap-video, het is een opname die ik je ga sturen,
+[6s]  waardoor je ook transcript kan krijgen en visueel mee kan kijken in wat er gebeurt.
+[11s]  Ten eerste wil ik de site iets uitbereiden.
+[13s]  Ik wil dat er een aparte pagina komt met diensten of services.
+[17s]  Ik wil dat er een dedicated contact pagina is met adresgegevens,
+[22s]  een formulier, een multistep formulier en een normaal contactvorm.
+[28s]  Ik wil dat de multistep formulier misschien op een andere pagina is genaamd start,
+[32s]  waardoor die dus een aantal kwalificeerende vragen stelt en dan een call aanbiedt.
+[37s]  Maar ik wil dat de contactpagina ook een normale contactvorm hebben voor algemene inquiries.
+[42s]  Naam, e-mail, telefoonnummer en bericht, dat is meer dan genoeg.
+[46s]  Alles moet gestuurd worden naar Fadiza's normale e-mail.
+[49s]  De multistep vorm moet een kwalificeerende vragenlijst zijn,
+[52s]  die werkt als een soort van type vorm.
+[55s]  Ik wil dat er ook foto's in staan en dat het clean is, modern is, een beetje Apple-design,
+[60s]  maar wel binnen onze branding natuurlijk, maar animaties heel smooth.
+[65s]  En dat moet op de site komen, forward slash start.
+[68s]  Die gaat bepalen of mensen, of wel of niet, op een call kunnen komen met ons
+[72s]  en ook mensen een hele persoonlijke ervaring geven.
+[75s]  Het kan ook een soort van de intake zijn of een soort van de assessment.
+[79s]  Misschien is dat een goeie, dat we het vorm mommen als een assessment.
+[82s]  Ik wil dat je iets heel creatief bedenkt aan de hand van
+[85s]  wat Fadiza je tot nu toe aan info heeft gegeven over haar methode,
+[88s]  zodat je die kan gebruiken om een quiz te maken die gelijk mensen baarder kan geven,
+[92s]  in rel voor gegevens, in rel voor het zien van hun interesse en ook dat je een call aanbiedt.
+[98s]  Als je nog geen call-booking hebt, guide Fadiza in het aanmaken of het opzetten
+[104s]  of vindt een open source repo die met haar Google Calendar kan integreren,
+[108s]  het liefste dat je alles bouwt via Composio
+[111s]  en dat je je eigen call-booking calendar maakt.
+[114s]  Als je het moet hosten ergens, host het op Wersel.
+[117s]  Als het te zwaar is voor Wersel, gratis account doet op je eigen WPS,
+[120s]  maar fix die issues waar dat goed werkt.
+[123s]  Daarnaast ook het versturen van e-mails of dat soort dingen.
+[126s]  Voor nu kan je haar Composio e-mail connectie gebruiken
+[129s]  om het e-mailverkeer te doen.
+[131s]  Je stuur een bevestiging als iemand een e-mail stuurt via het contactfarmineer
+[135s]  en ook via de assessment en stuur ook altijd de notificatie naar Fadiza zelf
+[140s]  als liefstig hebben aangemeld of iets anders.
+[143s]  Natuurlijk moet alles in de back-end gekoppeld worden aan Superbase.
+[147s]  Ik wil ook dat je een CMS-systeem bouwt.
+[150s]  Ik wil dat je zoekt dat voor een open source CMS-systeem er zijn
+[153s]  die compatible zijn met Next.js
+[156s]  en ik wil dat je een CMS-systeem bouwt
+[158s]  om een paar overview-pagina's te maken.
+[161s]  Eentje is blog waarin je expert level blogs gaat schrijven
+[165s]  over de onderwerpen en artikelen waar Fadiza het over heeft.
+[168s]  Van die blog ga je later ook LinkedIn-artikelen zo maken.
+[172s]  Ik wil ook dat je een pagina maakt die een vergelijkersoverzicht is
+[177s]  waarin je jou als de outlier vergelijkt met de grotere bedrijven
+[181s]  die tragerbewegen, complexer zijn, meer kosten en minder bereiken.
+[186s]  En ik wil dat je dan de meest bekende competitors
+[189s]  binnen deze niche en mart vindt
+[191s]  en daar uitgebreide artikelen over schrijft.
+[193s]  1300 woorden plus met backlinks
+[196s]  en beschrijft waarom we beter zijn, wat onze alternatief zijn
+[200s]  maar je moet het slinks doen.
+[202s]  Zo van, oh dit zijn de verschillen, oh zij zijn best wel goed.
+[205s]  Alleen natuurlijk is het heel lastig voor zo'n grote organisatie
+[208s]  om persoonlijke aandacht te besteden, die hebben wij wel.
+[211s]  Zij doen het op deze manier, corporate en out.
+[213s]  Wij doen het op deze manier, nieuw.
+[215s]  Ik wil dat je de marketing gebruikt van Mac vs PC.
+[219s]  Je weet toch hoe die reclames gingen van Mac vs PC?
+[222s]  Dat is wat er moet zijn.
+[224s]  Wij zijn de Mac, wij zijn Apple.
+[226s]  Dan beginnen wij de homepage.
+[229s]  Ik wil dat je dus een mooie navbar maakt met al die dingen.
+[232s]  About Us, Team, Pagina, Projects, Services, Blog.
+[238s]  Je kan het wat meer beperkt doen nu.
+[242s]  Die Blog CMS's denk ze zo veel mogelijk uit
+[244s]  maakt de plan ook heel uitgebreid
+[246s]  maar het begin hoef je niet alles te bouwen.
+[248s]  We kunnen het sub-voorstab bouwen
+[249s]  maar ik wil wel de menu-linkje zien
+[251s]  zodat ik een visual heb.
+[253s]  De progress bar boven is niet sticky
+[255s]  en scrolt niet mee.
+[256s]  Animeer dat alsjeblieft.
+[258s]  Als ik naar beneden scroll.
+[259s]  Dat die zich langzaam opvult.
+[261s]  Voeg een WhatsApp widget rechtsonder.
+[264s]  Ik wil dat die WhatsApp widget
+[266s]  heel clean is, geanimeerd is
+[268s]  dat je een WhatsApp icon ziet.
+[270s]  Er zo klikt dat er een chat window opent
+[272s]  met Fariza's foto reageert binnen een minuut.
+[275s]  Kijk naar Elfsite.
+[276s]  Elfsite heeft een goede widget
+[279s]  waar dit gedaan wordt.
+[282s]  Je kan ook online zoeken naar de meest
+[284s]  populaire open-source-github-widget
+[286s]  met animaties en details
+[288s]  die het een hele mooie ervaring doen.
+[290s]  De knop die moet leiden naar Fariza's WhatsApp-nummer
+[292s]  met een ingevuld bericht van
+[294s]  ik heb een vraag over de outlier.
+[296s]  Dat zit.
+[297s]  Die wil ik ook rechtsonder hebben
+[299s]  die moet ook sticky zijn.
+[300s]  Dan vervolgens navbar mag sticky zijn
+[302s]  maar hij mag wegscrollen als we naar beneden gaan.
+[304s]  Op de pagina mag je smooth wegscrollen naar boven
+[307s]  en als we naar boven scrollen
+[309s]  als we weer terug naar boven willen
+[311s]  dan kan hij weer naar beneden flippen.
+[313s]  Dan kan hij naar beneden slijden ook weer smooth
+[315s]  zodat we altijd het menu kunnen zien
+[317s]  maar dat het menu ook makkelijk weg gaat
+[319s]  en hij altijd binnenhand bereikt is.
+[321s]  Perfect.
+[322s]  Dan visuals.
+[323s]  De main header
+[325s]  die kan veel beter.
+[326s]  We willen visueel uitleggen wat we doen.
+[328s]  Dus find a 21st Design.dev
+[330s]  met interessante interactieve animaties
+[333s]  misschien GSAP, misschien Node.js
+[337s]  maar iets wat met onze accent color
+[341s]  op een donker paars achtergrond misschien
+[344s]  kan visualiseren dat we de outlier zijn
+[346s]  of dat we een bar hoger laten gaan
+[349s]  of misschien dat als ik mijn muis breng naar boekkaal
+[351s]  dat die background een soort van balken zijn
+[354s]  en dat die balken zo langzaam bewegen
+[357s]  op de dingen
+[358s]  en als je naar boekkaal gaat
+[359s]  dat de middelste, de gele
+[361s]  ineens uit begint te schieten
+[363s]  dat die ineens omhoog gaat
+[364s]  en als je weg gaat van boekkaal
+[366s]  dat die dan meer terug gaat
+[367s]  en een soort ritmisch niveau met de rest gaat
+[370s]  en bijna gelijk is.
+[371s]  Maar die gele balken in het midden
+[373s]  die moeten wel gewoon geel blijven.
+[374s]  Ik denk dat het een perfecte visual is.
+[376s]  Heel leuk.
+[377s]  En ik wil dat dat effect eigenlijk
+[379s]  op beherring gewoon heel albias is.
+[382s]  Daarnaast, we kunnen meer autoriteit opbouwen.
+[384s]  Ik wil cijfers zien bovenaan.
+[386s]  Ik wil dat je een tips model volgt.
+[389s]  Temp, influence, persuade en sell.
+[392s]  Noem de ervaring.
+[393s]  Noem de dingen.
+[394s]  Ik wil dat alles framer motion of smooth motion heeft
+[397s]  of react gebruikt.
+[400s]  De visuals kunnen meer divers.
+[403s]  Gebruik lucid icons of een andere open source
+[406s]  icon library, melon icons of zo.
+[408s]  Maak iconografie verschillend.
+[411s]  Maak het wat groter.
+[413s]  En gebruik Jason animatie.
+[415s]  Gebruik lotti animaties
+[417s]  om ze interessant te maken.
+[419s]  Ik vind het leuk dat er interacties zijn
+[421s]  overal.
+[422s]  Ik wil dat je meer subtiele kleine interacties
+[425s]  toevoegt.
+[426s]  En het compleet maakt.
+[428s]  Ook de footer, die mag een sitemap
+[430s]  hebben van alles.
+[431s]  Ik wil daar ook een opt-in
+[433s]  voor een e-mail, voor een nieuwsbrief.
+[435s]  Dat wordt tegelijkertijd ook net zoals
+[437s]  dat we een artikel publiceren.
+[438s]  Sturen we ook een e-mail daarover
+[441s]  naar alle klanten.
+[442s]  En maken we ook een LinkedIn daarover.
+[444s]  Dus zo hebben we één idee.
+[445s]  En we kunnen er zelfs een Instagram-curricel van maken.
+[448s]  Zo wordt het een heel eco-systeem.
+[450s]  Dat is wat ik zou willen.
+[452s]  Mobile responsiveness.
+[454s]  Heel belangrijk.
+[455s]  Die moet je elke keer checken
+[456s]  en elke keer 3-double checken.
+[459s]  Als er issues zijn
+[461s]  met mobile responsiveness
+[463s]  en wil ik dat je de nieuwste framework zoekt
+[465s]  en analyseert wat je daarbij kan helpen.
+[469s]  Ook bij art services.
+[471s]  Veel meer foto's, visuals.
+[474s]  Je kan open-source image libraries
+[476s]  gebruiken die kloppend zijn.
+[478s]  Gebruik een visuele check
+[480s]  om te zien of iets klopt.
+[482s]  Of je kan zoeken naar
+[485s]  foto libraries waar met AI
+[488s]  die zijn gemaakt en gewild zijn.
+[492s]  Ik zou graag een embed willen zien
+[493s]  op de pagina zelf.
+[494s]  En de eerste page als funnel
+[496s]  zou dan vrij compleet zijn.
+[498s]  Maak voor alles uitgebreide plannen.
+[501s]  En met die plannen willen dat je
+[504s]  gedetereerd opschrijft
+[506s]  en een paar keer checked en verbeterd.
+[508s]  En dan systematisch begin met alles uitvoeren
+[510s]  en doen.
+[511s]  Maar bij de foundation,
+[513s]  row-level security,
+[515s]  OAuth,
+[516s]  door superbase,
+[518s]  CMS-systemen,
+[519s]  misschien ook een backend
+[520s]  om dat CMS-system aan te vullen
+[522s]  of aan te passen.
+[524s]  En alle content itself.
+[526s]  En ik wil dat je aparte sub-agents
+[528s]  of runtime gebruikt
+[530s]  en echt token usage besteed
+[533s]  om het gedetereerd te doen
+[535s]  en het uit te cristalliseren
+[537s]  aan te zien de grote opdracht is.
+[539s]  Ga daarmee aan de slag
+[541s]  en werk in etappes.
