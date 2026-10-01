@@ -48,3 +48,11 @@ graphify-out/          Knowledge graph (graph.json, graph.html, GRAPH_REPORT.md)
 
 ## Bekende gaten (zie docs/PRELAUNCH-CHECKLIST.md)
 Geen robots.ts, geen sitemap.ts, minimale metadata (geen metadataBase/OG/OG-image), geen JSON-LD, geen FAQ, Inter niet via next/font, logo's ongebruikt, geen alt-teksten.
+
+## v2 landing (1 okt 2026)
+Components (client, motion/react): NavBar (sticky, hide bij scroll-omlaag, slide-back bij omhoog), Hero (bar-visualisatie: balkenrij + gold outlier-bar die opschiet bij hover op de assessment-CTA), Ticker (scroll-linked marquee), Understand (mega koppen + proceskaarten), Stats (count-up bij in-view), Services (accordion met prijzen), Footer (sitemap + nieuwsbrief opt-in), WhatsAppWidget (env-gated via NEXT_PUBLIC_WA_NUMBER), Progress (scroll progress).
+SEO: metadataBase + OG/Twitter in layout, robots.js, sitemap.js, opengraph-image.jsx (ImageResponse 1200x630), JSON-LD: Organization/Person/WebSite (layout) en ItemList Services + FAQPage (lib/schema.js). Inter via next/font.
+Stubpagina's (etappes 2-4): /services, /contact, /start, /blog. Menu-links zichtbaar.
+Database: nieuwe tabel newsletter_optins (RLS). Nieuwe API: /api/newsletter (upsert op email).
+Referenties: docs/altero-ref/ (patroon-analyse, geen kopie), video-transcript /tmp/capvid/transcript.txt.
+Open vars: NEXT_PUBLIC_WA_NUMBER (widget verborgen tot gezet), NEXT_PUBLIC_SITE_URL (default https://theoutlier.nl).
