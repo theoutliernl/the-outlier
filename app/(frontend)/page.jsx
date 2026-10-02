@@ -1,6 +1,6 @@
 import Reveal from "./reveal";
-import Accordion from "../components/Accordion";
-import MenuOverlay from "../components/MenuOverlay";
+import Accordion from "../../components/Accordion";
+import MenuOverlay from "../../components/MenuOverlay";
 
 function BarsGlyph({ heights = [12, 6, 16, 8] }) {
   return (

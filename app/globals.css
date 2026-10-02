@@ -39,3 +39,23 @@
   text-decoration: none; font-weight: 600; border-radius: 999px; padding: 10px 18px; font-size: 14px;
 }
 .wa-widget svg { pointer-events: none; }
+
+/* --- Blog (Payload CMS, etappe 4) --- */
+.blog-grid { margin-top: 56px; }
+.ins-excerpt { margin-top: 8px; color: var(--body); font-size: 15px; line-height: 1.55; max-width: 420px; }
+.blog-empty { margin-top: 48px; max-width: 560px; color: var(--lead); font-size: 18px; line-height: 1.6; border: 1px solid var(--line); padding: 28px 32px; background: rgba(42,39,64,.45); }
+.article-title { font-size: clamp(34px,5vw,64px); line-height: 1.05; font-weight: 700; letter-spacing: -.02em; color: var(--slate); max-width: 900px; }
+.article-meta { margin-top: 18px; font-size: 14px; color: var(--caption); letter-spacing: .04em; }
+.article-excerpt { margin-top: 28px; }
+.article-cover { margin-top: 44px; width: 100%; border: 1px solid var(--line); display: block; }
+.article-content { margin-top: 44px; max-width: 720px; color: var(--lead); font-size: 17px; line-height: 1.75; }
+.article-content h2 { font-size: 28px; font-weight: 700; color: var(--slate); margin: 40px 0 14px; }
+.article-content h3 { font-size: 21px; font-weight: 700; color: var(--slate); margin: 32px 0 10px; }
+.article-content p { margin-bottom: 16px; }
+.article-content ul, .article-content ol { margin: 0 0 16px 22px; }
+.article-content li { margin-bottom: 8px; }
+.article-content a { color: var(--gold-hi); text-decoration: underline; }
+.article-content blockquote { border-left: 3px solid var(--gold); padding-left: 20px; font-family: var(--serif); font-style: italic; color: var(--slate); margin: 24px 0; }
+.article-content img { max-width: 100%; border: 1px solid var(--line); }
+.blog-back { color: var(--caption); text-decoration: none; }
+.blog-back:hover { color: var(--gold-hi); }

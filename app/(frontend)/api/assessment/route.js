@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { scoreAssessment } from "../../../lib/scoring";
-import { sendAssessmentMails } from "../../../lib/mail";
+import { scoreAssessment } from "../../../../lib/scoring";
+import { sendAssessmentMails } from "../../../../lib/mail";
 
 function str(v, max = 200) {
   const s = String(v || "").trim();

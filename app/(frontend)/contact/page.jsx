@@ -1,4 +1,4 @@
-import { jsonLdContact } from "../../lib/schema";
+import { jsonLdContact } from "../../../lib/schema";
 
 export const metadata = {
   title: "Contact — The Outlier",
