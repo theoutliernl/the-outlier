@@ -56,3 +56,22 @@ Stubpagina's (etappes 2-4): /services, /contact, /start, /blog. Menu-links zicht
 Database: nieuwe tabel newsletter_optins (RLS). Nieuwe API: /api/newsletter (upsert op email).
 Referenties: docs/altero-ref/ (patroon-analyse, geen kopie), video-transcript /tmp/capvid/transcript.txt.
 Open vars: NEXT_PUBLIC_WA_NUMBER (widget verborgen tot gezet), NEXT_PUBLIC_SITE_URL (default https://theoutlier.nl).
+
+## Etappe 2: /contact + /start + mailroute (2 okt 2026)
+### Pagina's
+- `/contact` (app/contact/page.jsx): adresblok (The Outlier · Amsterdam NL · hello@theoutlier.nl), server-rendered HTML-formulier (naam, e-mail, telefoon optioneel, bericht) → `POST /api/contact` → Supabase → redirect `/bedankt`. Eigen metadata + JSON-LD `ContactPage` (lib/schema.js → `jsonLdContact`).
+- `/start` (app/start/page.jsx) + `components/Assessment.jsx` (client): multistep assessment in 5 stappen met motion/react stap-animaties (AnimatePresence, slide in/uit) en progress-balk:
+  1. bureau-profiel (type + grootte), 2. friction (schrijfwerk / offertes-facturatie / processen / sales, multi-select), 3. gereedschap (Excel/Sheets, losse tools, één systeem), 4. ambitie (groei fte / marges / professionaliseren zonder corporate, multi-select), 5. contactgegevens (naam, e-mail, telefoon optioneel).
+  - Scoring in `lib/scoring.js` (score 0–12, gedeeld client/server); server berekent opnieuw in de API.
+  - Eindresultaat: insight-blok ("Uw profiel in één oogopslag") met score + één inzicht-regel per antwoord.
+  - Score ≥ 6 → outcome `call`: CTA "Plan je gesprek" naar `NEXT_PUBLIC_CAL_URL` (placeholder-booking-link, env-gated). Zonder env of lage score → contactformulier-block ("we nemen contact op") geprefill met het assessment-resultaat.
+### Data & API
+- Supabase (etappe2.sql): `contact_submissions.phone` (text) toegevoegd; nieuwe tabel `assessment_submissions` (bureau_type, bureau_size, friction text[], tooling, ambition text[], ambition_extra, name, email, phone, score, outcome, source). RLS aan op beide, **geen publieke policies** — alleen service-role.
+- `POST /api/assessment`: JSON (client fetch → JSON-response met score/outcome/lines) of form-post (→ redirect /bedankt). Validatie: naam + e-mail verplicht; friction/ambition array-normalisatie naar whitelist; phone ≤ 40 tekens.
+- `POST /api/contact`: zoals voorheen + `phone` (optioneel, ≤ 40 tekens).
+### Mailflow (lib/mail.js)
+- Schakelaar: `MAIL_ENABLED=1` → verzend; anders (default) → `console.log` van het volledige bericht (destination, subject, body). Default staat UIT.
+- Bij AAN: nodemailer + SMTP (SMTP_HOST/SMTP_PORT/SMTP_SECURE/SMTP_USER/SMTP_PASS/SMTP_FROM). `NOTIFY_EMAIL` (default fariza.sbaa@gmail.com) krijgt de notificatie; inzender krijgt een bevestiging. Mail-fouten blokkeren de insert/redirect niet (alleen logging).
+- **Nog niet live geactiveerd**: e-mail naar Fariza en inzenders gaat pas aan na Fariza's akkoord (pre-launch checklist-item).
+### Env-vars etappe 2 (.env.example)
+MAIL_ENABLED, SMTP_HOST/PORT/SECURE/USER/PASS/FROM, NOTIFY_EMAIL, NEXT_PUBLIC_CAL_URL.

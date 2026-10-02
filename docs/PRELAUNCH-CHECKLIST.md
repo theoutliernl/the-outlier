@@ -4,7 +4,7 @@ Geconsolideerd uit twee Weblyfe-checklists:
 1. **On-page SEO checklist** (Tornado Masterclass "Zoekwoorden-checklist", `seo-checklist` skill) — paginaniveau.
 2. **Full-site SEO audit workflow** (`ai-search-optimization/references/full-site-seo-audit-checklist.md`) — siteniveau: source audit, live check, Google AI-optimization cross-reference.
 
-Status per item: wat er **nog ontbreekt** in de huidige code (stand 1 okt 2026, pre-launch v0.1).
+Status per item: wat er **nog ontbreekt** in de huidige code (stand 1 okt 2026, pre-launch v0.1; geüpdatet 2 okt met etappe 2, zie voetnoot).
 
 ## A. Site-niveau / technische SEO (full-site audit)
 
@@ -54,3 +54,13 @@ Status per item: wat er **nog ontbreekt** in de huidige code (stand 1 okt 2026, 
 6. Zoekwoordstrategie vaststellen (seo-keyword-strategie) en title/H1/lead/H2's herschrijven
 7. FAQ-sectie (12–15 vragen) + FAQPage-schema
 8. Search Console verificeren, sitemap indienen, PageSpeed-meting
+
+---
+
+## Etappe 2-update (2 okt 2026)
+
+- ✅ Sitemap (A3) bevat nu `/` `/services` `/contact` `/start` `/blog` — beide nieuwe pagina's geverifieerd in `app/sitemap.js`.
+- ✅ JSON-LD ContactPage (A5-deel) op `/contact` (lib/schema.js `jsonLdContact`, mainEntity = #organization). Service- en FAQPage-schema bestonden al sinds v2.
+- ✅ `/contact` en `/start` hebben eigen per-pagina metadata (A9-deel, plus `/bedankt` nog na te kijken).
+- ✅ Smoke-test lokaal: POST /api/contact (met phone) → 303 → /bedankt + Supabase-rij; POST /api/assessment (JSON) → score/outcome/lines + Supabase-rij. Mailroute default uit (console.log geverifieerd in serverlog).
+- ⬜ Nog vóór launch: Mailroute activeren (MAIL_ENABLED=1 + SMTP-vars in Vercel) **alleen na Fariza's akkoord**; booking-link zetten (NEXT_PUBLIC_CAL_URL) zodra de Composio-agenda er is; e-mailbevestiging live testen; live smoke-test op productie-domein na deploy.

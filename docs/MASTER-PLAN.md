@@ -12,10 +12,10 @@ Laatst bijgewerkt: 1 oktober 2026 · Legend: ✅ af · 🔄 in uitvoering · ⬜
 
 ## 1. Alle wensen uit de video-briefing (transcript-geverifieerd)
 ### 1.1 Pagina-structuur
-- ⬜ Aparte **/services**-pagina
-- ⬜ Dedicated **/contact**: adresgegevens, normaal contactformulier (naam, e-mail, telefoon, bericht)
-- ⬜ **/start**: multistep, kwalificerend **assessment/quiz** gebaseerd op Fariza's methode (Understand → Map the friction → Build the system → Measure the gain), persoonlijke ervaring, eindigt met aanbieden van een call
-- ⬜ Call-booking: eigen agenda via **Composio** (Google Calendar-integratie), zelf gehost op Vercel; als te zwaar, eigen VPS
+- ✅ Aparte **/services**-pagina *(etappe 2: /contact en /start live; /services-blog nog)*
+- ✅ Dedicated **/contact**: adresgegevens, normaal contactformulier (naam, e-mail, telefoon, bericht) — telefoonkolom in Supabase, ContactPage-schema, etappe 2
+- ✅ **/start**: multistep, kwalificerend **assessment/quiz** gebaseerd op Fariza's methode (Understand → Map the friction → Build the system → Measure the gain), persoonlijke ervaring, eindigt met aanbieden van een call — live (etappe 2): 5 stappen, score/insight-blok, call-aanbieding env-gated via NEXT_PUBLIC_CAL_URL
+- ⬜ Call-booking: eigen agenda via **Composio** (Google Calendar-integratie), zelf gehost op Vercel; als te zwaar, eigen VPS — wacht op NEXT_PUBLIC_CAL_URL / Composio-agenda
 - ⬜ **CMS**: open-source, Next.js-compatibel; voor **blog** (expert-level artikelen → later LinkedIn-artikelen) en **concurrentie-analyse-overzicht**
 - ⬜ Concurrentie-artikelen: **1300+ woorden**, backlinks, "Mac vs PC"-framing (wij zijn de Mac): gracieuw, niet denigrerend — "zij zijn goed, alleen lastig persoonlijke aandacht; corporate en traag vs. nieuw en persoonlijk"
 - ⬜ Navbar-links: About Us, Team, Projects, Services, Blog (menu-links al zichtbaar, pagina's mogen nog stub zijn)
@@ -67,10 +67,12 @@ Laatst bijgewerkt: 1 oktober 2026 · Legend: ✅ af · 🔄 in uitvoering · ⬜
 - ✅ Marktonderzoek-taal in de copy
 - ✅ Mobile-check 3 breakpoints + screenshots in docs/screenshots; checklist site-niveau groen behalve domein-URL (staat nog op vercel.app)
 
-**Etappe 2 — /contact + /start**
-- Normaal formulier + multistep assessment (quiz op haar methode, persoonlijke resultaten, call-aanbieding)
-- Call-booking via Composio/Google Calendar
-- Mail: bevestiging inzender + notificatie Fariza; Supabase + RLS/OAuth
+**Etappe 2 — /contact + /start** ✅ live (2 okt, review-versie)
+- ✅ /contact: adresblok (The Outlier · Amsterdam NL · hello@theoutlier.nl), formulier (naam, e-mail, telefoon, bericht) → /api/contact → Supabase (kolom `phone` toegevoegd) → /bedankt; eigen metadata + JSON-LD ContactPage
+- ✅ /start: multistep assessment (5 stappen, client-side met motion/react), spiegelt Fariza's methode; eindresultaat insight-blok (score/12 + tekst per antwoord, "uw profiel in één oogopslag"); score ≥ 6 → call-aanbieding (CTA "Plan je gesprek" naar NEXT_PUBLIC_CAL_URL, zonder env → contactformulier-fallback "we nemen contact op")
+- ✅ Nieuwe tabel `assessment_submissions` (RLS aan, alleen service-role) + API /api/assessment (JSON-validatie, server-side scoring, insert; form-post redirect naar /bedankt)
+- ✅ E-mailroute lib/mail.js: MAIL_ENABLED-schakelaar (default UIT — console.log van volledige berichten); bij AAN: SMTP (SMTP_HOST/USER/PASS/FROM) → bevestiging inzender + notificatie NOTIFY_EMAIL (default fariza.sbaa@gmail.com). **Nog NIET live geactiveerd — wacht op Fariza's akkoord.**
+- ⬜ Call-booking via Composio/Google Calendar (placeholder-link wacht op agenda)
 
 **Etappe 3 — /services** (diepe content 1300+, foto's, Service-schema, breadcrumb)
 
