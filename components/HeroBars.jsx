@@ -11,6 +11,7 @@ import { motion } from "motion/react";
  */
 const N = 24;
 const MID = 12;
+const EASE_OUT = [0.23, 1, 0.32, 1];
 
 export default function HeroBars() {
   const [ctaHover, setCtaHover] = useState(false);
@@ -20,17 +21,19 @@ export default function HeroBars() {
       {Array.from({ length: N }).map((_, i) => {
         const base = 22 + Math.abs(Math.sin(i * 0.55)) * 26;   // rustig ritme
         const isGold = i === MID;
-        const target = isGold && ctaHover ? 88 : base;
+        // audit-fix: scaleY met origin bottom i.p.v. height-animatie (alleen transform, geen layout)
+        const scale = (isGold && ctaHover ? 88 : base) / base;
         return (
           <motion.span
             key={i}
             className={isGold ? "hbar hbar-gold" : "hbar"}
-            initial={{ height: base }}
-            animate={{ height: target }}
+            style={{ height: base, transformOrigin: "50% 100%" }}
+            initial={{ scaleY: 0.001, opacity: 0 }}
+            animate={{ scaleY: scale, opacity: 1 }}
             transition={
               isGold
-                ? { duration: ctaHover ? 0.45 : 0.9, ease: [0.34, 1.3, 0.64, 1] }
-                : { duration: 1.4, delay: i * 0.03, ease: [0.44, 0, 0.56, 1] }
+                ? { duration: ctaHover ? 0.35 : 0.8, ease: EASE_OUT }
+                : { duration: 1.1, delay: i * 0.03, ease: EASE_OUT }
             }
           />
         );
