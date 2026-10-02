@@ -42,7 +42,8 @@
        "type": "text",
        "text": "Wat grote bureaus goed doen"
       }
-     ]
+     ],
+     "tag": "h2"
     },
     {
      "type": "paragraph",
@@ -84,7 +85,8 @@
        "type": "text",
        "text": "Wat een boutique anders doet"
       }
-     ]
+     ],
+     "tag": "h2"
     },
     {
      "type": "paragraph",
@@ -116,7 +118,8 @@
        "type": "text",
        "text": "AI verlegt de grens"
       }
-     ]
+     ],
+     "tag": "h2"
     },
     {
      "type": "paragraph",
@@ -147,7 +150,8 @@
        "type": "text",
        "text": "Wanneer je de PC kiest"
       }
-     ]
+     ],
+     "tag": "h2"
     },
     {
      "type": "paragraph",
@@ -179,7 +183,8 @@
        "text": "Wat het kost, en wat het oplevert",
        "format": 0
       }
-     ]
+     ],
+     "tag": "h2"
     },
     {
      "type": "paragraph",
@@ -213,7 +218,8 @@
        "text": "De vergelijking op één rij",
        "format": 0
       }
-     ]
+     ],
+     "tag": "h2"
     },
     {
      "type": "paragraph",
@@ -247,7 +253,8 @@
        "text": "Wat wij er anders mee doen",
        "format": 0
       }
-     ]
+     ],
+     "tag": "h2"
     },
     {
      "type": "paragraph",
