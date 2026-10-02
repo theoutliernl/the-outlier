@@ -158,3 +158,27 @@
 
 /* ---- start sfeerbeeld + lottie ---- */
 .start-visual{position:relative;border:1px solid var(--line);aspect-ratio:21/9;margin:34px 0 44px}
+
+/* ---- visual improvements: gold border-beam hover + blog covers ---- */
+.ins-img,.duo{position:relative}
+.ins-img:after,.duo:after{z-index:1}
+.ins-card .ins-img:before{content:"";position:absolute;inset:0;border:1px solid transparent;transition:border-color .25s ease;z-index:2;pointer-events:none}
+.ins-card:hover .ins-img:before{border-color:var(--gold)}
+.ins-card:hover .ins-img:after{background:linear-gradient(160deg,rgba(31,29,43,.35),rgba(31,29,43,.08) 55%,rgba(224,168,40,.18))}
+/* blog-cover duotone */
+.article-cover{position:relative;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/7;background:var(--midnight)}
+.article-cover img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.7) contrast(1.05)}
+.article-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(31,29,43,.6),rgba(31,29,43,.2) 50%,rgba(224,168,40,.12))}
+/* pulse-ring lottie: reserved */
+
+/* ---- geanimeerde iconografie: lucide icons, stroke-draw bij hover ---- */
+.pc-icon{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border:1px solid var(--line);margin-bottom:18px;color:var(--gold);background:rgba(224,168,40,.06)}
+.proc-card:hover .pc-icon{background:var(--gold);color:var(--ink)}
+.svc-ico{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border:1px solid hsla(40,43%,92%,.25);color:var(--gold-hi);margin-right:18px;vertical-align:middle}
+.svc-ico svg{transition:transform .25s cubic-bezier(.22,1,.36,1)}
+.svc-block:hover .svc-ico svg{transform:scale(1.12) rotate(-4deg)}
+/* stroke-draw: iconen tekenen zichzelf bij hover (dash-trick) */
+.proc-card .pc-icon svg,.svc-ico svg{stroke-dasharray:1;stroke-dashoffset:0}
+.proc-card:hover .pc-icon svg path,.svc-ico:hover svg path{animation:icon-draw .7s ease-out}
+@keyframes icon-draw{from{stroke-dashoffset:1;opacity:.3}to{stroke-dashoffset:0;opacity:1}}
+@media (prefers-reduced-motion:reduce){.proc-card:hover .pc-icon svg path,.svc-ico:hover svg path{animation:none}}

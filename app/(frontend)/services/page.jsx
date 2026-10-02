@@ -1,6 +1,7 @@
 import Reveal from "../reveal";
 import Marquee from "../../../components/Marquee";
 import LottieIcon from "../../../components/LottieIcon";
+import { ScanSearch, Zap, UserCog, Presentation } from "lucide-react";
 
 const MQ_ITEMS = ["Measured in numbers", "Senior expertise only", "Adoptie inbegrepen", "Corporate experience", "Boutique execution", "Geen junioren op je af"];
 import { jsonLdServices } from "../../../lib/schema";
@@ -103,7 +104,8 @@ export default function ServicesPage() {
           <Reveal className="svc-block">
             <div className="svc-nr">01</div>
             <div className="svc-body">
-              <h3 className="h2-display" style={{ fontSize: "clamp(26px,3.4vw,40px)" }}>AI Friction Scan</h3>
+              <h3 className="h2-display" style={{ fontSize: "clamp(26px,3.4vw,40px)" }}><span className="svc-ico"><ScanSearch size={30} strokeWidth={1.8} /></span>
+                AI Friction Scan</h3>
               <p className="svc-meta">€2,750 · 2 weken · vast bedrag</p>
               <p className="section-lead" style={{ marginTop: 18 }}>
                 De scan is het beginpunt voor bijna elk traject, en het is bewust
@@ -132,7 +134,8 @@ export default function ServicesPage() {
           <Reveal className="svc-block">
             <div className="svc-nr">02</div>
             <div className="svc-body">
-              <h3 className="h2-display" style={{ fontSize: "clamp(26px,3.4vw,40px)" }}>AI Systems Sprint</h3>
+              <h3 className="h2-display" style={{ fontSize: "clamp(26px,3.4vw,40px)" }}><span className="svc-ico"><Zap size={30} strokeWidth={1.8} /></span>
+                AI Systems Sprint</h3>
               <p className="svc-meta">€12,500 · 8-12 weken · één systeem, gebouwd en geïmplementeerd</p>
               <p className="section-lead" style={{ marginTop: 18 }}>
                 De sprint neemt één knelpunt uit de scan en lost het volledig op.
@@ -162,7 +165,8 @@ export default function ServicesPage() {
           <Reveal className="svc-block">
             <div className="svc-nr">03</div>
             <div className="svc-body">
-              <h3 className="h2-display" style={{ fontSize: "clamp(26px,3.4vw,40px)" }}>Fractional AI Transformation Partner</h3>
+              <h3 className="h2-display" style={{ fontSize: "clamp(26px,3.4vw,40px)" }}><span className="svc-ico"><UserCog size={30} strokeWidth={1.8} /></span>
+                Fractional AI Transformation Partner</h3>
               <p className="svc-meta">€2,750 /mnd · 2 of 4 dagen per maand · doorlopend</p>
               <p className="section-lead" style={{ marginTop: 18 }}>
                 De transformation lead die je niet kunt aantrekken. Een vaste
@@ -191,7 +195,8 @@ export default function ServicesPage() {
           <Reveal className="svc-block">
             <div className="svc-nr">04</div>
             <div className="svc-body">
-              <h3 className="h2-display" style={{ fontSize: "clamp(26px,3.4vw,40px)" }}>Partner Workshop</h3>
+              <h3 className="h2-display" style={{ fontSize: "clamp(26px,3.4vw,40px)" }}><span className="svc-ico"><Presentation size={30} strokeWidth={1.8} /></span>
+                Partner Workshop</h3>
               <p className="svc-meta">€1,650 · halve dag · het hele partnerschap</p>
               <p className="section-lead" style={{ marginTop: 18 }}>
                 Eén middag waarin het volledige partnerschap begrijpt wat AI
@@ -228,7 +233,7 @@ export default function ServicesPage() {
 
           <Reveal className="svc-block" style={{ gridTemplateColumns: "1fr" }}>
             <div className="svc-body">
-              <div className="svc-visual duo" aria-hidden="true"><img src="/images/ramp-card.jpg" alt="" loading="lazy" /></div>
+              <div className="svc-visual duo" aria-hidden="true"><img src="/images/px-two-women-meeting.jpg" alt="" loading="lazy" /></div>
               <h3 className="h2-display" style={{ fontSize: "clamp(22px,2.6vw,30px)" }}>De offertes die elk weekend worden herschreven</h3>
               <p className="section-lead">
                 Een bureau van achttien mensen schrijft elke offerte deels opnieuw:
@@ -247,7 +252,7 @@ export default function ServicesPage() {
 
           <Reveal className="svc-block" style={{ gridTemplateColumns: "1fr" }}>
             <div className="svc-body">
-              <div className="svc-visual duo" aria-hidden="true"><img src="/images/concrete-lights.jpg" alt="" loading="lazy" style={{height:"100%",objectFit:"cover"}} /></div>
+              <div className="svc-visual duo" aria-hidden="true"><img src="/images/px-team-pointing.jpg" alt="" loading="lazy" style={{height:"100%",objectFit:"cover"}} /></div>
               <h3 className="h2-display" style={{ fontSize: "clamp(22px,2.6vw,30px)" }}>De onboarding die in één hoofd zit</h3>
               <p className="section-lead">
                 Een tweede bureau groeide van twaalf naar vijfentwintig mensen in

@@ -9,6 +9,7 @@ import HeroTitle from "../../components/HeroTitle";
 import HeroFX from "../../components/HeroFX";
 import CodeBackground from "../../components/CodeBackground";
 import LottieIcon from "../../components/LottieIcon";
+import { Compass, ScanSearch, Workflow, TrendingUp } from "lucide-react";
 
 function BarsGlyph({ heights = [12, 6, 16, 8] }) {
   return (
@@ -113,22 +114,22 @@ export default function Home() {
           <Reveal className="proc-grid">
             <div className="proc-card">
               <BarsGlyph />
-              <h3>Understand</h3>
+              <div className="pc-icon"><Compass size={26} strokeWidth={1.8} /></div><h3>Understand</h3>
               <p>How your firm actually works: partners, people, clients, flows. No assumptions.</p>
             </div>
             <div className="proc-card">
               <BarsGlyph heights={[10, 14, 6, 12]} />
-              <h3>Map the friction</h3>
+              <div className="pc-icon"><ScanSearch size={26} strokeWidth={1.8} /></div><h3>Map the friction</h3>
               <p>Where time and margin leak, measured in hours and euros per week.</p>
             </div>
             <div className="proc-card">
               <BarsGlyph />
-              <h3>Build the system</h3>
+              <div className="pc-icon"><Workflow size={26} strokeWidth={1.8} /></div><h3>Build the system</h3>
               <p>Smarter systems around your experts, integrated in the tools you already use.</p>
             </div>
             <div className="proc-card">
               <BarsGlyph heights={[12, 6, 16, 8]} />
-              <h3>Measure the gain</h3>
+              <div className="pc-icon"><TrendingUp size={26} strokeWidth={1.8} /></div><h3>Measure the gain</h3>
               <p>Before and after, in numbers. If a system does not pay back, we say so.</p>
             </div>
           </Reveal>
@@ -170,17 +171,17 @@ export default function Home() {
           </Reveal>
           <Reveal className="ins-grid">
             <a className="ins-card" href="#services">
-              <div className="ins-img"><img src="/gate.jpg" alt="Stone facade with light and shadow" /></div>
+              <div className="ins-img duo"><img src="/images/px-team-laptop-point.jpg" alt="Consultants reviewing performance dashboards together" loading="lazy" /></div>
               <div className="ins-tag">AI SYSTEMS</div>
               <div className="ins-title">Where AI saves consulting firms real hours</div>
             </a>
             <a className="ins-card" href="#services">
-              <div className="ins-img"><img src="/images/brutalist-card.jpg" alt="Brutalist concrete silhouette against water" /></div>
+              <div className="ins-img duo"><img src="/images/px-workshop-talk.jpg" alt="Workshop conversation between consultants" loading="lazy" /></div>
               <div className="ins-tag">TRANSFORMATION</div>
               <div className="ins-title">Why transformation fails without one owner</div>
             </a>
             <a className="ins-card" href="#services">
-              <div className="ins-img"><img src="/c2.jpg" alt="Concrete facade looking up" /></div>
+              <div className="ins-img duo"><img src="/images/px-team-planning.jpg" alt="Planning session around a table" loading="lazy" /></div>
               <div className="ins-tag">STRATEGY</div>
               <div className="ins-title">The boutique advantage in a corporate world</div>
             </a>
@@ -198,7 +199,7 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal className="founder-grid">
-            <div className="f-photo">
+            <div className="f-photo duo">
               <img src="/founder.jpg" alt="Fariza Sbaa, founder of The Outlier" />
             </div>
             <div>
