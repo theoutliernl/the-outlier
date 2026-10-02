@@ -62,7 +62,11 @@ export default function Home() {
       </div>
 
       <div className="hero-wrap" id="home">
-        <div className="hero-bg kb" aria-hidden="true" />
+        <div className="hero-bg kb" aria-hidden="true">
+          <video className="hero-video" autoPlay muted loop playsInline preload="metadata" poster="/images/facade-hero.jpg">
+            <source src="/video/hero.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div className="hero-fx-glow" aria-hidden="true" />
         <CodeBackground />
         <HeroBars />
