@@ -90,6 +90,13 @@
       "status": "blocked",
       "blocker": "21st.dev-token ontbreekt \u2014 Fariza/Seyed levert",
       "verify": "components/ui/ gevuld met geinstalleerde componenten"
+    },
+    {
+      "id": "T6b-navbar-gedrag",
+      "wish": "Navbar: weg bij omlaag scrollen, terug bij omhoog, NIET terugkeren bij stoppen; sleekere animatie",
+      "status": "done",
+      "result": "rAF + hysteresis (6px) + spring-easing; QA 22/22; live geverifieerd",
+      "verify": "scroll-test op / (handmatig of playwright)"
     }
   ],
   "rules": [
@@ -97,5 +104,11 @@
     "Bij 0 fail: commit met duidelijk bericht, push naar main, wacht op auto-deploy, verifieer live per URL (curl 200 + content-check), daarna pas markeer done.",
     "Bij fail: fix eerst, QA opnieuw; nooit pushen met rode checks.",
     "Geblokkeerde taken nooit forceren; rapporteer de blocker aan Seyed."
+  ],
+  "why_not_running_automatically": [
+    "De loop draait in sessies: hij start als jij (of Fariza) 'ga door' zegt of als cron het schema triggert.",
+    "Binnen een sessie voert hij taken \u00e9\u00e9n voor \u00e9\u00e9n uit tot done of blocked.",
+    "5 taken zijn geblokkeerd op externe input die ik niet zelf kan leveren (zie blockers).",
+    "Wil je een automatisch geplande loop? Zet dan een cron die 'bash scripts/clark-loop.sh --run' aanroept, of blijf 'ga door' zeggen."
   ]
 }
