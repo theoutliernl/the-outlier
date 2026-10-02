@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { sendContactMails } from "../../../lib/mail";
 
 export async function POST(req) {
   try {
     const form = await req.formData();
     const name = String(form.get("name") || "").slice(0, 200);
     const email = String(form.get("email") || "").trim();
+    const phone = String(form.get("phone") || "").trim().slice(0, 40);
     const message = String(form.get("message") || "").slice(0, 4000);
 
     if (!name || !email.includes("@")) {
@@ -21,11 +23,14 @@ export async function POST(req) {
     const supabase = createClient(url, key);
     const { error } = await supabase
       .from("contact_submissions")
-      .insert({ name, email, message, source: "site" });
+      .insert({ name, email, phone: phone || null, message, source: "site" });
 
     if (error) {
       return NextResponse.json({ error: "storage failed" }, { status: 500 });
     }
+
+    // Mail alleen verzenden als MAIL_ENABLED=1; anders alleen logging (lib/mail.js).
+    await sendContactMails({ name, email, phone, message });
 
     return NextResponse.redirect(new URL("/bedankt", req.url), 303);
   } catch {
