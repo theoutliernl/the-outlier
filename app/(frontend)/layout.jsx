@@ -11,6 +11,16 @@ const inter = localFont({
   display: "swap",
 });
 
+// JetBrains Mono voor labels/kickers/nummers (ui-ux-pro-max editorial-advies)
+const mono = localFont({
+  src: [
+    { path: "./fonts/jbm-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jbm-700.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-mono",
+  display: "swap",
+});
+
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://theoutlier.nl";
 
@@ -83,7 +93,7 @@ const jsonLd = {
 
 export default function FrontendLayout({ children }) {
   return (
-    <div>
+    <div className={mono.variable}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {children}
     </div>

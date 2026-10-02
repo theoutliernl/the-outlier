@@ -116,3 +116,8 @@
   .acc-plus{flex-shrink:0}
   main, .hero-wrap, .cta-band{overflow-x:clip}
 }
+
+/* ---- editorial labels: JetBrains Mono voor kickers/labels/nummers (ui-ux-pro-max advies) ---- */
+.kicker,.b-label,.acc-idx,.svc-nr,.ins-tag,.fs-head,.acc-inner .dur,.m-idx,.foot-credit,.years{
+  font-family:var(--font-mono),ui-monospace,SFMono-Regular,Menlo,monospace;
+}
