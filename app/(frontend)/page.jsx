@@ -171,7 +171,7 @@ export default function Home() {
               <div className="ins-title">Where AI saves consulting firms real hours</div>
             </a>
             <a className="ins-card" href="#services">
-              <div className="ins-img"><img src="/c5.jpg" alt="Corridor from dark to light" /></div>
+              <div className="ins-img"><img src="/images/brutalist-card.jpg" alt="Brutalist concrete silhouette against water" /></div>
               <div className="ins-tag">TRANSFORMATION</div>
               <div className="ins-title">Why transformation fails without one owner</div>
             </a>

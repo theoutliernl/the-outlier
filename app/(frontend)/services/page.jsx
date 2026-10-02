@@ -227,6 +227,7 @@ export default function ServicesPage() {
 
           <Reveal className="svc-block" style={{ gridTemplateColumns: "1fr" }}>
             <div className="svc-body">
+              <div className="svc-visual duo" aria-hidden="true"><img src="/images/ramp-card.jpg" alt="" loading="lazy" /></div>
               <h3 className="h2-display" style={{ fontSize: "clamp(22px,2.6vw,30px)" }}>De offertes die elk weekend worden herschreven</h3>
               <p className="section-lead">
                 Een bureau van achttien mensen schrijft elke offerte deels opnieuw:
@@ -245,6 +246,7 @@ export default function ServicesPage() {
 
           <Reveal className="svc-block" style={{ gridTemplateColumns: "1fr" }}>
             <div className="svc-body">
+              <div className="svc-visual duo" aria-hidden="true"><img src="/images/concrete-lights.jpg" alt="" loading="lazy" style={{height:"100%",objectFit:"cover"}} /></div>
               <h3 className="h2-display" style={{ fontSize: "clamp(22px,2.6vw,30px)" }}>De onboarding die in één hoofd zit</h3>
               <p className="section-lead">
                 Een tweede bureau groeide van twaalf naar vijfentwintig mensen in

@@ -51,7 +51,8 @@ export default function ContactPage() {
             </p>
           </form>
         </div>
-      </main>
+      <div className="contact-visual duo" aria-hidden="true"><img src="/images/shadows-card.jpg" alt="" loading="lazy" /></div>
+    </main>
       
       
     </>
