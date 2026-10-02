@@ -57,15 +57,15 @@ Laatst bijgewerkt: 1 oktober 2026 · Legend: ✅ af · 🔄 in uitvoering · ⬜
 - Donkerpaars/Ink-grootvlak, subtiele verticale gridlijnen (1px, wit ~8%)
 
 ## 3. Etappes
-**Etappe 1 — Landingspagina opnieuw** 🔄 (nu)
-- next/font Inter, Tailwind-v4 @theme tokens, logo's gerenderd, alt-teksten
-- Hero met interactieve bar-visualisatie (gele balk schiet op bij Book-a-call-hover), foto-achtergrond, service-tags
-- UNDERSTAND/SYSTEMISE/SCALE + proceskaarten, BRAND MANIFESTO, services-accordion (video-content), stats/authority-blok (TIPS), FAQ, footer met sitemap + nieuwsbrief-optin
+**Etappe 1 — Landingspagina opnieuw** ✅ live (review-versie, 1 okt)
+- ✅ next/font Inter, logo's gerenderd met alt-teksten (Tailwind-migratie later: 21st.dev-token nog nodig)
+- ✅ Hero met interactieve bar-visualisatie (gele balk schiet op bij assessment-hover) + service-tags (foto-achtergrond wacht op brandfotografie)
+- ✅ UNDERSTAND/SYSTEMISE/SCALE + proceskaarten + manifesto + services-accordion (video-content) + stats/authority (TIPS) + FAQ + footer met sitemap + nieuwsbrieff-optin
 - Progress-bar, sticky-scroll navbar, WhatsApp-widget
-- Motion/react overal, lucide-icons, Lottie-animatie
+- ✅ motion/react overal + lucide-icons (Lottie-animatie nog inplannen)
 - SEO volledig: metadataBase, OG/Twitter/canonical, JSON-LD (Organization/Person/WebSite/Service/FAQPage), robots.ts, sitemap.ts, opengraph-image.tsx
-- Marktonderzoek-taal in de copy (bottleneck, systemen, geen hypetaal)
-- PRELAUNCH-CHECKLIST site-niveau op ✅, mobile triple-check, deploy + screenshot-review
+- ✅ Marktonderzoek-taal in de copy
+- ✅ Mobile-check 3 breakpoints + screenshots in docs/screenshots; checklist site-niveau groen behalve domein-URL (staat nog op vercel.app)
 
 **Etappe 2 — /contact + /start**
 - Normaal formulier + multistep assessment (quiz op haar methode, persoonlijke resultaten, call-aanbieding)
