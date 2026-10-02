@@ -48,8 +48,9 @@
     {
       "id": "T6-hero-bars",
       "wish": "Balk-visualisatie in de hero met gouden balk (uitschietend bij CTA-hover)",
-      "status": "in_progress",
-      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c hero-bars  # >= 1"
+      "status": "done",
+      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c hero-bars  # >= 1",
+      "result": "hero-bars live op / (curl-verificatie): rij lichte balken + gouden balk, uitschietend bij CTA-hover (client-side motion)."
     },
     {
       "id": "T7-services-pagina",
@@ -89,5 +90,11 @@
       "blocker": "21st.dev-token ontbreekt \u2014 Fariza/Seyed levert",
       "verify": "components/ui/ gevuld met geinstalleerde componenten"
     }
+  ],
+  "rules": [
+    "Elke fase/taken voltooid? -> eerst QA-suite (scripts/qa-tests.sh) draaien; alleen pushen naar main bij 0 fail.",
+    "Bij 0 fail: commit met duidelijk bericht, push naar main, wacht op auto-deploy, verifieer live per URL (curl 200 + content-check), daarna pas markeer done.",
+    "Bij fail: fix eerst, QA opnieuw; nooit pushen met rode checks.",
+    "Geblokkeerde taken nooit forceren; rapporteer de blocker aan Seyed."
   ]
 }

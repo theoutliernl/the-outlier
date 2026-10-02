@@ -223,6 +223,34 @@ export default function Home() {
             <span>Corporate experience. Boutique execution.</span>
             <span>theoutlier.nl</span>
           </Reveal>
+
+          <Reveal className="foot-sitemap">
+            <div className="fs-col">
+              <div className="fs-head">Site</div>
+              <a href="/#home">Home</a>
+              <a href="/#approach">Approach</a>
+              <a href="/#services">Services</a>
+              <a href="/#insights">Insights</a>
+              <a href="/#founder">Founder</a>
+            </div>
+            <div className="fs-col">
+              <div className="fs-head">Meer</div>
+              <a href="/services">Services</a>
+              <a href="/contact">Contact</a>
+              <a href="/start">Start assessment</a>
+              <a href="/blog">Blog</a>
+            </div>
+            <div className="fs-col fs-news">
+              <div className="fs-head">Stay updated</div>
+              <p className="fs-copy">Eén e-mail per artikel. Geen hype.</p>
+              <form className="fs-form" action="/api/newsletter" method="POST">
+                <label htmlFor="footer-email" className="visually-hidden">E-mailadres</label>
+                <input id="footer-email" name="email" type="email" placeholder="name@email.com" required />
+                <button className="fs-go" type="submit" aria-label="Aanmelden voor de nieuwsbrief">→</button>
+              </form>
+            </div>
+          </Reveal>
+
           <div className="foot-credit">Photography: Wikimedia Commons (CC) · Founders portrait © The Outlier</div>
         </div>
       </section>

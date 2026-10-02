@@ -85,3 +85,18 @@
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr}.hero-bars{gap:4px}}
 /* gebruikt op de homepage: hm-mark (balkmerk in de hero-tags) */
 .hm-mark{display:flex;align-items:center;justify-content:center;width:52px;height:52px;background:rgba(31,29,43,.6);border:1px solid var(--line)}
+
+/* ---- footer-sitemap + nieuwsbrief (in de gouden cta-band) ---- */
+.foot-sitemap{margin-top:56px;padding-top:38px;border-top:1px solid rgba(31,29,43,.3);display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:44px}
+.fs-head{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(31,29,43,.55);margin-bottom:16px}
+.fs-col{display:flex;flex-direction:column;gap:10px}
+.fs-col a{color:rgba(31,29,43,.85);text-decoration:none;font-size:15px;font-weight:600}
+.fs-col a:hover{color:var(--ink);text-decoration:underline}
+.fs-news p.fs-copy{color:rgba(31,29,43,.7);font-size:14px;margin:0 0 12px}
+.fs-form{display:flex;gap:10px}
+.fs-form input{flex:1;background:rgba(31,29,43,.08);border:1px solid rgba(31,29,43,.35);border-radius:999px;padding:12px 18px;color:var(--ink);font:inherit;font-size:14.5px}
+.fs-form input::placeholder{color:rgba(31,29,43,.45)}
+.fs-go{width:42px;height:42px;border-radius:50%;border:none;background:var(--ink);color:var(--slate);font-size:16px;cursor:pointer;flex-shrink:0}
+.fs-go:hover{transform:translateX(3px)}
+@media(max-width:900px){.foot-sitemap{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.foot-sitemap{grid-template-columns:1fr}}

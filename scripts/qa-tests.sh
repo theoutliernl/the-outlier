@@ -35,6 +35,10 @@ code_a=$(curl -s -X POST "$BASE/api/assessment" -H "Content-Type: application/js
 check "assessment POST -> ok:true" "1" "$code_a"
 check "newsletter POST -> 303" "303" "$(curl -s -X POST "$BASE/api/newsletter" -d "email=qa@theoutlier.test" -o /dev/null -w '%{http_code}')"
 
+echo "=== FOOTER ==="
+check "footer nieuwsbrief opt-in" "1" "$(curl -s "$BASE/" | grep -c 'fs-news' | head -1)"
+check "footer sitemap-links" "1" "$(curl -s "$BASE/" | grep -c 'foot-sitemap' | head -1)"
+
 echo "=== CMS ==="
 check "admin login-pagina" "200" "$(code "$BASE/admin")"
 
