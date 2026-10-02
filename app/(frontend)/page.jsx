@@ -1,6 +1,10 @@
 import Reveal from "./reveal";
 import Accordion from "../../components/Accordion";
 import MenuOverlay from "../../components/MenuOverlay";
+import Progress from "../../components/Progress";
+import StickyNav from "../../components/StickyNav";
+import WhatsAppWidget from "../../components/WhatsAppWidget";
+import HeroBars from "../../components/HeroBars";
 
 function BarsGlyph({ heights = [12, 6, 16, 8] }) {
   return (
@@ -25,6 +29,8 @@ function Mark({ size = 38 }) {
 export default function Home() {
   return (
     <main>
+      <Progress />
+      <StickyNav />
       <div className="gridlines" aria-hidden="true" />
       <div className="bar" id="top" />
 
@@ -52,6 +58,7 @@ export default function Home() {
 
       <div className="hero-wrap" id="home">
         <div className="hero-bg" aria-hidden="true" />
+        <HeroBars />
         <div className="container">
           <h1 className="display-xl">
             <div className="hrow"><span>CORPORATE</span><span>EXPERIENCE.</span></div>
@@ -221,6 +228,7 @@ export default function Home() {
       </section>
 
       <div className="bar" />
+      <WhatsAppWidget />
     </main>
   );
 }
