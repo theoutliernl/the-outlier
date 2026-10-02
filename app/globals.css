@@ -108,3 +108,11 @@
 .svc-meta{display:inline-block;margin:14px 0 0;font-size:14px;font-weight:700;color:var(--lead);padding:8px 16px;border:1px solid hsla(40,43%,92%,.25)}
 .svc-body .section-lead{font-size:17px;margin-top:16px;max-width:760px}
 @media(max-width:900px){.svc-block{grid-template-columns:1fr;gap:12px}.svc-nr{padding-top:0}}
+
+/* ---- mobile overflow fixes (375px) ---- */
+@media(max-width:600px){
+  .header-right .menulabel{display:none}
+  .header-right{gap:10px}
+  .acc-plus{flex-shrink:0}
+  main, .hero-wrap, .cta-band{overflow-x:clip}
+}

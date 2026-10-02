@@ -55,8 +55,9 @@
     {
       "id": "T7-services-pagina",
       "wish": "Volledige /services-pagina: 1300+ woorden, foto's, eigen metadata, Service-schema, breadcrumb",
-      "status": "ready",
-      "verify": "curl -s https://theoutlier-site.vercel.app/services | wc -w  # >= 1300"
+      "status": "done",
+      "verify": "curl -s https://theoutlier-site.vercel.app/services | wc -w  # >= 1300",
+      "result": "Volledige /services live: 4 diensten uitgewerkt met prijzen, 4-staps methode, 2 casussen, 1318 woorden body, Service+Breadcrumb JSON-LD, QA 22/22."
     },
     {
       "id": "T8-concurrentie-artikelen",
