@@ -1,3 +1,8 @@
+import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
+import WhatsAppWidget from "../../components/WhatsAppWidget";
+import Assessment from "../../components/Assessment";
+
 export const metadata = {
   title: "Start de assessment",
   description:
@@ -7,18 +12,21 @@ export const metadata = {
 
 export default function StartPage() {
   return (
-    <main className="page-stub">
-      <p className="kicker">Assessment</p>
-      <h1 style={{ fontSize: "clamp(40px,6vw,84px)", letterSpacing: "-0.04em", margin: "0 0 24px" }}>
-        Vind jouw <span className="gold-italic">friction</span>.
-      </h1>
-      <p className="lead">
-        De multistep assessment staat er binnenkort: vijf vragen over hoe je bureau
-        werkt, direct persoonlijk inzicht, en aan het eind een gesprek als dat zin heeft.
-      </p>
-      <p className="muted">
-        Nog even geduld. Vragen? <a href="/contact" style={{ color: "var(--gold)" }}>Stuur een bericht.</a>
-      </p>
-    </main>
+    <>
+      <NavBar />
+      <main className="page-stub">
+        <p className="kicker">Assessment</p>
+        <h1 style={{ fontSize: "clamp(40px,6vw,84px)", letterSpacing: "-0.04em", margin: "0 0 20px" }}>
+          Vind jouw <span className="gold-italic">friction</span>.
+        </h1>
+        <p className="lead">
+          Vijf vragen over hoe je bureau werkt. Aan het eind: jouw profiel in één
+          oogopslag — en als het zin heeft, een gesprek. Geen nieuwsbrief, geen spam.
+        </p>
+        <Assessment />
+      </main>
+      <Footer />
+      <WhatsAppWidget />
+    </>
   );
 }
