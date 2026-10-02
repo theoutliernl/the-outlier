@@ -67,8 +67,9 @@
     {
       "id": "T9-footer",
       "wish": "Footer met volledige sitemap + nieuwsbrief opt-in (werkend)",
-      "status": "ready",
-      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c newsletter  # >= 1"
+      "status": "done",
+      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c newsletter  # >= 1",
+      "result": "22/22 QA groen na deploy: footer met sitemap-kolommen (Site/Meer) + nieuwsbrief opt-in via /api/newsletter."
     },
     {
       "id": "T10-domein",
