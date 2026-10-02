@@ -287,7 +287,7 @@ export default function ServicesPage() {
             <div className="hero-cta" style={{ marginTop: 28, display: "flex", gap: 16, flexWrap: "wrap" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
                 <a className="btn-inkbig" href="/start" style={{ marginTop: 0 }}>Doe de assessment</a>
-                <span aria-hidden="true"><LottieIcon src="/lottie/arrow-draw.json" width={140} height={84} /></span>
+                <span aria-hidden="true"><LottieIcon src="/lottie/mingcute/arrow_right_line.json" width={44} height={44} /></span>
               </div>
               <a className="bookpill" href="#contact" style={{ color: "var(--slate)" }}>
                 Book a call<span className="pillcircle">→</span>
