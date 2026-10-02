@@ -8,7 +8,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://theoutlier.nl";
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "The Outlier — Corporate experience. Boutique execution",
+    default: "The Outlier — AI and Transformation for boutique firms",
     template: "%s — The Outlier",
   },
   description:

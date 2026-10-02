@@ -1,6 +1,3 @@
-import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
-import WhatsAppWidget from "../../components/WhatsAppWidget";
 import Assessment from "../../components/Assessment";
 
 export const metadata = {
@@ -13,7 +10,7 @@ export const metadata = {
 export default function StartPage() {
   return (
     <>
-      <NavBar />
+      
       <main className="page-stub">
         <p className="kicker">Assessment</p>
         <h1 style={{ fontSize: "clamp(40px,6vw,84px)", letterSpacing: "-0.04em", margin: "0 0 20px" }}>
@@ -25,8 +22,8 @@ export default function StartPage() {
         </p>
         <Assessment />
       </main>
-      <Footer />
-      <WhatsAppWidget />
+      
+      
     </>
   );
 }

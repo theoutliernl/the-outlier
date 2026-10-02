@@ -1,6 +1,3 @@
-import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
-import WhatsAppWidget from "../../components/WhatsAppWidget";
 import { jsonLdContact } from "../../lib/schema";
 
 export const metadata = {
@@ -17,7 +14,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdContact) }}
       />
-      <NavBar />
+      
       <main className="page-stub">
         <div className="contact-grid">
           <div>
@@ -55,8 +52,8 @@ export default function ContactPage() {
           </form>
         </div>
       </main>
-      <Footer />
-      <WhatsAppWidget />
+      
+      
     </>
   );
 }
