@@ -338,3 +338,145 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+/* ---------- etappe 2: contact + assessment ---------- */
+.form-card {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: clamp(22px, 4vw, 38px);
+  display: grid;
+  gap: 14px;
+  max-width: 560px;
+}
+.form-card input,
+.form-card textarea {
+  background: rgba(26, 24, 38, 0.6);
+  border: 1px solid var(--grey);
+  border-radius: 10px;
+  padding: 13px 16px;
+  color: var(--slate);
+  font: inherit;
+  font-size: 15px;
+  width: 100%;
+}
+.form-card input::placeholder,
+.form-card textarea::placeholder { color: var(--ink-caption); }
+.form-card input:focus,
+.form-card textarea:focus { outline: none; border-color: var(--gold); }
+.form-btn {
+  background: var(--gold-grad);
+  color: var(--ink);
+  border: none;
+  border-radius: 999px;
+  padding: 14px 30px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+.form-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.form-btn.ghost {
+  background: transparent;
+  border: 1px solid var(--grey);
+  color: var(--ink-emphasis);
+}
+.addr-block {
+  display: grid;
+  gap: 4px;
+  color: var(--ink-emphasis);
+  font-size: 16.5px;
+  line-height: 1.55;
+}
+.addr-block a { color: var(--gold); text-decoration: none; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+  max-width: 1100px;
+}
+@media (max-width: 800px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* assessment */
+.assess-shell { max-width: 760px; }
+.assess-progress {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 30px;
+}
+.assess-progress span {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.assess-progress span.done { background: var(--gold-grad); }
+.assess-q {
+  margin: 0 0 24px;
+  font-size: clamp(24px, 3.4vw, 34px);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--slate);
+}
+.assess-hint { color: var(--ink-caption); font-size: 14px; margin: -18px 0 26px; }
+.opt-grid { display: grid; gap: 12px; }
+.opt-grid.cols { grid-template-columns: 1fr 1fr; }
+@media (max-width: 640px) { .opt-grid.cols { grid-template-columns: 1fr; } }
+.opt {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 16px 20px;
+  text-align: left;
+  color: var(--ink-emphasis);
+  font: inherit;
+  font-size: 15.5px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.opt:hover { border-color: var(--gold); }
+.opt.sel {
+  border-color: var(--gold);
+  background: rgba(224, 168, 40, 0.09);
+  color: var(--slate);
+}
+.opt small { display: block; color: var(--ink-caption); margin-top: 4px; }
+.assess-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 30px;
+}
+.insight-block {
+  background: var(--panel);
+  border: 1px solid rgba(224, 168, 40, 0.35);
+  border-radius: 20px;
+  padding: clamp(24px, 4vw, 42px);
+  display: grid;
+  gap: 18px;
+}
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--ink-caption);
+}
+.score-num {
+  font-size: clamp(38px, 5vw, 56px);
+  font-weight: 700;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+.insight-line {
+  border-left: 2px solid var(--gold);
+  padding: 2px 0 2px 16px;
+  color: var(--ink-emphasis);
+  font-size: 15.5px;
+  line-height: 1.55;
+}
