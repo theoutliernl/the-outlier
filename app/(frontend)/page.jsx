@@ -5,6 +5,7 @@ import Progress from "../../components/Progress";
 import StickyNav from "../../components/StickyNav";
 import WhatsAppWidget from "../../components/WhatsAppWidget";
 import HeroBars from "../../components/HeroBars";
+import HeroTitle from "../../components/HeroTitle";
 
 function BarsGlyph({ heights = [12, 6, 16, 8] }) {
   return (
@@ -60,10 +61,7 @@ export default function Home() {
         <div className="hero-bg" aria-hidden="true" />
         <HeroBars />
         <div className="container">
-          <h1 className="display-xl">
-            <div className="hrow"><span>CORPORATE</span><span>EXPERIENCE.</span></div>
-            <div className="hrow"><span>BOUTIQUE</span><span>EXECUTION.</span></div>
-          </h1>
+          <HeroTitle />
           <div className="hero-meta">
             <div className="hm-left">
               <span>Founded from the inside</span>

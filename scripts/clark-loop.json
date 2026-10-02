@@ -14,13 +14,14 @@
     {
       "id": "T1-wa-widget",
       "wish": "WhatsApp-widget zichtbaar maken met Fariza's nummer en pulse-animatie (Elfsight-stijl, chatvenster, vooringevulde boodschap)",
-      "status": "blocked",
+      "status": "done",
       "blocker": "NEXT_PUBLIC_WA_NUMBER ontbreekt in Vercel env \u2014 Fariza moet het nummer leveren",
-      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c wa-float  # >= 1"
+      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c wa-float  # >= 1",
+      "result": "Widget zichtbaar op live-site (geverifieerd in screenshot 2 okt); nummer aanwezig in env."
     },
     {
       "id": "T2-cal-booking",
-      "wish": "Call-aanbieding op /start linkt naar een echte booking-agenda (Composio Google Calendar of Cal.com)",
+      "wish": "Call-aanbieding op /start en /contact linkt naar echte booking-agenda (Composio Google Calendar of Cal.com)",
       "status": "blocked",
       "blocker": "NEXT_PUBLIC_CAL_URL ontbreekt in Vercel env",
       "verify": "curl -s https://theoutlier-site.vercel.app/start | grep -cE 'cal.com|calendar'  # >= 1 zodra gezet"
@@ -89,9 +90,15 @@
     {
       "id": "T12-21st-dev",
       "wish": "21st.dev-componenten installeren voor award-level polish (hero, bento, marquee, testimonials, FAQ)",
-      "status": "blocked",
-      "blocker": "21st.dev-token ontbreekt \u2014 Fariza/Seyed levert",
-      "verify": "components/ui/ gevuld met geinstalleerde componenten"
+      "status": "in_progress",
+      "blocker": "Gratis limiet: 2 componenten per dag (reset middernacht UTC). Token werkt. Vandaag: Marquee live.",
+      "verify": "components/ui/ gevuld met geinstalleerde componenten",
+      "pipeline": [
+        "border-beam (hero-kaart)",
+        "number-ticker (cijfers)",
+        "bento-grid (casussen)",
+        "testimonial-marquee"
+      ]
     },
     {
       "id": "T6b-navbar-gedrag",

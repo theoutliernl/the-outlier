@@ -133,3 +133,9 @@
 .mq-gold{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .mq-gold .mq-item{display:flex;align-items:center;gap:14px;font-family:var(--font-mono),monospace;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lead);white-space:nowrap}
 .mq-gold .mq-item::after{content:"";width:5px;height:5px;background:var(--gold);border-radius:50%;display:inline-block;margin-left:14px}
+
+/* ---- HeroTitle: impressieve header (stagger + gold shimmer) ---- */
+.hero-title .ht-accent{color:var(--gold-hi);font-style:italic}
+.ht-shimmer{position:relative;display:inline-block;background:linear-gradient(100deg,var(--gold-hi) 40%,#fff5df 50%,var(--gold-hi) 60%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:ht-shimmer 5.5s linear infinite}
+@keyframes ht-shimmer{from{background-position:120% 0}to{background-position:-120% 0}}
+@media (prefers-reduced-motion:reduce){.ht-shimmer{animation:none}}
