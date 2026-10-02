@@ -35,6 +35,15 @@ Een complete, award-level website en funnel voor The Outlier (boutique AI & Tran
    - Documentatie in de codebase bijhouden (docs/), graphify knowledge graph actueel houden
    - GitHub (theoutliernl) voor alle codebases, Vercel voor hosting
 
+## Status (2 okt 2026 — bewezen live)
+
+Geverifieerd met curl op https://theoutlier-site.vercel.app (2 okt):
+- Alle routes HTTP 200: /, /contact, /start, /blog, /services, /admin
+- sticky-nav en progress-bar renderen op de homepage (in de prerendered HTML)
+- Contactpagina rendert contact-grid, addr-block en form-card
+- WhatsAppWidget zit in de code en rendert zichtbaar zodra NEXT_PUBLIC_WHATSAPP_NUMBER gezet is in de Vercel-env
+- CMS-fundatie actief: /admin login werkt, /blog index + detailpagina's, sitemap bevat posts
+
 ## Status (1 okt 2026)
 - ✅ Etappe 1: landingspagina v2 live (https://theoutlier-site.vercel.app): hero balk-animatie, UNDERSTAND/SYSTEMISE/SCALE, stats, services-accordion met prijzen, FAQ, footer sitemap + nieuwsbrief, progress-bar, navbar scroll-gedrag, WhatsApp-widget (env-gated), volledige SEO
 - ⬜ Etappe 2: /contact + /start (multistep assessment + call-booking via Composio)
