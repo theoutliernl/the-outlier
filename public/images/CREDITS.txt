@@ -6,3 +6,5 @@ ramp-lines.jpg | CC BY-SA 4.0 | 'a href="//commons.wikimedia.org/w/index.php?tit
 concrete-lights.jpg | CC BY 2.0 | 'a rel="nofollow" class="external text" href="https://www.flickr.com/people/8489
 concrete-forms.jpg | CC BY 2.0 | 'a rel="nofollow" class="external text" href="https://www.flickr.com/people/9187
 Bronnen: Wikimedia Commons
+
+Pexels-foto's (px-*.jpg): gratis te gebruiken zonder attributie (Pexels License), photo-id's in de bestandsnamen.

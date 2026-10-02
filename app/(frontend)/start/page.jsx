@@ -20,6 +20,7 @@ export default function StartPage() {
           Vijf vragen over hoe je bureau werkt. Aan het eind: jouw profiel in één
           oogopslag — en als het zin heeft, een gesprek. Geen nieuwsbrief, geen spam.
         </p>
+        <div className="start-visual duo" aria-hidden="true"><img src="/images/px-team-hands.jpg" alt="" loading="lazy" /></div>
         <Assessment />
       </main>
       

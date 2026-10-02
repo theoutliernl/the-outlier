@@ -1,5 +1,6 @@
 import Reveal from "../reveal";
 import Marquee from "../../../components/Marquee";
+import LottieIcon from "../../../components/LottieIcon";
 
 const MQ_ITEMS = ["Measured in numbers", "Senior expertise only", "Adoptie inbegrepen", "Corporate experience", "Boutique execution", "Geen junioren op je af"];
 import { jsonLdServices } from "../../../lib/schema";
@@ -284,7 +285,10 @@ export default function ServicesPage() {
               we kijken samen naar je cijfers.
             </p>
             <div className="hero-cta" style={{ marginTop: 28, display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <a className="btn-inkbig" href="/start">Doe de assessment</a>
+              <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+                <a className="btn-inkbig" href="/start" style={{ marginTop: 0 }}>Doe de assessment</a>
+                <span aria-hidden="true"><LottieIcon src="/lottie/arrow-draw.json" width={140} height={84} /></span>
+              </div>
               <a className="bookpill" href="#contact" style={{ color: "var(--slate)" }}>
                 Book a call<span className="pillcircle">→</span>
               </a>

@@ -8,6 +8,7 @@ import HeroBars from "../../components/HeroBars";
 import HeroTitle from "../../components/HeroTitle";
 import HeroFX from "../../components/HeroFX";
 import CodeBackground from "../../components/CodeBackground";
+import LottieIcon from "../../components/LottieIcon";
 
 function BarsGlyph({ heights = [12, 6, 16, 8] }) {
   return (
@@ -106,6 +107,9 @@ export default function Home() {
             build the systems that remove it, and keep the experts at the centre.
             No hype. No bureaucracy.
           </Reveal>
+          <div className="lottie-bars" style={{ marginTop: 34 }} aria-hidden="true">
+            <LottieIcon src="/lottie/bars-grow.json" width={200} height={140} />
+          </div>
           <Reveal className="proc-grid">
             <div className="proc-card">
               <BarsGlyph />

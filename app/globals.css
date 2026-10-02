@@ -155,3 +155,6 @@
 .contact-visual{position:relative;border:1px solid var(--line);aspect-ratio:16/9;margin-top:26px}
 /* casus-visual op services */
 .svc-visual{position:relative;border:1px solid var(--line);aspect-ratio:21/9;margin:26px 0 0}
+
+/* ---- start sfeerbeeld + lottie ---- */
+.start-visual{position:relative;border:1px solid var(--line);aspect-ratio:21/9;margin:34px 0 44px}
