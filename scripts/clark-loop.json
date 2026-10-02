@@ -82,8 +82,9 @@
     {
       "id": "T11-mobile-check",
       "wish": "Mobile responsiveness driedubbel checken op 375/768/1440",
-      "status": "ready",
-      "verify": "screenshots in docs/screenshots + geen horizontale overflow"
+      "status": "done",
+      "verify": "screenshots in docs/screenshots + geen horizontale overflow",
+      "result": "15/15 viewport-combinaties (375/768/1440 x home/services/start/blog/contact) zonder horizontale overflow na mobile-fix."
     },
     {
       "id": "T12-21st-dev",
