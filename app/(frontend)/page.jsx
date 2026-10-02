@@ -6,6 +6,7 @@ import StickyNav from "../../components/StickyNav";
 import WhatsAppWidget from "../../components/WhatsAppWidget";
 import HeroBars from "../../components/HeroBars";
 import HeroTitle from "../../components/HeroTitle";
+import HeroFX from "../../components/HeroFX";
 
 function BarsGlyph({ heights = [12, 6, 16, 8] }) {
   return (
@@ -58,10 +59,11 @@ export default function Home() {
       </div>
 
       <div className="hero-wrap" id="home">
-        <div className="hero-bg" aria-hidden="true" />
+        <div className="hero-bg kb" aria-hidden="true" />
+        <div className="hero-fx-glow" aria-hidden="true" />
         <HeroBars />
         <div className="container">
-          <HeroTitle />
+          <HeroFX>
           <div className="hero-meta">
             <div className="hm-left">
               <span>Founded from the inside</span>
@@ -86,6 +88,7 @@ export default function Home() {
               with practical AI-powered systems, built around your experts.
             </p>
           </div>
+          </HeroFX>
         </div>
       </div>
 
