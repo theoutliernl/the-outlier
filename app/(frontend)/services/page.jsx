@@ -1,4 +1,7 @@
 import Reveal from "../reveal";
+import Marquee from "../../../components/Marquee";
+
+const MQ_ITEMS = ["Measured in numbers", "Senior expertise only", "Adoptie inbegrepen", "Corporate experience", "Boutique execution", "Geen junioren op je af"];
 import { jsonLdServices } from "../../../lib/schema";
 
 export const metadata = {
@@ -26,6 +29,12 @@ export default function ServicesPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdServices) }} />
+
+      <Marquee className="mq-gold" duration={36}>
+        {MQ_ITEMS.map((t) => (
+          <span key={t} className="mq-item">{t}</span>
+        ))}
+      </Marquee>
 
       <div className="page-stub" style={{ paddingBottom: 40 }}>
         <p className="kicker">AI &amp; Transformation Partner</p>

@@ -121,3 +121,15 @@
 .kicker,.b-label,.acc-idx,.svc-nr,.ins-tag,.fs-head,.acc-inner .dur,.m-idx,.foot-credit,.years{
   font-family:var(--font-mono),ui-monospace,SFMono-Regular,Menlo,monospace;
 }
+
+/* ---- Marquee (21st.dev Magic UI, geporteerd naar huisstijl) ---- */
+.mq{display:flex;overflow:hidden;gap:var(--mq-gap,2.4rem);padding:14px 0;user-select:none}
+.mq-track{display:flex;flex-shrink:0;justify-content:space-around;gap:var(--mq-gap,2.4rem);animation:mq-scroll var(--mq-duration,40s) linear infinite;min-width:100%}
+.mq-pause:hover .mq-track{animation-play-state:paused}
+.mq-reverse{animation-direction:reverse}
+@keyframes mq-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-100% - var(--mq-gap,2.4rem)))}}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none}}
+/* gold strip variant */
+.mq-gold{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mq-gold .mq-item{display:flex;align-items:center;gap:14px;font-family:var(--font-mono),monospace;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lead);white-space:nowrap}
+.mq-gold .mq-item::after{content:"";width:5px;height:5px;background:var(--gold);border-radius:50%;display:inline-block;margin-left:14px}
