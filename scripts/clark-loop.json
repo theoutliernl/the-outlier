@@ -1,0 +1,93 @@
+{
+  "project": "the-outlier",
+  "repo": "github.com/theoutliernl/the-outlier",
+  "live": "https://theoutlier-site.vercel.app",
+  "goal_file": "GOAL.md",
+  "loop": {
+    "mode": "self-improvement-loop",
+    "skill": "/root/.hermes/skills/self-improvement-loop/SKILL.md",
+    "algorithm": "pick -> verify -> execute -> verify-completion -> mark-done -> self-improve -> loop",
+    "stop_when": "all_tasks_done OR all_remaining_blocked",
+    "max_iterations_per_run": 8
+  },
+  "tasks": [
+    {
+      "id": "T1-wa-widget",
+      "wish": "WhatsApp-widget zichtbaar maken met Fariza's nummer en pulse-animatie (Elfsight-stijl, chatvenster, vooringevulde boodschap)",
+      "status": "blocked",
+      "blocker": "NEXT_PUBLIC_WA_NUMBER ontbreekt in Vercel env \u2014 Fariza moet het nummer leveren",
+      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c wa-float  # >= 1"
+    },
+    {
+      "id": "T2-cal-booking",
+      "wish": "Call-aanbieding op /start linkt naar een echte booking-agenda (Composio Google Calendar of Cal.com)",
+      "status": "blocked",
+      "blocker": "NEXT_PUBLIC_CAL_URL ontbreekt in Vercel env",
+      "verify": "curl -s https://theoutlier-site.vercel.app/start | grep -cE 'cal.com|calendar'  # >= 1 zodra gezet"
+    },
+    {
+      "id": "T3-mail",
+      "wish": "E-mailverzending: bevestiging naar inzender + notificatie naar Fariza (contactformulier en assessment), via SMTP of Composio",
+      "status": "blocked",
+      "blocker": "MAIL_ENABLED + SMTP_* ontbreken \u2014 pas activeren na Fariza's expliciete akkoord",
+      "verify": "POST /api/contact -> rij in Supabase + mail gelogd of verzonden"
+    },
+    {
+      "id": "T4-qa-suite",
+      "wish": "Q&A en tests: automatische checks voor alle routes, formulieren, CMS en redirects",
+      "status": "done",
+      "verify": "npm run test:qa -> alle checks groen",
+      "result": "20/20 PASS (2 okt): routes, content, SEO, formulieren, CMS. Root-cause gevonden: formuliertabellen waren weggevallen door de Payload schema-push; hersteld via supabase/restore-form-tables.sql met RLS."
+    },
+    {
+      "id": "T5-progress-sticky",
+      "wish": "Progress-bar en sticky navbar op de homepage (wegscrollen/terugsliden)",
+      "status": "done",
+      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -cE 'progress-bar|sticky-nav'  # >= 2"
+    },
+    {
+      "id": "T6-hero-bars",
+      "wish": "Balk-visualisatie in de hero met gouden balk (uitschietend bij CTA-hover)",
+      "status": "in_progress",
+      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c hero-bars  # >= 1"
+    },
+    {
+      "id": "T7-services-pagina",
+      "wish": "Volledige /services-pagina: 1300+ woorden, foto's, eigen metadata, Service-schema, breadcrumb",
+      "status": "ready",
+      "verify": "curl -s https://theoutlier-site.vercel.app/services | wc -w  # >= 1300"
+    },
+    {
+      "id": "T8-concurrentie-artikelen",
+      "wish": "Blogartikelen Mac-vs-PC framing: The Outlier vs grote bureaus, 1300+ woorden, backlinks, gracieuze toon",
+      "status": "ready",
+      "verify": "blog-index bevat artikelen, elk >= 1300 woorden"
+    },
+    {
+      "id": "T9-footer",
+      "wish": "Footer met volledige sitemap + nieuwsbrief opt-in (werkend)",
+      "status": "ready",
+      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c newsletter  # >= 1"
+    },
+    {
+      "id": "T10-domein",
+      "wish": "theoutlier.nl koppelen aan Vercel (DNS-verhuizing van GoDaddy) \u2014 alleen na Fariza's akkoord",
+      "status": "blocked",
+      "blocker": "Fariza-akkoord + DNS-toegang",
+      "verify": "curl -s -o /dev/null -w '%{http_code}' https://theoutlier.nl  # 200 op de nieuwe site"
+    },
+    {
+      "id": "T11-mobile-check",
+      "wish": "Mobile responsiveness driedubbel checken op 375/768/1440",
+      "status": "ready",
+      "verify": "screenshots in docs/screenshots + geen horizontale overflow"
+    },
+    {
+      "id": "T12-21st-dev",
+      "wish": "21st.dev-componenten installeren voor award-level polish (hero, bento, marquee, testimonials, FAQ)",
+      "status": "blocked",
+      "blocker": "21st.dev-token ontbreekt \u2014 Fariza/Seyed levert",
+      "verify": "components/ui/ gevuld met geinstalleerde componenten"
+    }
+  ]
+}
