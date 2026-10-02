@@ -64,3 +64,13 @@ Status per item: wat er **nog ontbreekt** in de huidige code (stand 1 okt 2026, 
 - ✅ `/contact` en `/start` hebben eigen per-pagina metadata (A9-deel, plus `/bedankt` nog na te kijken).
 - ✅ Smoke-test lokaal: POST /api/contact (met phone) → 303 → /bedankt + Supabase-rij; POST /api/assessment (JSON) → score/outcome/lines + Supabase-rij. Mailroute default uit (console.log geverifieerd in serverlog).
 - ⬜ Nog vóór launch: Mailroute activeren (MAIL_ENABLED=1 + SMTP-vars in Vercel) **alleen na Fariza's akkoord**; booking-link zetten (NEXT_PUBLIC_CAL_URL) zodra de Composio-agenda er is; e-mailbevestiging live testen; live smoke-test op productie-domein na deploy.
+
+---
+
+## Etappe 4-update (2 okt 2026) — CMS + blog
+
+- ✅ CMS-fundatie live: Payload 3.90.2 + db-postgres op Supabase; admin op /admin (alleen Payload-auth, geen publieke signup; eerste admin via create-first-user). Payload-tabellen zitten naast de bestaande Supabase-tabellen (RLS blijft bron van waarheid voor submissions; Payload beheert eigen auth op zijn users-tabel).
+- ✅ /blog vervangt de stub: gepubliceerde posts in brand-stijl (ISR 60s) met nette lege staat; /blog/[slug] met per-post metadata, canonical, BlogPosting JSON-LD.
+- ✅ Sitemap.xml genereert gepubliceerde posts (A2/A3 volledig); robots.txt disallowt /admin (admin noindexed via metadata).
+- ✅ Inter via next/font/local (variable woff2) — visueel identiek aan next/font/google, maar buildbaar met Turbopack.
+- ⬜ Openstaand: zoeken op post-metadata (titel sluit <60-tekens nog niet altijd aan), sitemap indienen in Search Console (etappe 6), PageSpeed-meting (A13), /services uit CMS (etappe 3).

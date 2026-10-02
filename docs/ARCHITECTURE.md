@@ -75,3 +75,43 @@ Open vars: NEXT_PUBLIC_WA_NUMBER (widget verborgen tot gezet), NEXT_PUBLIC_SITE_
 - **Nog niet live geactiveerd**: e-mail naar Fariza en inzenders gaat pas aan na Fariza's akkoord (pre-launch checklist-item).
 ### Env-vars etappe 2 (.env.example)
 MAIL_ENABLED, SMTP_HOST/PORT/SECURE/USER/PASS/FROM, NOTIFY_EMAIL, NEXT_PUBLIC_CAL_URL.
+
+## CMS-fundatie (etappe 4, 2 okt 2026)
+
+**Keuze: Payload CMS 3 (3.90.2) + @payloadcms/db-postgres, op het bestaande Supabase Postgres-project.**
+
+Waarom Payload:
+- Open-source (BSD-3), Next.js-native: de admin UI is een route in deze Next.js-app (app/(payload)), geen losse dienst of proxy.
+- Postgres-adapter praat direct met Supabase via DATABASE_URL — dezelfde DB als contact/assessment/newsletter; geen tweede infrastructuur, geen sync-stap.
+- Content-modellen (collections) zijn code in de repo; drafts/versions, RLS-polyfill-vangnet via Payload access control.
+
+Geïnstalleerd: payload, @payloadcms/next, @payloadcms/db-postgres, @payloadcms/richtext-lexical (+ sharp, graphql, @payloadcms/translations, sass). Payload 3.73+ ondersteunt Next 16 expliciet; met 3.90.2 op Next 16.3.x is de build groen op Turbopack.
+
+Structuur:
+```
+payload.config.js              buildConfig: db-postgres (DATABASE_URL), admin op /admin
+collections/Users.js           auth email+wachtwoord; create alleen zolang users-leeg of admin; geen publieke signup
+collections/Posts.js           title, slug (auto), excerpt, content (Lexical), coverImage (URL), author, publishedAt, _status draft/published, versions+drafts
+collections/Pages.js           title, slug, content — fundatie voor concurrentie-/services-uitwerking (read: false)
+app/(payload)/                 admin layout/routes + REST-API bridging (@payload-config alias via tsconfig)
+app/(frontend)/                alle site-routes (homepage onaangetast qua output)
+lib/blog.js                    Payload local API: getPublishedPosts / getPublishedPostBySlug
+scripts/payload-schema-push.sh one-off schema-push (session pooler 5432, PAYLOAD_DB_PUSH=true)
+```
+
+Routes: /blog (ISR 60s, lege staat net), /blog/[slug] (dynamic, BlogPosting JSON-LD, canonical), sitemap.xml bevat published posts, robots.txt disallowt /admin.
+
+Env vars (Vercel project env, production+preview): DATABASE_URL (Supabase pooler), PAYLOAD_SECRET (openssl rand -hex 24). Lokaal in .env.local (niet in git) en /root/.hermes/env.d/tokens.env. **Nooit committen.**
+
+Ontdekte dingen tijdens de bouw (bewaard zodat niemand er weer tegenaan loopt):
+1. `DATABASE_URL` in /tmp/goal_db_url.txt wees naar **aws-0-eu-west-1.pooler.supabase.com** — Supavisor accepteert dat niet ("tenant/user not found"); de juiste host is **aws-1-eu-west-1.pooler.supabase.com**. Gecorrigeerd in .env.local, tokens.env en op Vercel.
+2. Schema-push (PAYLOAD_DB_PUSH=true) moet via de **session pooler (poort 5432)** — de transaction pooler (6543) hangt op de drizzle DDL-batch; en drizzle-kit vraagt interactieve rename-vragen (bestaande Supabase-tabellen), dus dit is een bewuste one-off stap, geen build-onderdeel. Payload's eigen `push`-optie staat daarom uit op Vercel (PAYLOAD_DB_PUSH wordt daar niet gezet).
+3. `next/font/google` breekt de Turbopack-build in Next 16.3 ("Unknown font"); opgelost met **next/font/local** + Inter-variable-woff2 in app/(frontend)/fonts — visueel identiek.
+4. De Payload admin heeft de 3.9x-layoutshape nodig: `(payload)/layout.jsx` met `RootLayout`+`handleServerFunctions` uit @payloadcms/next/layouts, en REST-routes als `REST_GET(configPromise)`-calls (handlerBuilder), niet als bare re-exports.
+5. `type: "module"` is gezet in package.json: Payload's CLI kan anders de config (ESM + top-level-await dependency van richtext-lexical) niet laden op Node ≥22.
+6. In Next 16 genereert `robots.js` alleen een robots.txt-route als hij op de **app-root** staat, niet binnen een route group (sitemap.js werkt wel binnen een group). app/robots.js staat daarom op de root.
+
+Dingen die bewust (nog) anders zijn:
+- `coverImage` is een URL-veld (Supabase Storage/CDN), géén Payload upload-collectie: Vercel heeft geen persistent filesystem; storage-bucket volgt later.
+- `Pages` is nog niet publiek gerenderd (access.read: false) — de etappe-3-/services-rendering bepaalt straks de mapping.
+- E-mailverzending blijft uit (MAIL_ENABLED), Payload-emailadapter is niet ingesteld (console-warn).

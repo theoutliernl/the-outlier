@@ -76,7 +76,13 @@ Laatst bijgewerkt: 1 oktober 2026 · Legend: ✅ af · 🔄 in uitvoering · ⬜
 
 **Etappe 3 — /services** (diepe content 1300+, foto's, Service-schema, breadcrumb)
 
-**Etappe 4 — CMS + blog** (CMS-keuze, expert-artikelen, ecosystem: e-mail+LinkedIn+Instagram)
+**Etappe 4 — CMS + blog** ✅ live (2 okt, fundatie + eerste artikel)
+- ✅ CMS-keuze: **Payload CMS 3 (3.90.2)** — open-source, Next.js-native (admin = route in deze app), Postgres-adapter op het bestaande Supabase-project (geen tweede infrastructuur). Zie docs/ARCHITECTURE.md § CMS-fundatie.
+- ✅ Collections: Users (email+wachtwoord auth, eerste admin via /admin/create-first-user, geen publieke signup), Posts (title/slug auto/excerpt/Lexical richText/coverImage-URL/author/_status draft+published/publishedAt, drafts+versions), Pages (fundatie voor /services-uitwerking).
+- ✅ /blog: blog-index met gepubliceerde posts in brand-stijl (ISR 60s), nette lege staat; /blog/[slug]: detailpagina met metadata, article JSON-LD, canonical; /admin: Payload-login, noindexed.
+- ✅ Sitemap.xml bevat published posts; robots.txt disallowt /admin.
+- ✅ Inter-font omgezet naar next/font/local (variable woff2 in app/fonts) — next/font/google breekt de Turbopack-build in Next 16.3.
+- ⬜ Nog: /services-page uit CMS renderen (etappe 3), ecosystem-triggers (artikel → e-mail/LinkedIn/Instagram), coverImage-uploads naar Supabase Storage (nu URL-veld).
 
 **Etappe 5 — Concurrentie-overzicht** (Mac-vs-PC-artikelen 1300+ woorden, backlinks)
 
@@ -93,5 +99,5 @@ Laatst bijgewerkt: 1 oktober 2026 · Legend: ✅ af · 🔄 in uitvoering · ⬜
 ## 5. Open vragen (blokkeren Etappe 2+)
 1. Fariza's WhatsApp-nummer voor de widget (allowlist heeft +316****5182; nummer moet volledig)
 2. Call-booking: Composio Google Calendar is verbonden? (token-check nodig)
-3. CMS-keuze: voorstel Payload (Next.js-native, open-source) — te bevestigen
+3. CMS-keuze: **gekozen — Payload CMS 3** (geïnstalleerd en live, etappe 4)
 4. Fariza-akkoord: domeinkoppeling en definitieve copy (haar naam erop)
