@@ -1,33 +1,62 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Mark } from "./Brand";
 
 /**
- * Navbar: vast bovenaan, schuift weg bij omlaag scrollen,
- * slidet smooth terug bij omhoog scrollen. Slide-in het menu-overlay blijft.
+ * Navbar: vast bovenaan.
+ * - Omlaag scrollen -> schuift soepel weg.
+ * - Omhoog scrollen -> komt smooth terug.
+ * - Stoppen met scrollen -> behoudt zijn staat (geen jerk).
+ * - Bovenaan de pagina (y < 140) -> altijd zichtbaar.
+ * Hysteresis: richting wisselt pas na >= 6px netto beweging, zodat
+ * micro-scrolls en traag uitlopende scrolls de balk niet flikkeren.
  */
 export default function StickyNav() {
   const [hidden, setHidden] = useState(false);
+  const hiddenRef = useRef(false);
 
   useEffect(() => {
     let last = window.scrollY;
+    let pending = null;
+
+    const apply = (dir) => {
+      if (dir === "down" && !hiddenRef.current) {
+        hiddenRef.current = true;
+        setHidden(true);
+      } else if (dir === "up" && hiddenRef.current) {
+        hiddenRef.current = false;
+        setHidden(false);
+      }
+    };
+
     const onScroll = () => {
       const y = window.scrollY;
-      if (y < 140) { setHidden(false); last = y; return; }
-      setHidden(y > last + 4);
-      last = y;
+      if (pending) return;                     // max 1 evaluatie per frame
+      pending = requestAnimationFrame(() => {
+        pending = null;
+        if (y < 140) { apply("up"); last = y; return; }
+        const delta = y - last;
+        if (Math.abs(delta) < 6) return;       // te klein: negeer
+        apply(delta > 0 ? "down" : "up");
+        last = y;
+      });
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (pending) cancelAnimationFrame(pending);
+    };
   }, []);
 
   return (
     <motion.header
       className="sticky-nav"
+      initial={{ y: 0 }}
       animate={{ y: hidden ? "-110%" : "0%" }}
-      transition={{ duration: 0.35, ease: [0.44, 0, 0.56, 1] }}
+      transition={{ type: "spring", stiffness: 260, damping: 30, mass: 0.8 }}
     >
       <div className="sticky-nav-inner">
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
