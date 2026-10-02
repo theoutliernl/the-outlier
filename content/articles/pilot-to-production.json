@@ -1,0 +1,312 @@
+{
+ "title": "De piloot die nooit aankomt: waarom 95% van de AI-projecten niks oplevert en wat boutique bureaus anders doen",
+ "slug": "de-piloot-die-nooit-aankomt",
+ "excerpt": "MIT-onderzoek toonde aan dat 95% van enterprise GenAI-pilots geen winst oplevert. De oorzaak is niet de techniek maar de overdracht. Waarom boutique bureaus die piloot-to-productie-kloof dichter zijn.",
+ "author": "Fariza Sbaa",
+ "coverImage": "/images/px-team-laptop-point.jpg",
+ "status": "published",
+ "content": {
+  "root": {
+   "type": "root",
+   "format": "",
+   "indent": 0,
+   "version": 1,
+   "children": [
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "In 2025 publiceerde MIT een studie die elke boardroom raakte: 95% van de enterprise GenAI-pilots leverde geen meetbare winst op. Niet omdat de technologie niet werkte, de modellen draaiden gewoon. De pilot stierf in de overdracht: van pilot naar productie, van proof-of-concept naar het werk van maandagochtend.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Voor boutique adviesbureaus die over AI nadenken is dit het belangrijkste onderzoek van het jaar, en het vertelt precies waar je op moet letten bij het kiezen van een partner.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "heading",
+     "version": 1,
+     "level": 2,
+     "children": [
+      {
+       "type": "text",
+       "text": "Waarom pilots sterven",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Een AI-pilot wordt gebouwd door mensen die het probleem uit een briefing kennen. De mensen die het probleem zelfstellen, de consultants, bewegen door naar het volgende traject. De mensen die het systeem dagelijks moeten gebruiken, de consultants op de werkvloer, zagen de briefing nooit. Tussen die drie groepen gaat de kennis verloren die het verschil maakt tussen een demo en een systeem.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Het patroon is voorspelbaar. De pilot draait in een aparte omgeving met schone data. Productie draait in de werkelijkheid: dubbele registraties, Excel-lijstjes naast het systeem, een collega die het werkproces al twintig jaar anders doet dan beschreven. De pilot had nooit met die werkelijkheid te maken, dus hij overleeft haar niet.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "heading",
+     "version": 1,
+     "level": 2,
+     "children": [
+      {
+       "type": "text",
+       "text": "De piramide verergert het",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Bij grote bureaus verdwijnt er bij elke overdracht context: partner naar projectleider, projectleider naar junior, junior naar offshore-team, team naar het implementatiebedrijf dat het bureau aanraadt. Iedere stap is professioneel geregeld, en toch verliest het systeem bij elke stap een stukje van het waarom. Aan het eind staat een systeem dat technisch klopt en praktisch niets meer weet van het bureau waarvoor het gebouwd leek.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Dit is geen verwijt naar die bureaus. Hun model is ontworpen voor schaal en dat is precies waar enterprise-klanten ze voor inhuren. Maar als jouw bureau veertig mensen telt, koop je die schaal niet. Je koopt het verlies.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "heading",
+     "version": 1,
+     "level": 2,
+     "children": [
+      {
+       "type": "text",
+       "text": "Hoe boutiques de kloof dichten",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "De boutique-antwoord wordt vaak 'korter' genoemd, maar het werkelijke verschil is continuïteit. Bij The Outlier is de volgorde: we meten eerst waar je bureau tijd en marge verliest, we bouwen het systeem in de gereedschappen die je team al gebruikt, en we blijven aanwezig tot de cijfers het bewijzen. De persoon die de frictie in kaart bracht, schrijft geen overdrachtsdocument; die persoon bouwt mee.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Drie concrete gevolgen:",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Eén: het systeem landt in het werkproces, niet ernaast. Adoptie is onderdeel van de levering, geen taak voor erna. Twee: de knowledge-assistant doorzoekt de formuleringen van jouw consultants, niet een template van een andere sector. Drie: de meting voor en na is onderdeel van het ontwerp, dus de vraag of het werkt heeft geen mening nodig, alleen een cijfer.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "heading",
+     "version": 1,
+     "level": 2,
+     "children": [
+      {
+       "type": "text",
+       "text": "Wat je zelf kunt doen, vóór je een partner kiest",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Vraag elke aanbieder, groot of klein, dezelfde vier vragen. Wie bouwt het systeem, met naam en functie. In welke gereedschappen draait het bij oplevering. Hoe wordt adoptie gemeten, en door wie. Wat gebeurt er als het resultaat achterblijft bij de belofte. Als die vier antwoorden scherp zijn, is de kans op een levend systeem reëel, bij elke partner.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "En als je die vragen hier stelt: wij kunnen ze beantwoorden, en we zeggen het ook gewoon als een traject zich naar onze inschatting niet terugverdient. Dat laatste gebeurt, en dat is precies waarom de cijfers kloppen wanneer ze wél kloppen.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "heading",
+     "version": 1,
+     "level": 2,
+     "children": [
+      {
+       "type": "text",
+       "text": "Hoe een gezonde pilot eruitziet",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Een pilot die overleeft heeft drie eigenschappen. Hij draait vanaf dag één in de productie-omgeving van het bureau, niet in een sandbox. Hij wordt gebruikt door de mensen die het werk doen, niet door het projectteam. En hij heeft een stop-criterium: een cijfer waarboven hij doorgaat naar het volgende traject en waaronder hij eerlijk wordt gestopt. pilots zonder stop-criterium gaan nooit dood, ze gaan alleen langzaam uit.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Dat klinkt streng, en dat is het ook. Maar het is de enige manier om te voorkomen dat je bureau over een jaar een demo heeft waar niemand meer weet waarvoor hij diende. Gezonde pilots zijn klein, meetbaar en zitten in het echte werk.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "heading",
+     "version": 1,
+     "level": 2,
+     "children": [
+      {
+       "type": "text",
+       "text": "Een voorbeeld uit de praktijk",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Een bureau van achttien mensen schreef elke offerte deels opnieuw: dezelfde scope-teksten, dezelfde tariefstructuur, telkens getikt door de partner die de deal binnenhaalde. Drie offertes per week, elk twee tot drie uur. Een systeem dat eerdere offertes doorzocht en de terugkerende delen invulde bracht dat terug naar ruim veertig minuten per offerte: honderd factureerbare uren per jaar die voorheen in avonden zaten.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "De reden dat dit geen piloot werd: het systeem stond in de tooling waar de offertes al werden geschreven, de partner schreef zelf de eerste invullingen, en de meting was simpel, tijd per offerte, elke week gemeten. Geen overdracht nodig, want er was niets over te dragen: de bouwer was de gebruiker-adjacent en de gebruiker zag zijn eigen woorden terugkomen.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "heading",
+     "version": 1,
+     "level": 2,
+     "children": [
+      {
+       "type": "text",
+       "text": "De rol van senior ervaring in de beoordeling",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "AI is goed in het verzamelen en samenvatten. Het zwakke punt is het beoordelen: welke van deze kansen telt voor dit bureau, in deze markt, met deze mensen? Dat oordeel vraagt jaren in het vak. Een systeem dat gebouwd wordt rond een senior advisor bewaart die beoordeling en schaalt haar: de assistant stelt de lijst samen, de senior beslist, en de argumenten van die beslissing blijven in het systeem zitten voor de volgende keer. Zo groeit het systeem mee met het bureau in plaats van naast het bureau.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Daarom beginnen onze trajecten met meten, niet met bouwen. De Friction Scan is twee weken, kost €2.750, en levert een lijst met cijfers. Als die lijst laat zien dat er niets te halen valt, zeggen we dat. Een piloot die nooit aankomt begint bij een eerlijke meting die wel aankomt.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "Tot slot een waarschuwing in je eigen belang: als een aanbieder deze vragen niet direct kan beantwoorden, is dat geen teken van slechtheid maar van het verkeerde model voor jouw omvang. Vraag het ze gerust. En kom daarna naar ons, of ga daarna naar iemand die het wel kan antwoorden. Het doel is een werkend systeem, niet de partner van de maand.",
+       "format": 0
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "version": 1,
+     "children": [
+      {
+       "type": "text",
+       "text": "En over die vier vragen heen geldt één regel die voor beide modellen geldt: wat er niet gemeten wordt, bestaat niet. Vraag om cijfers, vraag om namen, vraag om gereedschappen. Een goed antwoord op die vragen is meer waard dan elke referentielijst.",
+       "format": 0
+      }
+     ]
+    }
+   ],
+   "direction": null
+  }
+ }
+}
