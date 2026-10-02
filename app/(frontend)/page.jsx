@@ -7,6 +7,7 @@ import WhatsAppWidget from "../../components/WhatsAppWidget";
 import HeroBars from "../../components/HeroBars";
 import HeroTitle from "../../components/HeroTitle";
 import HeroFX from "../../components/HeroFX";
+import CodeBackground from "../../components/CodeBackground";
 
 function BarsGlyph({ heights = [12, 6, 16, 8] }) {
   return (
@@ -61,6 +62,7 @@ export default function Home() {
       <div className="hero-wrap" id="home">
         <div className="hero-bg kb" aria-hidden="true" />
         <div className="hero-fx-glow" aria-hidden="true" />
+        <CodeBackground />
         <HeroBars />
         <div className="container">
           <HeroFX>
