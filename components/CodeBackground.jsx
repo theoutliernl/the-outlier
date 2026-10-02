@@ -3,17 +3,15 @@
 import { useEffect, useRef } from "react";
 
 /**
- * CodeBackground — geïnspireerd op 21st.dev "code-background" (anark17r),
- * maar een eigen implementatie in de huisstijl: code-regen in goud/inkt
- * op canvas, subtiel (lage alpha), achter de hero. Geen 21st.dev-file
- * (daglimiet), wel hetzelfde effect, gebranded:
- *  - glyphs: code-tekens + binaire runs, enkele in goud
- *  - langzaam, constant motion → linear, geen easing nodig
- *  - pauzeert bij verborgen tab en reduced-motion
+ * CodeBackground v2 — naar het 21st.dev "code-background" effect (anark17r):
+ * een raster van glyphs dat oplicht rond de cursor, geport naar de huisstijl.
+ * - rusttoestand: zeer gedempte leigrijze tekens / stippen op ink
+ * - rond de cursor: glyphs lichten op in goudtinten (radius-falloff)
+ * - GPU-vriendelijk: één canvas, rAF, pauze bij hidden tab, uit bij reduced-motion
  */
-const GLYPHS = "01{}<>=+*/#$[]→×AI".split("");
-const GOLD = "224, 168, 40";
-const LIGHT = "199, 195, 211";
+const GLYPHS = "01{}<>=+*/#$[]→×∴∆πΞAIアエオカキ".split("");
+const COLS_GOLD = ["240,200,90", "224,168,40", "184,133,28", "245,225,175"];
+const DIM = "153, 149, 171";
 
 export default function CodeBackground() {
   const ref = useRef(null);
@@ -21,84 +19,106 @@ export default function CodeBackground() {
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) return;
-
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = canvas.getContext("2d");
     let raf = 0;
     let running = true;
-    let cols = [];
-    let last = 0;
+    let W = 0, H = 0;
+    let cells = [];
+    const SIZE = 18;
+    const mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999 };
+    const R = 170;                 // oplicht-radius in px
+    const R2 = R * R;
 
-    const setup = () => {
-      const { clientWidth: w, clientHeight: h } = canvas.parentElement;
+    const build = () => {
+      const host = canvas.parentElement;
+      W = host.clientWidth; H = host.clientHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      canvas.style.width = `${w}px`;
-      canvas.style.height = `${h}px`;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      canvas.style.width = `${W}px`; canvas.style.height = `${H}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const size = 14;
-      const n = Math.ceil(w / (size * 1.4));
-      cols = Array.from({ length: n }, (_, i) => ({
-        x: i * size * 1.4 + Math.random() * 6,
-        y: Math.random() * -h,
-        speed: 26 + Math.random() * 34,      // px/s — langzaam
-        chars: Array.from({ length: Math.ceil(h / size) + 2 }, () =>
-          Math.random() < 0.28
-            ? { c: GLYPHS[(Math.random() * GLYPHS.length) | 0], gold: Math.random() < 0.16 }
-            : null
-        ),
-      }));
+      const cols = Math.ceil(W / SIZE) + 1;
+      const rows = Math.ceil(H / SIZE) + 1;
+      cells = [];
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          cells.push({
+            x: c * SIZE + SIZE / 2,
+            y: r * SIZE + SIZE / 2,
+            glyph: Math.random() < 0.72 ? GLYPHS[(Math.random() * GLYPHS.length) | 0] : null,
+            col: COLS_GOLD[(Math.random() * COLS_GOLD.length) | 0],
+            glow: 0,               // 0..1, lerpt naar target
+          });
+        }
+      }
     };
 
+    const onMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.tx = e.clientX - rect.left;
+      mouse.ty = e.clientY - rect.top;
+    };
+    const onLeave = () => { mouse.tx = -9999; mouse.ty = -9999; };
+
+    let last = 0;
     const draw = (t) => {
       if (!running) return;
       raf = requestAnimationFrame(draw);
       const dt = Math.min((t - last) / 1000, 0.05);
       last = t;
-      const w = canvas.clientWidth, h = canvas.clientHeight;
-      ctx.clearRect(0, 0, w, h);
-      ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, monospace";
-      for (const col of cols) {
-        col.y += col.speed * dt;
-        if (col.y - col.chars.length * 14 > h) {
-          col.y = -Math.random() * 160;
-          col.chars = col.chars.map(() =>
-            Math.random() < 0.28
-              ? { c: GLYPHS[(Math.random() * GLYPHS.length) | 0], gold: Math.random() < 0.16 }
-              : null
-          );
+      // cursor-gloed "meereist" via exponentiële lerp
+      const k = 1 - Math.exp(-10 * dt);
+      if (mouse.tx > -9000) {
+        mouse.x += (mouse.tx - mouse.x) * k;
+        mouse.y += (mouse.ty - mouse.y) * k;
+      } else {
+        mouse.x += (-9999 - mouse.x) * k;
+        mouse.y += (-9999 - mouse.y) * k;
+      }
+      ctx.clearRect(0, 0, W, H);
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, monospace";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      for (const c of cells) {
+        const dx = c.x - mouse.x, dy = c.y - mouse.y;
+        const d2 = dx * dx + dy * dy;
+        const target = d2 < R2 ? 1 - Math.sqrt(d2) / R : 0;
+        c.glow += (target - c.glow) * Math.min(1, 8 * dt);
+        const g = c.glow;
+        if (c.glyph) {
+          if (g < 0.02) {
+            ctx.fillStyle = `rgba(${DIM}, 0.13)`;
+            ctx.fillText(c.glyph, c.x, c.y);
+          } else {
+            ctx.fillStyle = `rgba(${c.col}, ${0.18 + g * 0.72})`;
+            ctx.fillText(c.glyph, c.x, c.y);
+          }
+        } else if (g > 0.04) {
+          ctx.fillStyle = `rgba(${c.col}, ${g * 0.5})`;
+          ctx.fillRect(c.x - 1, c.y - 1, 2, 2);
         }
-        col.chars.forEach((ch, i) => {
-          if (!ch) return;
-          const y = col.y + i * 14;
-          if (y < -14 || y > h) return;
-          const age = 1 - Math.min(y / h, 1);          // bovenin iets zichtbaarder
-          const alpha = (0.10 + age * 0.14) * (ch.gold ? 1.5 : 0.8);
-          ctx.fillStyle = ch.gold
-            ? `rgba(${GOLD}, ${Math.min(alpha, 0.42)})`
-            : `rgba(${LIGHT}, ${alpha})`;
-          ctx.fillText(ch.c, col.x, y);
-        });
       }
     };
 
     const onVis = () => {
-      running = !document.hidden && true;
-      if (running) { last = performance.now(); raf = requestAnimationFrame(draw); }
-      else cancelAnimationFrame(raf);
+      const next = !document.hidden;
+      if (next && !running) { running = true; last = performance.now(); raf = requestAnimationFrame(draw); }
+      else if (!next && running) { running = false; cancelAnimationFrame(raf); }
     };
 
-    setup();
+    build();
     raf = requestAnimationFrame((t) => { last = t; draw(t); });
+    window.addEventListener("pointermove", onMove, { passive: true });
+    window.addEventListener("pointerleave", onLeave);
     document.addEventListener("visibilitychange", onVis);
-    window.addEventListener("resize", setup);
+    window.addEventListener("resize", build);
     return () => {
       running = false;
       cancelAnimationFrame(raf);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("visibilitychange", onVis);
-      window.removeEventListener("resize", setup);
+      window.removeEventListener("resize", build);
     };
   }, []);
 
