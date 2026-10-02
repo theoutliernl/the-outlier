@@ -100,3 +100,11 @@
 .fs-go:hover{transform:translateX(3px)}
 @media(max-width:900px){.foot-sitemap{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.foot-sitemap{grid-template-columns:1fr}}
+
+/* ---- services detail-pagina ---- */
+.svc-detail{margin-top:24px}
+.svc-block{border-top:1px solid var(--line);padding:56px 0;display:grid;grid-template-columns:120px 1fr;gap:40px;align-items:start}
+.svc-nr{font-size:14px;color:var(--caption);font-variant-numeric:tabular-nums;padding-top:14px}
+.svc-meta{display:inline-block;margin:14px 0 0;font-size:14px;font-weight:700;color:var(--lead);padding:8px 16px;border:1px solid hsla(40,43%,92%,.25)}
+.svc-body .section-lead{font-size:17px;margin-top:16px;max-width:760px}
+@media(max-width:900px){.svc-block{grid-template-columns:1fr;gap:12px}.svc-nr{padding-top:0}}
