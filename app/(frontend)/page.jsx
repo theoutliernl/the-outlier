@@ -60,7 +60,10 @@ export default async function Home() {
 
       <Section id="approach" tone="band">
         <div className={styles.head}>
-          <Reveal><Kicker className={styles.lottieRow}>How we work<LottieIcon src="/lottie/bars-grow.json" width={72} height={50} ariaLabel="Four-step method" /></Kicker></Reveal>
+          <Reveal className={styles.lottieRow}>
+            <Kicker>How we work</Kicker>
+            <LottieIcon src="/lottie/bars-grow.json" width={72} height={50} ariaLabel="Four-step method" />
+          </Reveal>
           <Reveal delay={0.05}><Heading size="h1" caps className={styles.bigWords}>Understand. Systemise. Scale.</Heading></Reveal>
           <Reveal delay={0.1}><Lead>Four steps, every engagement. Each one ends with something you can check: a map, a number, a working system.</Lead></Reveal>
         </div>
