@@ -14,106 +14,111 @@
     {
       "id": "F1-compare-publish",
       "type": "F",
-      "status": "waiting_on_fariza",
+      "status": "in_progress",
       "wish": "Vergelijkingsartikelen laten goedkeuren door Fariza en publiceren",
-      "spec": "docs/PRD-QUINT.md §4 F1"
+      "spec": "docs/PRD-QUINT.md \u00a74 F1",
+      "result": "3 PDFs + bericht naar Fariza via Telegram gestuurd 3 okt 2026, wacht op goedkeuring"
     },
     {
       "id": "F2-facts-photo",
       "type": "F",
       "status": "waiting_on_fariza",
       "wish": "Stats, loopbaan en founder-foto (hoge resolutie) laten bevestigen en verwerken",
-      "spec": "docs/PRD-QUINT.md §4 F2"
+      "spec": "docs/PRD-QUINT.md \u00a74 F2"
     },
     {
       "id": "F3-prices",
       "type": "F",
       "status": "waiting_on_fariza",
       "wish": "Prijzen in lib/content/services.js laten bevestigen",
-      "spec": "docs/PRD-QUINT.md §4 F3"
+      "spec": "docs/PRD-QUINT.md \u00a74 F3"
     },
     {
       "id": "F4-contact-mailbox",
       "type": "F",
       "status": "waiting_on_fariza",
       "wish": "Bestaat hello@theoutlier.nl? Anders contact.email aanpassen",
-      "spec": "docs/PRD-QUINT.md §4 F4"
+      "spec": "docs/PRD-QUINT.md \u00a74 F4"
     },
     {
       "id": "F5-booking",
       "type": "F",
       "status": "waiting_on_fariza",
       "wish": "Boekingsagenda koppelen en NEXT_PUBLIC_CAL_URL zetten",
-      "spec": "docs/PRD-QUINT.md §4 F5"
+      "spec": "docs/PRD-QUINT.md \u00a74 F5"
     },
     {
       "id": "F6-mail",
       "type": "F",
       "status": "waiting_on_fariza",
       "wish": "Mailteksten laten goedkeuren, verzendaccount instellen, MAIL_ENABLED=1",
-      "spec": "docs/PRD-QUINT.md §4 F6"
+      "spec": "docs/PRD-QUINT.md \u00a74 F6"
     },
     {
       "id": "F7-privacy",
       "type": "F",
       "status": "waiting_on_fariza",
       "wish": "Privacyverklaring laten goedkeuren",
-      "spec": "docs/PRD-QUINT.md §4 F7"
+      "spec": "docs/PRD-QUINT.md \u00a74 F7"
     },
     {
       "id": "F8-launch",
       "type": "F",
       "status": "waiting_on_fariza",
       "wish": "theoutlier.nl koppelen na akkoord, Search Console, sitemap",
-      "spec": "docs/PRD-QUINT.md §4 F8"
+      "spec": "docs/PRD-QUINT.md \u00a74 F8"
     },
     {
       "id": "A1-health",
       "type": "A",
-      "status": "todo",
+      "status": "done",
       "wish": "Dagelijks QA + flow.mjs op live",
-      "spec": "docs/PRD-QUINT.md §4 A1"
+      "spec": "docs/PRD-QUINT.md \u00a74 A1",
+      "result": "79/79 + flow PASS op live, 3 okt 2026"
     },
     {
       "id": "A2-article",
       "type": "A",
       "status": "todo",
       "wish": "Om de twee weken een nieuw inzichtartikel als concept, publiceren na akkoord",
-      "spec": "docs/PRD-QUINT.md §4 A2"
+      "spec": "docs/PRD-QUINT.md \u00a74 A2"
     },
     {
       "id": "A3-distribution",
       "type": "A",
-      "status": "todo",
+      "status": "done",
       "wish": "Per gepubliceerd artikel LinkedIn/Instagram/nieuwsbrief-concepten voor Fariza",
-      "spec": "docs/PRD-QUINT.md §4 A3"
+      "spec": "docs/PRD-QUINT.md \u00a74 A3",
+      "result": "4 concepten in content/distribution/, niets geplaatst (1da38a2)"
     },
     {
       "id": "A4-mobile",
       "type": "A",
-      "status": "todo",
+      "status": "done",
       "wish": "Wekelijkse screenshotcontrole 390/768/1440 van alle routes",
-      "spec": "docs/PRD-QUINT.md §4 A4"
+      "spec": "docs/PRD-QUINT.md \u00a74 A4",
+      "result": "10 routes op 390/768/1440 gecontroleerd, overflow 0px, geen fouten gevonden (3 okt 2026)"
     },
     {
       "id": "A5-lottie",
       "type": "A",
-      "status": "todo",
-      "wish": "Eén Lottie-accent bij 'How we work' op de homepage",
-      "spec": "docs/PRD-QUINT.md §4 A5"
+      "status": "blocked_on_asset",
+      "wish": "E\u00e9n Lottie-accent bij 'How we work' op de homepage",
+      "spec": "docs/PRD-QUINT.md \u00a74 A5",
+      "result": "accent geplaatst en live (048c8c9); bars-grow.json rendert statisch in lottie-web, gemeld aan Seyed"
     },
     {
       "id": "S1-qa-rows",
       "type": "S",
       "status": "waiting_on_seyed",
       "wish": "Oude QA-testrijen opruimen na akkoord van Seyed",
-      "spec": "docs/PRD-QUINT.md §4 S1"
+      "spec": "docs/PRD-QUINT.md \u00a74 S1"
     }
   ],
   "rules": [
-    "Volg docs/PRD-QUINT.md §2 (harde regels) en §3 (standaardprocedure) bij elke taak.",
-    "Pak eerst A-taken; F/S-taken: één keer vragen en doorgaan.",
-    "Na elke taak: OPERATOR-STATUS.md bijwerken en Seyed één regel rapporteren."
+    "Volg docs/PRD-QUINT.md \u00a72 (harde regels) en \u00a73 (standaardprocedure) bij elke taak.",
+    "Pak eerst A-taken; F/S-taken: \u00e9\u00e9n keer vragen en doorgaan.",
+    "Na elke taak: OPERATOR-STATUS.md bijwerken en Seyed \u00e9\u00e9n regel rapporteren."
   ],
   "plan_file": "docs/PRD-QUINT.md",
   "site_version": "v2 (82c96c8, 3 okt 2026)",
