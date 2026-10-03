@@ -102,17 +102,18 @@
     {
       "id": "A5-lottie",
       "type": "A",
-      "status": "blocked_on_asset",
+      "status": "done",
       "wish": "E\u00e9n Lottie-accent bij 'How we work' op de homepage",
       "spec": "docs/PRD-QUINT.md \u00a74 A5",
-      "result": "accent geplaatst en live (048c8c9); bars-grow.json rendert statisch in lottie-web, gemeld aan Seyed"
+      "result": "bars-grow.json herschreven als geldige lottie; standalone test toonde frames 0->45 lopen. Live na commit."
     },
     {
       "id": "S1-qa-rows",
       "type": "S",
-      "status": "waiting_on_seyed",
+      "status": "done",
       "wish": "Oude QA-testrijen opruimen na akkoord van Seyed",
-      "spec": "docs/PRD-QUINT.md \u00a74 S1"
+      "spec": "docs/PRD-QUINT.md \u00a74 S1",
+      "result": "Akkoord Seyed (3 okt, chat). 58 QA-testrijen (29 contact + 29 assessment) + nieuwsbrief-testrijen verwijderd via scripts/qa-rows-cleanup.sql; alleen test-patronen (qa@, .test, @example, name QA/Check/Test). Tellen voor/na gedocumenteerd; er bleven 0 rijen over = alle rijen waren testrijen."
     }
   ],
   "rules": [
