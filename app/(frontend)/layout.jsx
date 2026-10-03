@@ -64,7 +64,7 @@ const jsonLd = {
       "@type": "Organization",
       name: "The Outlier",
       url: SITE_URL,
-      logo: `${SITE_URL}/logo-vertical.png`,
+      logo: `${SITE_URL}/logo-mark.png`,
       email: "hello@theoutlier.nl",
       address: { "@type": "PostalAddress", addressLocality: "Amsterdam", addressCountry: "NL" },
       founder: { "@type": "Person", name: "Fariza Sbaa", jobTitle: "Founder", url: "https://www.linkedin.com/in/fariza-sbaa" },

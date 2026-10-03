@@ -1,3 +1,4 @@
+import { Logo, Mark, Wordmark } from "../../components/Brand";
 import Reveal from "./reveal";
 import Accordion from "../../components/Accordion";
 import MenuOverlay from "../../components/MenuOverlay";
@@ -19,17 +20,6 @@ function BarsGlyph({ heights = [12, 6, 16, 8] }) {
   );
 }
 
-function Mark({ size = 38 }) {
-  return (
-    <svg width={size * 1.103} height={size} viewBox="0 0 37.5 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ display: "block" }}>
-      <rect x="0" y="7" width="6.3" height="27" rx="3.15" fill="#F3EDE1" />
-      <rect x="7.8" y="14.5" width="6.3" height="19.5" rx="3.15" fill="#F3EDE1" />
-      <rect x="15.6" y="0" width="6.3" height="34" rx="3.15" fill="#E0A828" />
-      <rect x="23.4" y="11.5" width="6.3" height="22.5" rx="3.15" fill="#F3EDE1" />
-      <rect x="31.2" y="9.5" width="6.3" height="24.5" rx="3.15" fill="#F3EDE1" />
-    </svg>
-  );
-}
 
 export default function Home() {
   return (
@@ -42,15 +32,7 @@ export default function Home() {
       <div className="container">
         <header>
           <div className="header-row">
-            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <Mark size={38} />
-              <div style={{ position: "relative" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", color: "#E0A828", lineHeight: 1, position: "absolute", top: -9, left: 1 }}>THE</div>
-                <div style={{ fontWeight: 700, fontSize: 28, letterSpacing: "0.015em", color: "#F3EDE1", lineHeight: 1 }}>
-                  OUTL<span style={{ fontStyle: "italic", color: "#E0A828" }}>IER</span>
-                </div>
-              </div>
-            </div>
+            <a href="/" className="logo-lockup" aria-label="The Outlier — home"><Logo size={38} /></a>
             <div className="header-right">
               <a className="bookpill" href="#contact">
                 Book a call<span className="pillcircle">→</span>
@@ -231,7 +213,7 @@ export default function Home() {
           </Reveal>
           <Reveal><a className="btn-inkbig" href="mailto:hello@theoutlier.nl">Schedule a call</a></Reveal>
           <Reveal className="foot">
-            <span className="wordmark">THE <em>OUTLIER</em></span>
+            <Wordmark size={18} tone="gold" />
             <span>Corporate experience. Boutique execution.</span>
             <span>theoutlier.nl</span>
           </Reveal>

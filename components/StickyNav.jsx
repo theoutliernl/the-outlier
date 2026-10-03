@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { Mark } from "./Brand";
+import { Logo } from "./Brand";
 
 /**
  * Complete navbar: logo links, center-nav op desktop, CTA + MENU rechts.
@@ -78,11 +78,8 @@ export default function StickyNav() {
       transition={{ type: "spring", stiffness: 260, damping: 30, mass: 0.8 }}
     >
       <div className="sticky-nav-inner">
-        <a href="/#home" style={{ display: "flex", alignItems: "center", gap: 14, textDecoration: "none" }} aria-label="The Outlier — home">
-          <Mark size={30} />
-          <div style={{ fontWeight: 700, fontSize: 22, color: "var(--slate)", lineHeight: 1 }}>
-            OUTL<span style={{ fontStyle: "italic", color: "var(--gold)" }}>IER</span>
-          </div>
+        <a href="/#home" className="logo-lockup" aria-label="The Outlier — home">
+          <Logo size={30} />
         </a>
 
         <nav className="nav-links" aria-label="Hoofdnavigatie">

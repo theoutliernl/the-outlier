@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }) {
               "@type": "Organization",
               name: "The Outlier",
               url: SITE_URL,
-              logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-vertical.png` },
+              logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-mark.png` },
             },
             image: post.coverImage || undefined,
             isPartOf: { "@type": "Blog", url: `${SITE_URL}/blog` },

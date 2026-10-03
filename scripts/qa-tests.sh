@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 # qa-tests: Q&A verificationsuite voor the-outlier — alle checks moeten groen
 set -uo pipefail
-BASE="${BASE:-https://theoutlier-site.vercel.app}"
+# Gebruik: bash scripts/qa-tests.sh [preview-url]   (default: de reviewsite)
+# Formulier-checks sturen x-qa-dry-run + een .test-adres: de routes slaan dan niets op en mailen niet.
+BASE="${1:-${BASE:-https://theoutlier-site.vercel.app}}"
+BASE="${BASE%/}"
+QA_H="x-qa-dry-run: 1"
 PASS=0; FAIL=0
 
 check() { # check <omschrijving> <verwacht> <werkelijk>
@@ -29,15 +33,23 @@ check "homepage heeft JSON-LD" "1" "$(curl -s "$BASE/" | grep -c 'application/ld
 check "canonical aanwezig" "1" "$(curl -s "$BASE/" | grep -c 'rel="canonical"' | head -1)"
 
 echo "=== FORMULIEREN ==="
-code_r=$(curl -s -X POST "$BASE/api/contact" -d "name=QA&email=qa@theoutlier.test&message=qa-loop" -o /dev/null -w '%{http_code}')
+code_r=$(curl -s -X POST "$BASE/api/contact" -H "$QA_H" -d "name=QA&email=qa@theoutlier.test&message=qa-loop" -o /dev/null -w '%{http_code}')
 check "contact POST -> 303 redirect" "303" "$code_r"
-code_a=$(curl -s -X POST "$BASE/api/assessment" -H "Content-Type: application/json" -d '{"bureau_type":"hr","bureau_size":"1-5","friction":["sales"],"tooling":"excel","ambition":["marges"],"name":"QA","email":"qa@theoutlier.test"}' | head -c 40 | grep -c '"ok":true')
+code_a=$(curl -s -X POST "$BASE/api/assessment" -H "$QA_H" -H "Content-Type: application/json" -d '{"bureau_type":"hr","bureau_size":"1-5","friction":["sales"],"tooling":"excel","ambition":["marges"],"name":"QA","email":"qa@theoutlier.test"}' | head -c 40 | grep -c '"ok":true')
 check "assessment POST -> ok:true" "1" "$code_a"
-check "newsletter POST -> 303" "303" "$(curl -s -X POST "$BASE/api/newsletter" -d "email=qa@theoutlier.test" -o /dev/null -w '%{http_code}')"
+check "newsletter POST -> 303" "303" "$(curl -s -X POST "$BASE/api/newsletter" -H "$QA_H" -d "email=qa@theoutlier.test" -o /dev/null -w '%{http_code}')"
 
 echo "=== FOOTER ==="
 check "footer nieuwsbrief opt-in" "1" "$(curl -s "$BASE/" | grep -c 'fs-news' | head -1)"
 check "footer sitemap-links" "1" "$(curl -s "$BASE/" | grep -c 'foot-sitemap' | head -1)"
+
+echo "=== MERK ==="
+home="$(curl -s "$BASE/")"
+check "logo: THE naast OUTLIER (wm-the)" "1" "$(echo "$home" | grep -c 'wm-the' | head -1)"
+check "geen losse oude logo-opbouw" "0" "$(echo "$home" | grep -c 'top:-9px' | head -1)"
+check "JSON-LD logo = logo-mark.png" "1" "$(echo "$home" | grep -c 'logo-mark.png' | head -1)"
+check "logo-mark.png 200" "200" "$(code "$BASE/logo-mark.png")"
+check "geen testartikel in blog" "0" "$(curl -s "$BASE/blog" | grep -c 'de-cms-fundatie-staat' | head -1)"
 
 echo "=== CMS ==="
 check "admin login-pagina" "200" "$(code "$BASE/admin")"

@@ -35,6 +35,9 @@ Een complete, award-level website en funnel voor The Outlier (boutique AI & Tran
    - Documentatie in de codebase bijhouden (docs/), graphify knowledge graph actueel houden
    - GitHub (theoutliernl) voor alle codebases, Vercel voor hosting
 
+## Werkvolgorde
+Vanaf 3 okt 2026 is `docs/FINISH-PLAN.md` de werkvolgorde (fase 0 t/m 10).
+
 ## Status (2 okt 2026 — bewezen live)
 
 Geverifieerd met curl op https://theoutlier-site.vercel.app (2 okt):
@@ -61,6 +64,7 @@ Geverifieerd met curl op https://theoutlier-site.vercel.app (2 okt):
 ## Kwaliteitsregels (altijd)
 - Geen letterlijk kopiëren van het Altero-template (patroon-analyse alleen)
 - Tone of voice: direct, human, confident, honest, grounded; nooit hyped, sales-driven, trend-driven
-- Copytaal: Nederlands, USP in het Engels als quote
+- Copytaal: Engels, ook knoppen en formulieren (Fariza, 28-29 sep). Interne communicatie Nederlands.
+- Merk: logo via components/Brand.jsx (THE naast OUTLIER, alleen IER cursief); goud nooit als tekst op licht. Zie docs/FINISH-PLAN.md.
 - Elke etappe: graphify --update, checklist-diff, mobile-check op 3 breakpoints, live smoke-test (form → Supabase-rij), screenshots, commit + push
 - E-mail/WhatsApp naar derden: nooit zonder Fariza's expliciete goedkeuring (staged via dashboard)

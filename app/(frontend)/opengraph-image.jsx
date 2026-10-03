@@ -22,12 +22,16 @@ export default function OGImage() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: 54 }}>
-            {[26, 38, 20, 32].map((h, i) => (
-              <div key={i} style={{ width: 9, height: h, background: "rgba(255,255,255,0.55)", borderRadius: 2 }} />
+            {[[43, "#F3EDE1"], [31, "#F3EDE1"], [54, "#E0A828"], [36, "#F3EDE1"], [39, "#F3EDE1"]].map(([h, c], i) => (
+              <div key={i} style={{ width: 10, height: h, background: c, borderRadius: 5 }} />
             ))}
-            <div style={{ width: 11, height: 54, background: "linear-gradient(180deg,#F0C85A,#E0A828)", borderRadius: 2 }} />
           </div>
-          <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: 4 }}>THE OUTLIER</div>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+            <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: 3, marginTop: 4 }}>THE</span>
+            <span style={{ display: "flex", fontSize: 34, fontWeight: 700, letterSpacing: 1 }}>
+              OUTL<span style={{ fontStyle: "italic", color: "#E0A828" }}>IER</span>
+            </span>
+          </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>

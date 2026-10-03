@@ -12,113 +12,170 @@
   },
   "tasks": [
     {
-      "id": "T1-wa-widget",
+      "id": "F0-fundament",
+      "phase": 0,
+      "status": "done",
+      "wish": "Merk-onderdeel, QA dry-run, oude assets en testartikel weg, werkwijze in AGENTS.md",
+      "result": "Branch chore/phase-0-foundation, 3 okt 2026"
+    },
+    {
+      "id": "F1-site-shell",
+      "phase": 1,
+      "status": "todo",
+      "wish": "Nav (About, Team, Projects, Services, Blog, Compare, Contact + Start), voortgangsbalk, WhatsApp-widget met Fariza's foto en footer op elke pagina; dubbele titels weg",
+      "verify": "elke route bevat sticky-nav, progress-bar, wa-widget en foot-sitemap"
+    },
+    {
+      "id": "F1b-engels",
+      "phase": 1,
+      "status": "todo",
+      "wish": "Alle webcopy Engels: /start, /contact, /services, /bedankt, formulieren, meldingen, metadata, mailteksten",
+      "verify": "geen Nederlandse UI-tekst op de routes (handmatige review + grep op bekende woorden)"
+    },
+    {
+      "id": "F2-hero",
+      "phase": 2,
+      "status": "todo",
+      "wish": "Kantoorvideo met mensen, balkenvisual met uitschietende gouden balk bij Book a call, TIPS-cijferstrook met echte cijfers, grotere iconen en Lottie",
+      "blocker": "echte cijfers van Fariza voor de TIPS-strook"
+    },
+    {
+      "id": "F3-assessment",
+      "phase": 3,
+      "status": "todo",
+      "wish": "/start in Typeform-stijl: één vraag per scherm, keuzekaarten, toetsenbord, foto's; vragen op 50-100 medewerkers; uitslag met 3 aanbevelingen en agenda"
+    },
+    {
+      "id": "F4-contact-agenda-mail",
+      "phase": 4,
+      "status": "blocked",
+      "wish": "Gestyled /contact; eigen boekingsagenda via Composio Google Calendar; mail via Composio naar inzender en fariza@theoutlier.nl",
+      "blocker": "Fariza koppelt Google Calendar + mail in dash-integraties en keurt sjablonen goed"
+    },
+    {
+      "id": "F5-cms-blog",
+      "phase": 5,
+      "status": "todo",
+      "wish": "Payload covers/categorieën/rollen, lege covervakken oplossen, Engelse expertblogs 1300+ woorden, bestaande artikelen naar Engels"
+    },
+    {
+      "id": "F6-compare",
+      "phase": 6,
+      "status": "todo",
+      "wish": "/compare in Mac-vs-PC-stijl + artikel per concurrent (1300+ woorden, bronnen, backlinks), feitelijk",
+      "blocker": "Fariza keurt goed vóór publicatie"
+    },
+    {
+      "id": "F7-about-team-projects",
+      "phase": 7,
+      "status": "todo",
+      "wish": "About met echte founder-feiten en foto, Team, Projects (alleen echte cases)",
+      "blocker": "founder-foto hoge resolutie"
+    },
+    {
+      "id": "F8-services-beeld",
+      "phase": 8,
+      "status": "todo",
+      "wish": "Meer menselijke foto's met licht en contrast; prijzen alleen na Fariza's vaststelling"
+    },
+    {
+      "id": "F9-ecosysteem",
+      "phase": 9,
+      "status": "todo",
+      "wish": "Publicatie maakt concepten voor nieuwsbrief, LinkedIn en Instagram; verzending pas na Fariza's akkoord"
+    },
+    {
+      "id": "F10-launch",
+      "phase": 10,
+      "status": "blocked",
+      "wish": "375/768/1440 per pagina, Lighthouse, checklist groen; domein theoutlier.nl + Search Console",
+      "blocker": "Fariza-akkoord domein + DNS-toegang"
+    },
+    {
+      "id": "old-T1-wa-widget",
       "wish": "WhatsApp-widget zichtbaar maken met Fariza's nummer en pulse-animatie (Elfsight-stijl, chatvenster, vooringevulde boodschap)",
       "status": "done",
-      "blocker": "NEXT_PUBLIC_WA_NUMBER ontbreekt in Vercel env \u2014 Fariza moet het nummer leveren",
+      "blocker": "NEXT_PUBLIC_WA_NUMBER ontbreekt in Vercel env — Fariza moet het nummer leveren",
       "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c wa-float  # >= 1",
-      "result": "Widget zichtbaar op live-site (geverifieerd in screenshot 2 okt); nummer aanwezig in env."
+      "result": "Widget zichtbaar op live-site (geverifieerd in screenshot 2 okt); nummer aanwezig in env.",
+      "phase": "historisch"
     },
     {
-      "id": "T2-cal-booking",
-      "wish": "Call-aanbieding op /start en /contact linkt naar echte booking-agenda (Composio Google Calendar of Cal.com)",
-      "status": "blocked",
-      "blocker": "NEXT_PUBLIC_CAL_URL ontbreekt in Vercel env",
-      "verify": "curl -s https://theoutlier-site.vercel.app/start | grep -cE 'cal.com|calendar'  # >= 1 zodra gezet"
-    },
-    {
-      "id": "T3-mail",
-      "wish": "E-mailverzending: bevestiging naar inzender + notificatie naar Fariza (contactformulier en assessment), via SMTP of Composio",
-      "status": "blocked",
-      "blocker": "MAIL_ENABLED + SMTP_* ontbreken \u2014 pas activeren na Fariza's expliciete akkoord",
-      "verify": "POST /api/contact -> rij in Supabase + mail gelogd of verzonden"
-    },
-    {
-      "id": "T4-qa-suite",
+      "id": "old-T4-qa-suite",
       "wish": "Q&A en tests: automatische checks voor alle routes, formulieren, CMS en redirects",
       "status": "done",
       "verify": "npm run test:qa -> alle checks groen",
-      "result": "20/20 PASS (2 okt): routes, content, SEO, formulieren, CMS. Root-cause gevonden: formuliertabellen waren weggevallen door de Payload schema-push; hersteld via supabase/restore-form-tables.sql met RLS."
+      "result": "20/20 PASS (2 okt): routes, content, SEO, formulieren, CMS. Root-cause gevonden: formuliertabellen waren weggevallen door de Payload schema-push; hersteld via supabase/restore-form-tables.sql met RLS.",
+      "phase": "historisch"
     },
     {
-      "id": "T5-progress-sticky",
+      "id": "old-T5-progress-sticky",
       "wish": "Progress-bar en sticky navbar op de homepage (wegscrollen/terugsliden)",
       "status": "done",
-      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -cE 'progress-bar|sticky-nav'  # >= 2"
+      "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -cE 'progress-bar|sticky-nav'  # >= 2",
+      "phase": "historisch"
     },
     {
-      "id": "T6-hero-bars",
+      "id": "old-T6-hero-bars",
       "wish": "Balk-visualisatie in de hero met gouden balk (uitschietend bij CTA-hover)",
       "status": "done",
       "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c hero-bars  # >= 1",
-      "result": "hero-bars live op / (curl-verificatie): rij lichte balken + gouden balk, uitschietend bij CTA-hover (client-side motion)."
+      "result": "hero-bars live op / (curl-verificatie): rij lichte balken + gouden balk, uitschietend bij CTA-hover (client-side motion).",
+      "phase": "historisch"
     },
     {
-      "id": "T7-services-pagina",
+      "id": "old-T7-services-pagina",
       "wish": "Volledige /services-pagina: 1300+ woorden, foto's, eigen metadata, Service-schema, breadcrumb",
       "status": "done",
       "verify": "curl -s https://theoutlier-site.vercel.app/services | wc -w  # >= 1300",
-      "result": "Volledige /services live: 4 diensten uitgewerkt met prijzen, 4-staps methode, 2 casussen, 1318 woorden body, Service+Breadcrumb JSON-LD, QA 22/22."
+      "result": "Volledige /services live: 4 diensten uitgewerkt met prijzen, 4-staps methode, 2 casussen, 1318 woorden body, Service+Breadcrumb JSON-LD, QA 22/22.",
+      "phase": "historisch"
     },
     {
-      "id": "T8-concurrentie-artikelen",
+      "id": "old-T8-concurrentie-artikelen",
       "wish": "Blogartikelen Mac-vs-PC framing: The Outlier vs grote bureaus, 1300+ woorden, backlinks, gracieuze toon",
       "status": "done",
       "verify": "blog-index bevat artikelen, elk >= 1300 woorden",
-      "result": "2 artikelen live: mac-versus-pc-boutique-vs-grote-bureaus (1321 wd) en de-piloot-die-nooit-aankomt (1338 wd), Mac-vs-PC framing, gracieuze toon, import via Payload REST (scripts/do-import.py); heading-tag + author-relatie valkuilen gedocumenteerd."
+      "result": "2 artikelen live: mac-versus-pc-boutique-vs-grote-bureaus (1321 wd) en de-piloot-die-nooit-aankomt (1338 wd), Mac-vs-PC framing, gracieuze toon, import via Payload REST (scripts/do-import.py); heading-tag + author-relatie valkuilen gedocumenteerd.",
+      "phase": "historisch"
     },
     {
-      "id": "T9-footer",
+      "id": "old-T9-footer",
       "wish": "Footer met volledige sitemap + nieuwsbrief opt-in (werkend)",
       "status": "done",
       "verify": "curl -s https://theoutlier-site.vercel.app/ | grep -c newsletter  # >= 1",
-      "result": "22/22 QA groen na deploy: footer met sitemap-kolommen (Site/Meer) + nieuwsbrief opt-in via /api/newsletter."
+      "result": "22/22 QA groen na deploy: footer met sitemap-kolommen (Site/Meer) + nieuwsbrief opt-in via /api/newsletter.",
+      "phase": "historisch"
     },
     {
-      "id": "T10-domein",
-      "wish": "theoutlier.nl koppelen aan Vercel (DNS-verhuizing van GoDaddy) \u2014 alleen na Fariza's akkoord",
-      "status": "blocked",
-      "blocker": "Fariza-akkoord + DNS-toegang",
-      "verify": "curl -s -o /dev/null -w '%{http_code}' https://theoutlier.nl  # 200 op de nieuwe site"
-    },
-    {
-      "id": "T11-mobile-check",
+      "id": "old-T11-mobile-check",
       "wish": "Mobile responsiveness driedubbel checken op 375/768/1440",
       "status": "done",
       "verify": "screenshots in docs/screenshots + geen horizontale overflow",
-      "result": "15/15 viewport-combinaties (375/768/1440 x home/services/start/blog/contact) zonder horizontale overflow na mobile-fix."
+      "result": "15/15 viewport-combinaties (375/768/1440 x home/services/start/blog/contact) zonder horizontale overflow na mobile-fix.",
+      "phase": "historisch"
     },
     {
-      "id": "T12-21st-dev",
-      "wish": "21st.dev-componenten installeren voor award-level polish (hero, bento, marquee, testimonials, FAQ)",
-      "status": "in_progress",
-      "blocker": "Gratis limiet: 2 componenten per dag (reset middernacht UTC). Token werkt. Vandaag: Marquee live.",
-      "verify": "components/ui/ gevuld met geinstalleerde componenten",
-      "pipeline": [
-        "border-beam (hero-kaart)",
-        "number-ticker (cijfers)",
-        "bento-grid (casussen)",
-        "testimonial-marquee"
-      ]
-    },
-    {
-      "id": "T6b-navbar-gedrag",
+      "id": "old-T6b-navbar-gedrag",
       "wish": "Navbar: weg bij omlaag scrollen, terug bij omhoog, NIET terugkeren bij stoppen; sleekere animatie",
       "status": "done",
       "result": "rAF + hysteresis (6px) + spring-easing; QA 22/22; live geverifieerd",
-      "verify": "scroll-test op / (handmatig of playwright)"
+      "verify": "scroll-test op / (handmatig of playwright)",
+      "phase": "historisch"
     }
   ],
   "rules": [
-    "Elke fase/taken voltooid? -> eerst QA-suite (scripts/qa-tests.sh) draaien; alleen pushen naar main bij 0 fail.",
-    "Bij 0 fail: commit met duidelijk bericht, push naar main, wacht op auto-deploy, verifieer live per URL (curl 200 + content-check), daarna pas markeer done.",
-    "Bij fail: fix eerst, QA opnieuw; nooit pushen met rode checks.",
-    "Geblokkeerde taken nooit forceren; rapporteer de blocker aan Seyed."
+    "Werk op een eigen branch; nooit direct op main.",
+    "npx next build groen, dan scripts/qa-tests.sh tegen next start van die build (vrije poort): 0 rood. Formulier-checks zijn dry-run.",
+    "Screenshots 375/768/1440 van elke geraakte pagina, zelf toetsen aan de merkregels in docs/FINISH-PLAN.md.",
+    "Pas dan mergen naar main, daarna qa-tests.sh tegen de reviewsite en docs/OPERATOR-STATUS.md bijwerken.",
+    "Geblokkeerde taken nooit forceren; meld de blokkade en ga door met de volgende taak."
   ],
   "why_not_running_automatically": [
     "De loop draait in sessies: hij start als jij (of Fariza) 'ga door' zegt of als cron het schema triggert.",
-    "Binnen een sessie voert hij taken \u00e9\u00e9n voor \u00e9\u00e9n uit tot done of blocked.",
+    "Binnen een sessie voert hij taken één voor één uit tot done of blocked.",
     "5 taken zijn geblokkeerd op externe input die ik niet zelf kan leveren (zie blockers).",
     "Wil je een automatisch geplande loop? Zet dan een cron die 'bash scripts/clark-loop.sh --run' aanroept, of blijf 'ga door' zeggen."
-  ]
+  ],
+  "plan_file": "docs/FINISH-PLAN.md"
 }

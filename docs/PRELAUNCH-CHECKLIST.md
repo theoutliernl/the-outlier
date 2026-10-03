@@ -16,7 +16,7 @@ Status per item: wat er **nog ontbreekt** in de huidige code (stand 1 okt 2026, 
 | A4 | Canonical / SITE_URL | 🔴 afwezig | Geen `metadataBase`, geen canonical per pagina; risico op Vercel-preview als canoniek domein. |
 | A5 | JSON-LD structured data | 🔴 afwezig | **Geen enkele `application/ld+json`**: Organization, Person (Fariza/Seyed), WebSite, WebPage, Service, BreadcrumbList, FAQPage ontbreken allemaal. |
 | A6 | OG image | 🔴 afwezig | Geen `og:image` in metadata; ook opengraph-image.jsx: 1200x630 in merkkleuren met balk-logo-asset in `public/`. |
-| A7 | Logo's gebruiken | 🟡 | `public/brandmark.png/.svg`, `logo-vertical.png/.svg` staan er, maar worden **nergens** gerenderd (nav + footer zijn tekstlogo "OUTLIER"). |
+| A7 | Logo's gebruiken | ✅ | Logo via `components/Brand.jsx` in nav, header en footer; JSON-LD-logo `public/logo-mark.png` (3 okt). Oude huisstijlbestanden verwijderd. |
 | A8 | FAQPage schema + FAQ-sectie | 🔴 afwezig | Geen FAQ-content en dus geen FAQPage-schema — kritiek voor AI Overviews. |
 | A9 | Per-pagina metadata | 🟡 | `/bedankt` heeft geen eigen metadata (erft alleen layout-title). |
 | A10 | Search Console verificatie | 🔴 onbekend | Niet verifieerbaar uit code; vóór launch regelen + sitemap indienen. |

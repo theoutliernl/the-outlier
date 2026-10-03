@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { isQaSubmission } from "../../../../lib/qa";
 
 export async function POST(req) {
   try {
@@ -8,6 +9,10 @@ export async function POST(req) {
 
     if (!email.includes("@")) {
       return NextResponse.json({ error: "incomplete" }, { status: 400 });
+    }
+
+    if (isQaSubmission(req, email)) {
+      return NextResponse.redirect(new URL("/bedankt?type=newsletter", req.url), 303);
     }
 
     const url = process.env.SUPABASE_URL;

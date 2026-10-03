@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { scoreAssessment } from "../../../../lib/scoring";
 import { sendAssessmentMails } from "../../../../lib/mail";
+import { isQaSubmission } from "../../../../lib/qa";
 
 function str(v, max = 200) {
   const s = String(v || "").trim();
@@ -51,20 +52,23 @@ export async function POST(req) {
     record.score = result.score;
     record.outcome = result.outcome;
 
+    const dryRun = isQaSubmission(req, email);
     const url = process.env.SUPABASE_URL;
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
-    if (!url || !key) {
-      return NextResponse.json({ error: "backend not configured" }, { status: 500 });
-    }
+    if (!dryRun) {
+      if (!url || !key) {
+        return NextResponse.json({ error: "backend not configured" }, { status: 500 });
+      }
 
-    const supabase = createClient(url, key);
-    const { error } = await supabase.from("assessment_submissions").insert(record);
-    if (error) {
-      console.error("[assessment insert]", error.message);
-      return NextResponse.json({ error: "storage failed" }, { status: 500 });
-    }
+      const supabase = createClient(url, key);
+      const { error } = await supabase.from("assessment_submissions").insert(record);
+      if (error) {
+        console.error("[assessment insert]", error.message);
+        return NextResponse.json({ error: "storage failed" }, { status: 500 });
+      }
 
-    await sendAssessmentMails({ a: record, result });
+      await sendAssessmentMails({ a: record, result });
+    }
 
     // Form-post (html) → redirect naar /bedankt; JSON (client fetch) → JSON-response.
     if (!ct.includes("application/json")) {

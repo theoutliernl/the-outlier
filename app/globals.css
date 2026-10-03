@@ -204,3 +204,10 @@
 /* duo-photos: lichter, warmte behouden, contrast omhoog */
 .duo img,.ins-img.duo img{filter:grayscale(.35) brightness(.94) contrast(1.06)}
 .duo:after{background:linear-gradient(160deg,rgba(31,29,43,.38),rgba(31,29,43,.08) 55%,rgba(224,168,40,.08))}
+
+/* ---- Brand lockup (components/Brand.jsx): THE naast OUTLIER, alleen IER cursief ---- */
+.logo-lockup{display:inline-flex;align-items:center;text-decoration:none}
+.wordmark-logo{display:inline-flex;align-items:flex-start;gap:.32em;font-weight:700;line-height:1;letter-spacing:.015em;white-space:nowrap}
+.wm-the{font-size:.36em;font-weight:600;letter-spacing:.2em;margin-top:.1em}
+.wm-name{font-size:1em}
+.wm-ier{font-style:italic}

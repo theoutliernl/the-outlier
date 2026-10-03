@@ -20,7 +20,7 @@ app/
   api/contact/route.js  POST-handler (zie data-flow)
 design/tokens.js       Brand tokens uit Figma: kleuren (incl. text-ramps op Ink en Clean Slate), gradients, typografie (Inter, display 64/headline 40/body 16), logo-regels (clearance 34/27px, "IER" gold-italic, never-rules)
 docs/                  Referentie-screenshots (altero-ref/) + deze docs
-public/                brandmark.png/.svg, logo-vertical.png/.svg, color-palette.png (nog niet gerenderd op de site)
+public/                logo-mark.png (JSON-LD-logo), images/, video/, lottie/. Logo in de UI: components/Brand.jsx
 supabase/schema.sql    contact_submissions-tabel + RLS
 graphify-out/          Knowledge graph (graph.json, graph.html, GRAPH_REPORT.md) — gegenereerd door graphify
 .env.example           SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY
