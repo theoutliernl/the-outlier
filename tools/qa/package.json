@@ -1,0 +1,7 @@
+{
+  "name": "outlier-qa-tools",
+  "private": true,
+  "type": "module",
+  "description": "Screenshot + flow checks. Kept out of the site's dependencies on purpose.",
+  "devDependencies": { "playwright": "1.58.2" }
+}
