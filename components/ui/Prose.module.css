@@ -9,7 +9,8 @@
 .prose a:hover { text-decoration-color: var(--gold-hi); }
 .prose ul, .prose ol { padding-left: 1.3em; }
 .prose li + li { margin-top: 0.45em; }
-.prose li::marker { color: var(--gold); }
+.prose ul li::marker { color: var(--gold); }
+.prose ol li::marker { color: var(--text-muted); font-weight: 700; }
 .prose blockquote { padding-left: 22px; border-left: 3px solid var(--gold); font-family: var(--font-serif); font-style: italic; font-size: 1.15em; color: var(--text-strong); }
 .prose hr { border: 0; border-top: 1px solid var(--line); margin-block: 2.4em; }
 .prose table { width: 100%; border-collapse: collapse; font-size: 15.5px; display: block; overflow-x: auto; }

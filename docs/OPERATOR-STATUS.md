@@ -1,28 +1,22 @@
 # The Outlier: gecontroleerde projectstand
 
-Operator-check: 2026-10-03 ~05:50 UTC. Dit is een gedateerd bewijsrecord, geen toestemming om te
-publiceren of berichten te sturen. Ververs de controles voor een nieuw statusantwoord.
-Werkvolgorde: `docs/FINISH-PLAN.md`. Werkwijze: `AGENTS.md`.
+Operator-check: 2026-10-03 (UTC). Gedateerd bewijsrecord, geen toestemming om te publiceren of berichten te sturen.
+Werkopdracht: `docs/PRD-QUINT.md`. Code: `docs/ARCHITECTURE.md`.
 
-## Bron en daadwerkelijk gecontroleerd
-- Checkout /workspace/outlier-site, branch main, commit 8f33ac6 (fase 0).
-- `npx next build` groen; `bash scripts/qa-tests.sh` tegen https://theoutlier-site.vercel.app: 27 groen, 0 rood
-  (routes, content, SEO, formulieren in dry-run, footer, merk, CMS-loginpagina).
-- QA-formulierchecks schrijven sinds fase 0 niets meer naar Supabase (gecontroleerd: geen nieuwe
-  qa@theoutlier.test-rijen na de deploy). Er staan nog 29 oude QA-rijen in contact_submissions en
-  assessment_submissions en 1 in newsletter_optins.
-- Blog toont 2 gepubliceerde artikelen; het testartikel staat op concept.
-- Logo in nav, header, footer en OG via components/Brand.jsx; visueel gecontroleerd op desktop.
+## Gecontroleerd
+- Site v2 (commit 82c96c8 + docs/tools) op main, live op https://theoutlier-site.vercel.app.
+- `npx next build` groen. `bash scripts/qa-tests.sh` tegen live: 79 passed, 0 failed.
+- `tools/qa/flow.mjs` tegen live: gouden balk reageert op Book a call, assessment loopt tot uitslag.
+- Screenshots 1440 en 390 van alle routes: geen horizontale overflow, geen console-fouten.
+- Payload: 4 Engelse inzichtartikelen gepubliceerd; 3 vergelijkingsartikelen (vs-*) als concept;
+  2 oude Nederlandse artikelen en het testartikel op concept (oude URL's sturen door naar de Engelse versies).
+- Supabase: assessment_submissions kreeg additieve kolommen (answers, company, role, timing, interest, profile).
 
 ## Voor Fariza
-Het logo klopt nu met haar merk (THE naast OUTLIER, alleen IER cursief) en het testartikel is offline.
-De site is nog niet af: zie de fasen in docs/FINISH-PLAN.md.
+De website is volledig vernieuwd: alle pagina's uit de briefing staan, in het Engels en in haar huisstijl.
+Wat nog op haar wacht: akkoord op de vergelijkingsartikelen, feiten en foto, prijzen, agenda, e-mail en het domein.
 
-## Nog niet bewezen of nog niet gedaan
-- Nav, voortgangsbalk, WhatsApp-widget en footer alleen op de homepage (fase 1).
-- Subpagina's en footerteksten deels Nederlands; de webcopy moet Engels (fase 1b).
-- Agenda, mailverzending, compare, About/Team/Projects, ecosysteem, domein: fase 2 t/m 10.
-- Mobiele screenshots van fase 0 nog niet gemaakt (alleen desktop gecontroleerd).
-
-## Statusdiscipline
-Lees projectbewijs voordat je een status geeft. Noem werk niet klaar op basis van een belofte, build of oude chat.
+## Nog niet gedaan
+- E-mail staat uit (MAIL_ENABLED niet gezet), geen boekingslink (NEXT_PUBLIC_CAL_URL leeg).
+- Domein theoutlier.nl niet gekoppeld.
+- ~31 oude QA-testrijen staan nog in Supabase (taak S1).

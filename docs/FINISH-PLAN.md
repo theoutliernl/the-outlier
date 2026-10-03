@@ -1,5 +1,7 @@
 # The Outlier: plan om de site af te maken
 
+> **Status 3 okt 2026:** fase 0 t/m 8 zijn gebouwd in site v2 (commit 82c96c8). Wat overblijft (Fariza-input, mail, agenda, domein, content-onderhoud) staat als uitvoerbare taken in **`docs/PRD-QUINT.md`**. Dit document blijft de achtergrond en de merkregels.
+
 Opgesteld 2026-10-03 door de operator (Seyed via Claude), op basis van de cap-briefing
 (`docs/briefing-transcript.txt`), de gesprekken Seyed↔Quint en Fariza↔Quint, en een
 controle van de live reviewsite. Dit plan vervangt de takenstapel in `GOAL.md` als

@@ -10,15 +10,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # The Outlier: werkwijze voor elke agent
 
-Lees eerst `docs/FINISH-PLAN.md` (vaste regels + fasen). Kort:
-
-1. Werk op een eigen branch (`feat/...`, `fix/...`, `chore/...`), nooit direct op `main`.
-2. `npx next build` groen.
-3. Start de build (`npx next start -p <vrije poort>`, check met `ss -ltnp` dat de poort vrij is)
-   en draai `bash scripts/qa-tests.sh http://localhost:<poort>`: 0 rood.
-   Formulier-checks zijn dry-run en schrijven niets naar Supabase en mailen niet.
-4. Screenshots 375/768/1440 van elke geraakte pagina en zelf bekijken tegen de merkregels.
-5. Merge naar `main` (Vercel deployt de reviewsite), daarna `bash scripts/qa-tests.sh`
-   tegen de reviewsite en `docs/OPERATOR-STATUS.md` bijwerken.
-6. Logo alleen via `components/Brand.jsx`. Webcopy in het Engels. Nooit `PAYLOAD_DB_PUSH` aan
-   (zie `docs/INCIDENT-formuliertabellen.md`).
+1. Werkopdracht: `docs/PRD-QUINT.md`. Hoe de code werkt + onderdelencatalogus: `docs/ARCHITECTURE.md`.
+2. Elke wijziging volgt de standaardprocedure in PRD-QUINT §3: eigen branch, `npx next build`,
+   `bash scripts/qa-tests.sh http://localhost:<poort>` (0 failed), screenshots met `tools/qa/shot.mjs`
+   op 1440 en 390 zelf bekeken, pas dan merge naar `main`, daarna QA en `tools/qa/flow.mjs` op live.
+3. Bouw met de bestaande onderdelen (`components/ui`, `components/site`, `components/home`).
+   Geen nieuwe kleuren of stijlen; tokens staan in `app/globals.css`.
+4. Logo alleen via `components/Brand.jsx`. Webcopy Engels. Goud nooit als tekstkleur. Geen em-dashes.
+5. Nooit `PAYLOAD_DB_PUSH` aan (zie `docs/INCIDENT-formuliertabellen.md`). Schema: additief `supabase/*.sql`.
