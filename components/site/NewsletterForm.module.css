@@ -1,0 +1,10 @@
+.form { position: relative; display: flex; align-items: center; max-width: 420px; flex-wrap: wrap; }
+.input { flex: 1; min-width: 0; height: 54px; padding: 0 64px 0 20px; background: rgba(243, 237, 225, 0.05); border: 1px solid var(--line-strong); border-radius: var(--radius-pill); color: var(--text-strong); font-size: 15px; transition: border-color var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out); }
+.input::placeholder { color: var(--text-muted); }
+.input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(224, 168, 40, 0.15); }
+.go { position: absolute; right: 6px; top: 6px; width: 42px; height: 42px; border-radius: 50%; border: 0; background: var(--grad-gold); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: transform var(--dur) var(--ease-out); }
+.go:hover { transform: translateX(2px); }
+.go:disabled { opacity: 0.6; }
+.error { width: 100%; margin-top: 10px; font-size: 14px; color: var(--text-lead); }
+.done { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text-lead); }
+.done svg { color: var(--gold); }

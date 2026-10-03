@@ -1,0 +1,10 @@
+.split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(36px, 6vw, 96px); align-items: start; }
+.split > div:first-child { position: sticky; top: calc(var(--header-h) + 32px); }
+.head { max-width: 900px; margin-bottom: clamp(40px, 5vw, 64px); }
+.bigWords { line-height: 0.98; }
+.headRow { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 48px; flex-wrap: wrap; margin-bottom: clamp(36px, 5vw, 56px); }
+.headRow > div:first-child { max-width: 760px; }
+.faqCta { margin-top: 28px; }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; } .split > div:first-child { position: static; } }
+.splitTitle { font-size: clamp(30px, 3.4vw, 48px); }
+.stats { padding-bottom: 0; }

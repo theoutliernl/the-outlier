@@ -3,7 +3,7 @@ import React from "react";
 // admin-layout in (payload)/layout.jsx zodat globals.css niet in /admin lekt.
 export default function RootLayout({ children }) {
   return (
-    <html lang="nl">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

@@ -1,0 +1,5 @@
+.hero { position: relative; z-index: 1; padding: calc(var(--header-h) + clamp(48px, 7vw, 96px)) 0 clamp(56px, 7vw, 96px); }
+.split { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(32px, 6vw, 88px); align-items: end; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+.visual { width: 100%; }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; } .visual { max-width: 520px; } }

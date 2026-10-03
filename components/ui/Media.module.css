@@ -1,0 +1,5 @@
+.media { position: relative; overflow: hidden; background: var(--midnight); isolation: isolate; }
+.rounded { border-radius: var(--radius-lg); }
+.img { object-fit: cover; transition: transform 900ms var(--ease-out); }
+.zoom:hover .img, :global(.group):hover .zoom .img { transform: scale(1.04); }
+.grade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(31, 29, 43, 0) 45%, rgba(31, 29, 43, 0.75) 100%); pointer-events: none; }

@@ -1,0 +1,6 @@
+.nav { margin-bottom: 28px; }
+.list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.item + .item::before { content: "/"; margin-right: 8px; color: var(--grey); }
+.item a { transition: color var(--dur-fast) var(--ease-out); }
+.item a:hover { color: var(--text-strong); }
+.item span[aria-current] { color: var(--text-lead); }

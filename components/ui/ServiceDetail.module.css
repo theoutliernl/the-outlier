@@ -1,0 +1,19 @@
+.wrap { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(36px, 6vw, 96px); align-items: start; padding-block: clamp(64px, 8vw, 110px); border-top: 1px solid var(--line); scroll-margin-top: calc(var(--header-h) + 24px); }
+.flip .visual { order: 2; }
+.visual { position: sticky; top: calc(var(--header-h) + 32px); }
+.priceCard { position: absolute; left: 18px; bottom: 18px; right: 18px; display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 18px 20px; border-radius: var(--radius); background: rgba(23, 21, 31, 0.82); backdrop-filter: blur(12px); border: 1px solid var(--line); }
+.priceLabel { grid-column: 1 / -1; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); }
+.price { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; }
+.duration { grid-row: 2 / 4; grid-column: 2; align-self: center; padding: 8px 12px; border-radius: var(--radius-pill); border: 1px solid var(--line-strong); font-size: 13px; color: var(--text-lead); white-space: nowrap; }
+.priceNote { font-size: 13px; color: var(--text-muted); }
+.top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.idx { font-family: var(--font-mono); font-size: 13px; color: var(--text-muted); }
+.oneLiner { margin-top: 18px; font-size: var(--fs-lead); line-height: 1.45; color: var(--text-strong); font-weight: 500; }
+.body { margin-top: 14px; color: var(--text-body); font-size: 17px; line-height: 1.7; max-width: 62ch; }
+.listTitle { margin-top: 34px; font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); }
+.list { list-style: none; margin-top: 14px; border-top: 1px solid var(--line); }
+.list li { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--text-lead); font-size: 16px; line-height: 1.5; }
+.list svg { flex: none; margin-top: 3px; color: var(--gold); }
+.note { margin-top: 18px; font-size: 15px; color: var(--text-muted); }
+.actions { margin-top: 32px; }
+@media (max-width: 900px) { .wrap { grid-template-columns: 1fr; } .flip .visual { order: 0; } .visual { position: relative; top: 0; max-width: 520px; } }

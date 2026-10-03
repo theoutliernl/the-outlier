@@ -1,0 +1,16 @@
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.finding { margin-top: clamp(48px, 6vw, 80px); padding: 32px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface-1); }
+.finding p { margin-top: 10px; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.4; color: var(--text-lead); }
+.finding strong { color: var(--text-strong); }
+.tableWrap { margin-top: 16px; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-lg); }
+.table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 15.5px; }
+.table th, .table td { text-align: left; padding: 18px 20px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.table thead th { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
+.table tbody th { color: var(--text-strong); }
+.table td { color: var(--text-body); }
+.table tbody tr:last-child > * { border-bottom: 0; }
+.roadmap { margin-top: 16px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.step { padding: 24px; border-top: 3px solid var(--gold); background: var(--surface-1); border-radius: 0 0 var(--radius) var(--radius); }
+.step:last-child { border-top-color: var(--grey); }
+.step p { margin-top: 10px; color: var(--text-lead); font-size: 15.5px; }
+@media (max-width: 900px) { .grid, .roadmap { grid-template-columns: 1fr; } }

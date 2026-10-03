@@ -1,0 +1,7 @@
+.section { position: relative; padding-block: var(--section-y); }
+.tight { padding-block: clamp(56px, 7vw, 96px); }
+.flush { padding-block: 0; }
+.plain { background: transparent; }
+.band { background: var(--surface-1); border-block: 1px solid var(--line); }
+.deep { background: var(--ink-deep); }
+.gold { background: var(--grad-gold); color: var(--ink); --text-strong: var(--ink); --text-lead: rgba(31, 29, 43, 0.85); --text-body: rgba(31, 29, 43, 0.78); --text-muted: rgba(31, 29, 43, 0.62); --line: rgba(31, 29, 43, 0.2); }

@@ -1,0 +1,13 @@
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.card { position: relative; display: flex; flex-direction: column; height: 100%; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface-1); transition: background-color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out), transform var(--dur) var(--ease-out); overflow: hidden; }
+.card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--grad-gold); transform: scaleY(0); transform-origin: 50% 100%; transition: transform 450ms var(--ease-out); }
+.card:hover { background: var(--surface-2); border-color: var(--line-strong); transform: translateY(-3px); }
+.card:hover::before { transform: scaleY(1); }
+.head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
+.arrow { color: var(--text-muted); transition: transform var(--dur) var(--ease-out), color var(--dur) var(--ease-out); }
+.card:hover .arrow { transform: translate(3px, -3px); color: var(--text-strong); }
+.name { font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+.line { margin-top: 12px; color: var(--text-body); font-size: 16px; flex: 1; }
+.meta { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--text-muted); }
+.meta strong { color: var(--text-strong); font-size: 16px; }
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }

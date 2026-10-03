@@ -1,0 +1,8 @@
+.list { list-style: none; border-top: 1px solid var(--line); }
+.row { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.row::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--grad-gold); transform: scaleX(0); transform-origin: 0 50%; transition: transform 500ms var(--ease-out); }
+.row:hover::before { transform: scaleX(1); }
+.title { font-size: clamp(34px, 5vw, 72px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; text-transform: uppercase; color: var(--text-strong); transition: transform var(--dur) var(--ease-out); }
+.row:hover .title { transform: translateX(8px); }
+.body { color: var(--text-body); font-size: 17px; max-width: 46ch; }
+@media (max-width: 760px) { .row { grid-template-columns: 1fr; gap: 10px; } }

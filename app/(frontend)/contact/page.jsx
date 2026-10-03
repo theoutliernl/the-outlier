@@ -1,60 +1,59 @@
-import { jsonLdContact } from "../../../lib/schema";
+import { Mail, MapPin, Linkedin, MessageCircle, Clock } from "lucide-react";
+import PageHero from "../../../components/ui/PageHero";
+import Section from "../../../components/ui/Section";
+import Reveal from "../../../components/ui/Reveal";
+import Button from "../../../components/ui/Button";
+import Media from "../../../components/ui/Media";
+import ContactForm from "../../../components/forms/ContactForm";
+import { SITE_URL, contact } from "../../../lib/content/site";
+import styles from "./contact.module.css";
 
 export const metadata = {
-  title: "Contact — The Outlier",
-  description:
-    "Neem contact op met The Outlier: hello@theoutlier.nl, Amsterdam NL — working internationally. Of start direct de assessment.",
+  title: "Contact The Outlier",
+  description: "Questions about AI systems for your boutique firm? Send a message, chat on WhatsApp or take the free five-minute assessment. We reply within one business day.",
   alternates: { canonical: "/contact" },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  url: `${SITE_URL}/contact`,
+  mainEntity: { "@id": `${SITE_URL}/#organization` },
+};
+
 export default function ContactPage() {
+  const wa = contact.whatsapp ? `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(contact.whatsappMessage)}` : null;
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdContact) }}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <PageHero
+        kicker="Contact"
+        title="Let's talk about your firm."
+        lead="Tell us in two sentences where your firm loses time. You get an honest answer within one business day, not a sales sequence."
+        crumbs={[{ label: "Contact", href: "/contact" }]}
       />
-      
-      <main className="page-stub">
-        <div className="contact-grid">
-          <div>
-            <p className="kicker">Contact</p>
-            <h1 style={{ fontSize: "clamp(40px,6vw,84px)", letterSpacing: "-0.04em", margin: "0 0 24px" }}>
-              Have a project <span className="gold-italic">in mind</span>?
-            </h1>
-            <p className="lead">
-              Vertel in twee zinnen waar je bureau tijd en marge verliest.
-              We reageren binnen één werkdag — geen verkooppraatje, wel een eerlijk advies.
-            </p>
-            <div className="addr-block" style={{ marginTop: 26 }}>
-              <strong style={{ color: "var(--slate)" }}>The Outlier</strong>
-              <span>Amsterdam, NL — working internationally</span>
-              <a href="mailto:hello@theoutlier.nl">hello@theoutlier.nl</a>
-              <p className="muted" style={{ margin: "8px 0 0", fontSize: 14 }}>
-                Liever direct een kwalificerend gesprek? <a href="/start">Start de assessment.</a>
-              </p>
+      <Section size="tight" className={styles.section}>
+        <div className={styles.grid}>
+          <Reveal className={styles.info}>
+            <ul className={styles.list}>
+              <li><Mail aria-hidden="true" /><div><span>Email</span><a href={`mailto:${contact.email}`}>{contact.email}</a></div></li>
+              {wa && <li><MessageCircle aria-hidden="true" /><div><span>WhatsApp</span><a href={wa} target="_blank" rel="noopener noreferrer">Chat with Fariza</a></div></li>}
+              <li><MapPin aria-hidden="true" /><div><span>Office</span><p>{contact.city}, {contact.country}<br />{contact.area}</p></div></li>
+              <li><Clock aria-hidden="true" /><div><span>Response time</span><p>{contact.responseTime}</p></div></li>
+              <li><Linkedin aria-hidden="true" /><div><span>LinkedIn</span><a href={contact.linkedin} target="_blank" rel="noopener noreferrer">Fariza Sbaa</a></div></li>
+            </ul>
+            <div className={styles.assess}>
+              <Media src="/images/px-two-women-meeting.jpg" alt="Two professionals in a focused conversation" ratio="16/10" />
+              <div className={styles.assessText}>
+                <p className={styles.assessTitle}>Prefer a structured start?</p>
+                <p>Five minutes, eight questions, your firm's profile and a recommended starting point.</p>
+                <Button href="/start" data-outlier-cta="">Take the assessment</Button>
+              </div>
             </div>
-          </div>
-
-          <form className="form-card" action="/api/contact" method="POST">
-            <label htmlFor="c-name" className="visually-hidden">Naam</label>
-            <input id="c-name" name="name" placeholder="Naam" required autoComplete="name" />
-            <label htmlFor="c-email" className="visually-hidden">E-mail</label>
-            <input id="c-email" name="email" type="email" placeholder="E-mail" required autoComplete="email" />
-            <label htmlFor="c-phone" className="visually-hidden">Telefoonnummer (optioneel)</label>
-            <input id="c-phone" name="phone" type="tel" placeholder="Telefoonnummer (optioneel)" autoComplete="tel" />
-            <label htmlFor="c-msg" className="visually-hidden">Bericht</label>
-            <textarea id="c-msg" name="message" placeholder="Waar loopt je bureau tegenaan?" rows={4} required />
-            <button className="form-btn" type="submit">Verstuur bericht</button>
-            <p className="muted" style={{ margin: 0, fontSize: 13 }}>
-              Je gegevens gaan alleen naar The Outlier. Geen nieuwsbrief, tenzij je er zelf om vraagt.
-            </p>
-          </form>
+          </Reveal>
+          <Reveal delay={0.1}><ContactForm /></Reveal>
         </div>
-    <div className="contact-visual duo" aria-hidden="true"><img src="/images/px-mentor-session.jpg" alt="" loading="lazy" /></div>
-    </main>
-      
-      
+      </Section>
     </>
   );
 }

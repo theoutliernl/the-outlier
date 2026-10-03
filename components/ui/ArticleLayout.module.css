@@ -1,0 +1,17 @@
+.header { padding: calc(var(--header-h) + clamp(40px, 6vw, 80px)) 0 clamp(36px, 4vw, 56px); }
+.headInner { max-width: 900px; }
+.title { font-size: clamp(36px, 5vw, 68px); }
+.excerpt { margin-top: 22px; font-size: var(--fs-lead); line-height: 1.5; color: var(--text-lead); max-width: 60ch; }
+.meta { margin-top: 28px; display: flex; align-items: center; gap: 12px; font-size: 14.5px; color: var(--text-muted); }
+.meta strong { color: var(--text-strong); font-weight: 600; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.cover { position: relative; aspect-ratio: 21 / 9; border-radius: var(--radius-lg); overflow: hidden; background: var(--midnight); }
+.cover img { object-fit: cover; }
+.body { max-width: 760px; margin-inline: auto; }
+.author { margin-top: 64px; padding: 26px; display: flex; gap: 20px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface-1); }
+.authorImg { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex: none; }
+.authorName { font-weight: 700; }
+.authorBio { margin-top: 6px; color: var(--text-body); font-size: 15px; }
+.authorLink { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 15px; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+.relatedTitle { margin-bottom: clamp(32px, 4vw, 48px); }
+@media (max-width: 640px) { .cover { aspect-ratio: 4 / 3; } .author { flex-direction: column; } }

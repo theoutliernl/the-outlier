@@ -1,256 +1,124 @@
-import { Logo, Mark, Wordmark } from "../../components/Brand";
-import Reveal from "./reveal";
-import Accordion from "../../components/Accordion";
-import MenuOverlay from "../../components/MenuOverlay";
-import Progress from "../../components/Progress";
-import StickyNav from "../../components/StickyNav";
-import WhatsAppWidget from "../../components/WhatsAppWidget";
-import HeroBars from "../../components/HeroBars";
-import HeroTitle from "../../components/HeroTitle";
-import HeroFX from "../../components/HeroFX";
-import CodeBackground from "../../components/CodeBackground";
-import LottieIcon from "../../components/LottieIcon";
-import { Compass, ScanSearch, Workflow, TrendingUp } from "lucide-react";
+import Hero from "../../components/home/Hero";
+import ProblemRows from "../../components/home/ProblemRows";
+import MethodGrid from "../../components/home/MethodGrid";
+import ServiceCards from "../../components/home/ServiceCards";
+import CompareTeaser from "../../components/home/CompareTeaser";
+import FounderBlock from "../../components/home/FounderBlock";
+import Section from "../../components/ui/Section";
+import Heading, { Accent } from "../../components/ui/Heading";
+import Kicker from "../../components/ui/Kicker";
+import Lead from "../../components/ui/Lead";
+import Button from "../../components/ui/Button";
+import Reveal from "../../components/ui/Reveal";
+import Marquee from "../../components/ui/Marquee";
+import StatStrip from "../../components/ui/StatStrip";
+import PostCards from "../../components/ui/PostCards";
+import FAQ from "../../components/ui/FAQ";
+import CTABand from "../../components/ui/CTABand";
+import { faqs, founder, marqueeItems, method, problems, stats } from "../../lib/content/site";
+import { services } from "../../lib/content/services";
+import { compareRows } from "../../lib/content/compare";
+import { getPublishedPosts } from "../../lib/blog";
+import styles from "./home.module.css";
 
-function BarsGlyph({ heights = [12, 6, 16, 8] }) {
+export const revalidate = 300;
+
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
+export default async function Home() {
+  let posts = [];
+  try {
+    posts = await getPublishedPosts({ limit: 3 });
+  } catch (err) {
+    console.error("[home] posts unavailable:", err?.message);
+  }
+
   return (
-    <div className="bars-glyph" aria-hidden="true">
-      {heights.map((h, i) => <i key={i} style={{ height: h }} />)}
-    </div>
-  );
-}
+    <>
+      <Hero />
+      <Marquee items={marqueeItems} />
 
+      <Section size="tight" className={styles.stats}>
+        <StatStrip items={stats} />
+      </Section>
 
-export default function Home() {
-  return (
-    <main>
-      <Progress />
-      <StickyNav />
-      <div className="gridlines" aria-hidden="true" />
-      <div className="bar" id="top" />
-
-      <div className="container">
-        <header>
-          <div className="header-row">
-            <a href="/" className="logo-lockup" aria-label="The Outlier — home"><Logo size={38} /></a>
-            <div className="header-right">
-              <a className="bookpill" href="#contact">
-                Book a call<span className="pillcircle">→</span>
-              </a>
-              <MenuOverlay />
-            </div>
+      <Section id="problem">
+        <div className={styles.split}>
+          <div>
+            <Reveal><Kicker>The gap</Kicker></Reveal>
+            <Reveal delay={0.05}>
+              <Heading size="h2" className={styles.splitTitle}>Bigger than a start-up. Smaller than a corporation. <Accent>Stuck</Accent> in between.</Heading>
+            </Reveal>
+            <Reveal delay={0.1}><Lead>That is exactly where boutique firms lose hours and margin. We solve it without you having to build a department for it.</Lead></Reveal>
           </div>
-        </header>
-      </div>
-
-      <div className="hero-wrap" id="home">
-        <div className="hero-bg kb" aria-hidden="true">
-          <video className="hero-video" autoPlay muted loop playsInline preload="metadata" poster="/images/hero-poster.jpg">
-            <source src="/video/hero.mp4" type="video/mp4" />
-          </video>
+          <ProblemRows items={problems} />
         </div>
-        <div className="hero-fx-glow" aria-hidden="true" />
-        <CodeBackground />
-        <HeroBars />
-        <div className="container">
-          <HeroFX>
-          <div className="hero-meta">
-            <div className="hm-left">
-              <span>Founded from the inside</span>
-              <span>Amsterdam, NL — working internationally</span>
-              <a href="mailto:hello@theoutlier.nl">hello@theoutlier.nl</a>
-            </div>
-            <div className="hm-right">
-              <div className="hm-tags">
-                <span>Strategy</span>
-                <span>Brand</span>
-                <span>Web</span>
-                <span>AI Systems</span>
-                <span>Transformation</span>
-              </div>
-              <div className="hm-mark"><Mark size={34} /></div>
-            </div>
+      </Section>
+
+      <Section id="approach" tone="band">
+        <div className={styles.head}>
+          <Reveal><Kicker>How we work</Kicker></Reveal>
+          <Reveal delay={0.05}><Heading size="h1" caps className={styles.bigWords}>Understand. Systemise. Scale.</Heading></Reveal>
+          <Reveal delay={0.1}><Lead>Four steps, every engagement. Each one ends with something you can check: a map, a number, a working system.</Lead></Reveal>
+        </div>
+        <MethodGrid steps={method} />
+      </Section>
+
+      <Section id="services">
+        <div className={styles.headRow}>
+          <div>
+            <Reveal><Kicker>Services</Kicker></Reveal>
+            <Reveal delay={0.05}><Heading size="h2">Four ways in. All with a fixed price.</Heading></Reveal>
           </div>
-          <div className="hero-sub">
-            <p>
-              Boutique consultancies are expected to run like large firms, with a
-              fraction of the people, the budget and the time. We close that gap
-              with practical AI-powered systems, built around your experts.
-            </p>
+          <Reveal delay={0.1}><Button href="/services" variant="ghost">All services</Button></Reveal>
+        </div>
+        <ServiceCards services={services} />
+      </Section>
+
+      <Section id="compare" tone="band">
+        <div className={styles.headRow}>
+          <div>
+            <Reveal><Kicker>Mac versus PC</Kicker></Reveal>
+            <Reveal delay={0.05}><Heading size="h2">Big firms are good at what they do. <Accent>We</Accent> are built for you.</Heading></Reveal>
+            <Reveal delay={0.1}><Lead>Scale has real strengths. Personal attention at the size of your firm is not one of them.</Lead></Reveal>
           </div>
-          </HeroFX>
+          <Reveal delay={0.15}><Button href="/compare" variant="ghost">See the comparison</Button></Reveal>
         </div>
-      </div>
+        <CompareTeaser rows={compareRows} limit={4} />
+      </Section>
 
-      <section id="approach">
-        <div className="container">
-          <Reveal className="biglines">
-            <h2 className="word">UNDERSTAND.</h2>
-            <h2 className="word">SYSTEMISE.</h2>
-            <h2 className="word">SCALE.</h2>
-          </Reveal>
-          <Reveal as="p" className="section-lead">
-            We work with ambitious boutique firms to find where friction lives,
-            build the systems that remove it, and keep the experts at the centre.
-            No hype. No bureaucracy.
-          </Reveal>
-          <div className="lottie-bars" style={{ marginTop: 34 }} aria-hidden="true">
-            <LottieIcon src="/lottie/bars-grow.json" width={200} height={140} />
-          </div>
-          <Reveal className="proc-grid">
-            <div className="proc-card">
-              <BarsGlyph />
-              <div className="pc-icon"><Compass size={26} strokeWidth={1.8} /></div><h3>Understand</h3>
-              <p>How your firm actually works: partners, people, clients, flows. No assumptions.</p>
-            </div>
-            <div className="proc-card">
-              <BarsGlyph heights={[10, 14, 6, 12]} />
-              <div className="pc-icon"><ScanSearch size={26} strokeWidth={1.8} /></div><h3>Map the friction</h3>
-              <p>Where time and margin leak, measured in hours and euros per week.</p>
-            </div>
-            <div className="proc-card">
-              <BarsGlyph />
-              <div className="pc-icon"><Workflow size={26} strokeWidth={1.8} /></div><h3>Build the system</h3>
-              <p>Smarter systems around your experts, integrated in the tools you already use.</p>
-            </div>
-            <div className="proc-card">
-              <BarsGlyph heights={[12, 6, 16, 8]} />
-              <div className="pc-icon"><TrendingUp size={26} strokeWidth={1.8} /></div><h3>Measure the gain</h3>
-              <p>Before and after, in numbers. If a system does not pay back, we say so.</p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <Section id="founder">
+        <FounderBlock founder={founder} />
+      </Section>
 
-      <section className="manifesto-band">
-        <div className="container">
-          <Reveal className="kicker">Brand manifesto</Reveal>
-          <Reveal className="mline">We don’t build hype. We build <em>systems</em>.</Reveal>
-          <Reveal className="mline">We don’t replace experts. We help them <em>work smarter</em>.</Reveal>
-          <Reveal className="msign">This is consulting, redefined.</Reveal>
-        </div>
-      </section>
-
-      <section id="services">
-        <div className="container">
-          <Reveal className="svc-head">
-            <h2 className="h2-display">OUR SERVICES</h2>
-            <p className="section-lead">
-              Four ways in. Every engagement ends with numbers: hours saved, margin
-              improved. If a scan shows a system will not pay back, we will say so.
-            </p>
-          </Reveal>
-          <Reveal>
-            <Accordion />
-          </Reveal>
-        </div>
-      </section>
-
-      <section id="insights">
-        <div className="container">
-          <Reveal className="svc-head">
-            <h2 className="h2-display">WHERE WE CREATE VALUE</h2>
-            <p className="section-lead">
-              Three places where boutique firms lose the most, and where smart
-              systems win it back.
-            </p>
-          </Reveal>
-          <Reveal className="ins-grid">
-            <a className="ins-card" href="#services">
-              <div className="ins-img duo"><img src="/images/px-team-laptop-point.jpg" alt="Consultants reviewing performance dashboards together" loading="lazy" /></div>
-              <div className="ins-tag">AI SYSTEMS</div>
-              <div className="ins-title">Where AI saves consulting firms real hours</div>
-            </a>
-            <a className="ins-card" href="#services">
-              <div className="ins-img duo"><img src="/images/px-workshop-talk.jpg" alt="Workshop conversation between consultants" loading="lazy" /></div>
-              <div className="ins-tag">TRANSFORMATION</div>
-              <div className="ins-title">Why transformation fails without one owner</div>
-            </a>
-            <a className="ins-card" href="#services">
-              <div className="ins-img duo"><img src="/images/px-team-planning.jpg" alt="Planning session around a table" loading="lazy" /></div>
-              <div className="ins-tag">STRATEGY</div>
-              <div className="ins-title">The boutique advantage in a corporate world</div>
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      <section id="founder">
-        <div className="container">
-          <Reveal className="svc-head">
-            <h2 className="h2-display">FOUNDED FROM THE INSIDE</h2>
-            <p className="section-lead">
-              Nearly two decades across Human Resources, Global Mobility, Governance,
-              Compliance and Global Transformation inside international organisations.
-            </p>
-          </Reveal>
-          <Reveal className="founder-grid">
-            <div className="f-photo duo">
-              <img src="/founder.jpg" alt="Fariza Sbaa, founder of The Outlier" />
-            </div>
+      {posts.length > 0 && (
+        <Section id="insights" tone="band">
+          <div className={styles.headRow}>
             <div>
-              <div className="f-companies">
-                <div className="f-co"><div className="name">ING Bank</div><div className="years">14 years</div></div>
-                <div className="f-co"><div className="name">Heineken International</div><div className="years">8 months</div></div>
-                <div className="f-co"><div className="name">Media.Monks</div><div className="years">4 years</div></div>
-              </div>
-              <div className="belief">
-                <div className="b-label">The Outlier was built on one belief</div>
-                <div className="b-line">Expertise should be amplified by better systems.</div>
-              </div>
+              <Reveal><Kicker>Insights</Kicker></Reveal>
+              <Reveal delay={0.05}><Heading size="h2">From the inside.</Heading></Reveal>
             </div>
-          </Reveal>
+            <Reveal delay={0.1}><Button href="/blog" variant="ghost">All insights</Button></Reveal>
+          </div>
+          <PostCards posts={posts} />
+        </Section>
+      )}
+
+      <Section id="faq">
+        <div className={styles.split}>
+          <div>
+            <Reveal><Kicker>Questions</Kicker></Reveal>
+            <Reveal delay={0.05}><Heading size="h2" className={styles.splitTitle}>What partners ask first.</Heading></Reveal>
+            <Reveal delay={0.1}><Lead>Something else on your mind? Ask Fariza directly on WhatsApp or send a message.</Lead></Reveal>
+            <Reveal delay={0.15} className={styles.faqCta}><Button href="/contact" variant="ghost">Contact</Button></Reveal>
+          </div>
+          <FAQ items={faqs} />
         </div>
-      </section>
+      </Section>
 
-      <section className="cta-band" id="contact">
-        <div className="container">
-          <Reveal className="kicker gold">Ready to scale?</Reveal>
-          <Reveal as="h2" className="h2-display ink">One call to find out where the friction lives.</Reveal>
-          <Reveal as="p" className="cta-lead">
-            Schedule a free 20-minute call. We discuss where your firm stands today
-            and whether a scan makes sense. If it does not, we will say so.
-          </Reveal>
-          <Reveal><a className="btn-inkbig" href="mailto:hello@theoutlier.nl">Schedule a call</a></Reveal>
-          <Reveal className="foot">
-            <Wordmark size={18} tone="gold" />
-            <span>Corporate experience. Boutique execution.</span>
-            <span>theoutlier.nl</span>
-          </Reveal>
-
-          <Reveal className="foot-sitemap">
-            <div className="fs-col">
-              <div className="fs-head">Site</div>
-              <a href="/#home">Home</a>
-              <a href="/#approach">Approach</a>
-              <a href="/#services">Services</a>
-              <a href="/#insights">Insights</a>
-              <a href="/#founder">Founder</a>
-            </div>
-            <div className="fs-col">
-              <div className="fs-head">Meer</div>
-              <a href="/services">Services</a>
-              <a href="/contact">Contact</a>
-              <a href="/start">Start assessment</a>
-              <a href="/blog">Blog</a>
-            </div>
-            <div className="fs-col fs-news">
-              <div className="fs-head">Stay updated</div>
-              <p className="fs-copy">Eén e-mail per artikel. Geen hype.</p>
-              <form className="fs-form" action="/api/newsletter" method="POST">
-                <label htmlFor="footer-email" className="visually-hidden">E-mailadres</label>
-                <input id="footer-email" name="email" type="email" placeholder="name@email.com" required />
-                <button className="fs-go" type="submit" aria-label="Aanmelden voor de nieuwsbrief">→</button>
-              </form>
-            </div>
-          </Reveal>
-
-          <div className="foot-credit">Photography: Wikimedia Commons (CC) · Founders portrait © The Outlier</div>
-        </div>
-      </section>
-
-      <div className="bar" />
-      <WhatsAppWidget />
-    </main>
+      <CTABand />
+    </>
   );
 }

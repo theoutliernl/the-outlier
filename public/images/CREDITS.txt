@@ -1,10 +1,8 @@
-facade-bw.jpg | CC0 | Osman Rana 'a rel="nofollow" class="external text" href="https://unsplash.com/@o
-brutalist-shadow.jpg | CC BY 3.0 | 'div class="fn value"'
-'a rel="nofollow" class="external text" href="https://500
-hall-of-shadows.jpg | CC BY-SA 4.0 | 'a href="//commons.wikimedia.org/w/index.php?title=User:Nicholas.iyadurai&amp;ac
-ramp-lines.jpg | CC BY-SA 4.0 | 'a href="//commons.wikimedia.org/w/index.php?title=User:Nicholas.iyadurai&amp;ac
-concrete-lights.jpg | CC BY 2.0 | 'a rel="nofollow" class="external text" href="https://www.flickr.com/people/8489
-concrete-forms.jpg | CC BY 2.0 | 'a rel="nofollow" class="external text" href="https://www.flickr.com/people/9187
-Bronnen: Wikimedia Commons
+Image sources for theoutlier.nl
 
-Pexels-foto's (px-*.jpg): gratis te gebruiken zonder attributie (Pexels License), photo-id's in de bestandsnamen.
+px-*.jpg      Pexels (Pexels License: free to use, no attribution required).
+hero-poster.jpg + /video/hero.mp4   Pexels video 3255275 (Pexels License).
+/founder.jpg  Portrait of Fariza Sbaa, (c) The Outlier.
+/lottie/*     MingCute Animation (MIT) and own animations, recoloured to The Outlier gold.
+
+Rule: only Pexels or other free-licence sources with a recorded licence. No Wikimedia Commons (owner preference, 2 Oct 2026).

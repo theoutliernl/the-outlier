@@ -3,6 +3,12 @@ import { createClient } from "@supabase/supabase-js";
 import { sendContactMails } from "../../../../lib/mail";
 import { isQaSubmission } from "../../../../lib/qa";
 
+// JSON for fetch() callers (the site's forms), a redirect for plain HTML form posts.
+function done(req, path) {
+  if ((req.headers.get("accept") || "").includes("application/json")) return NextResponse.json({ ok: true });
+  return NextResponse.redirect(new URL(path, req.url), 303);
+}
+
 export async function POST(req) {
   try {
     const form = await req.formData();
@@ -16,7 +22,7 @@ export async function POST(req) {
     }
 
     if (isQaSubmission(req, email)) {
-      return NextResponse.redirect(new URL("/bedankt", req.url), 303);
+      return done(req, "/thank-you");
     }
 
     const url = process.env.SUPABASE_URL;
@@ -37,7 +43,7 @@ export async function POST(req) {
     // Mail alleen verzenden als MAIL_ENABLED=1; anders alleen logging (lib/mail.js).
     await sendContactMails({ name, email, phone, message });
 
-    return NextResponse.redirect(new URL("/bedankt", req.url), 303);
+    return done(req, "/thank-you");
   } catch {
     return NextResponse.json({ error: "unexpected" }, { status: 500 });
   }

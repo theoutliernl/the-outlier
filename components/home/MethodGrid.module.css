@@ -1,0 +1,11 @@
+.grid { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.card { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 32px 28px 72px; background: var(--ink); transition: background-color var(--dur) var(--ease-out); overflow: hidden; }
+.card:hover { background: var(--midnight); }
+.top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.step { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+.title { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -0.01em; }
+.body { color: var(--text-body); font-size: 15.5px; line-height: 1.6; }
+.bar { position: absolute; right: 28px; bottom: 0; width: 10px; height: 48px; border-radius: 6px 6px 0 0; background: rgba(243, 237, 225, 0.12); transform: scaleY(var(--s)); transform-origin: 50% 100%; transition: transform 600ms var(--ease-out), background-color var(--dur) var(--ease-out); }
+.card:hover .bar { transform: scaleY(calc(var(--s) + 0.9)); background: var(--gold); }
+@media (max-width: 1000px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }

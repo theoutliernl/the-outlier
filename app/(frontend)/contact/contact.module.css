@@ -1,0 +1,14 @@
+.section { padding-top: 0; }
+.grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
+.list { list-style: none; display: grid; border-top: 1px solid var(--line); }
+.list li { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.list svg { width: 22px; height: 22px; color: var(--gold); flex: none; margin-top: 2px; }
+.list span { display: block; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.list a, .list p { font-size: 17px; color: var(--text-strong); line-height: 1.5; }
+.list a { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color var(--dur) var(--ease-out); }
+.list a:hover { text-decoration-color: var(--gold); }
+.assess { margin-top: 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface-1); }
+.assess > div:first-child { border-radius: 0; }
+.assessText { padding: 24px; display: grid; gap: 10px; justify-items: start; color: var(--text-body); }
+.assessTitle { font-size: 20px; font-weight: 700; color: var(--text-strong); }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }

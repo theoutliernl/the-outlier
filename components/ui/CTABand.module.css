@@ -1,0 +1,4 @@
+.wrap { max-width: 960px; }
+.title { max-width: 18ch; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-top: 40px; }
+.actions a:last-child { text-decoration-color: var(--ink); }

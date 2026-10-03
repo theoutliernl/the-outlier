@@ -1,30 +1,29 @@
-import { getPublishedPosts } from "../../lib/blog";
+import { getAllPublished, postUrl } from "../../lib/blog";
+import { SITE_URL } from "../../lib/content/site";
 
-const base = process.env.NEXT_PUBLIC_SITE_URL || "https://theoutlier.nl";
+const PAGES = [
+  ["", 1, "weekly"],
+  ["/services", 0.9, "monthly"],
+  ["/start", 0.9, "monthly"],
+  ["/about", 0.8, "monthly"],
+  ["/compare", 0.8, "monthly"],
+  ["/contact", 0.8, "monthly"],
+  ["/blog", 0.7, "weekly"],
+  ["/team", 0.6, "monthly"],
+  ["/projects", 0.6, "monthly"],
+  ["/privacy", 0.2, "yearly"],
+];
 
 export default async function sitemap() {
   const now = new Date();
-  const routes = [
-    { url: base, priority: 1, changeFrequency: "weekly" },
-    { url: `${base}/services`, priority: 0.9, changeFrequency: "monthly" },
-    { url: `${base}/contact`, priority: 0.8, changeFrequency: "monthly" },
-    { url: `${base}/start`, priority: 0.8, changeFrequency: "monthly" },
-    { url: `${base}/blog`, priority: 0.7, changeFrequency: "weekly" },
-  ];
-
   let posts = [];
   try {
-    posts = await getPublishedPosts();
+    posts = await getAllPublished();
   } catch (err) {
-    console.error("[sitemap] posts ophalen mislukt:", err?.message || err);
+    console.error("[sitemap] posts unavailable:", err?.message || err);
   }
-
-  const postRoutes = posts.map((post) => ({
-    url: `${base}/blog/${post.slug}`,
-    lastModified: post.updatedAt || post.publishedAt || now,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
-
-  return routes.map((r) => ({ ...r, lastModified: now })).concat(postRoutes);
+  return [
+    ...PAGES.map(([path, priority, changeFrequency]) => ({ url: `${SITE_URL}${path}`, lastModified: now, priority, changeFrequency })),
+    ...posts.map((p) => ({ url: `${SITE_URL}${postUrl(p)}`, lastModified: p.updatedAt || p.publishedAt || now, priority: 0.6, changeFrequency: "monthly" })),
+  ];
 }

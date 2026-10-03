@@ -1,0 +1,23 @@
+.table { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--ink); }
+.head, .row { display: grid; grid-template-columns: 0.8fr 1fr 1fr; }
+.head { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+.head > span { padding: 20px 24px; }
+.bigHead { color: var(--text-muted); }
+.usHead { color: var(--ink); background: var(--grad-gold); font-weight: 700; }
+.row { border-top: 1px solid var(--line); transition: background-color var(--dur) var(--ease-out); }
+.row:hover { background: rgba(243, 237, 225, 0.03); }
+.row > span { padding: 20px 24px; display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; line-height: 1.5; }
+.topic { font-weight: 700; color: var(--text-strong); }
+.big { color: var(--text-muted); }
+.big svg { margin-top: 3px; flex: none; color: var(--grey); }
+.us { color: var(--text-strong); background: rgba(224, 168, 40, 0.06); border-left: 1px solid rgba(224, 168, 40, 0.25); }
+.us svg { margin-top: 3px; flex: none; color: var(--gold); }
+@media (max-width: 760px) {
+  .head { display: none; }
+  .row { grid-template-columns: 1fr; }
+  .row > span { padding: 12px 20px; }
+  .topic { padding-top: 20px !important; }
+  .big::before { content: "Big firm:"; font-weight: 600; margin-right: 2px; }
+  .us { border-left: 0; padding-bottom: 20px !important; }
+  .us::before { content: "The Outlier:"; font-weight: 700; margin-right: 2px; }
+}

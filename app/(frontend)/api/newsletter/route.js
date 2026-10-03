@@ -2,6 +2,12 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { isQaSubmission } from "../../../../lib/qa";
 
+// JSON for fetch() callers (the site's forms), a redirect for plain HTML form posts.
+function done(req, path) {
+  if ((req.headers.get("accept") || "").includes("application/json")) return NextResponse.json({ ok: true });
+  return NextResponse.redirect(new URL(path, req.url), 303);
+}
+
 export async function POST(req) {
   try {
     const form = await req.formData();
@@ -12,7 +18,7 @@ export async function POST(req) {
     }
 
     if (isQaSubmission(req, email)) {
-      return NextResponse.redirect(new URL("/bedankt?type=newsletter", req.url), 303);
+      return done(req, "/thank-you?type=newsletter");
     }
 
     const url = process.env.SUPABASE_URL;
@@ -30,7 +36,7 @@ export async function POST(req) {
       return NextResponse.json({ error: "storage failed" }, { status: 500 });
     }
 
-    return NextResponse.redirect(new URL("/bedankt?type=newsletter", req.url), 303);
+    return done(req, "/thank-you?type=newsletter");
   } catch {
     return NextResponse.json({ error: "unexpected" }, { status: 500 });
   }

@@ -1,30 +1,28 @@
-import Assessment from "../../../components/Assessment";
+import PageHero from "../../../components/ui/PageHero";
+import Section from "../../../components/ui/Section";
+import Assessment from "../../../components/forms/Assessment";
+import { services } from "../../../lib/content/services";
 
 export const metadata = {
-  title: "Start de assessment",
-  description:
-    "Vijf vragen over jouw bureau: waar lekt tijd en marge weg, en verdient een systeem zich bij jou terug? Aan het eind weet je of een gesprek met The Outlier zin heeft.",
+  title: "Free AI Assessment for Boutique Firms: Find Your Friction",
+  description: "Eight questions, about five minutes. Get your firm's friction profile, an indicative time-saving estimate and three concrete recommendations straight away.",
   alternates: { canonical: "/start" },
 };
 
-export default function StartPage() {
+export default async function StartPage({ searchParams }) {
+  const params = await searchParams;
+  const interest = services.some((s) => s.slug === params?.interest) ? params.interest : "";
   return (
     <>
-      
-      <main className="page-stub">
-        <p className="kicker">Assessment</p>
-        <h1 style={{ fontSize: "clamp(40px,6vw,84px)", letterSpacing: "-0.04em", margin: "0 0 20px" }}>
-          Vind jouw <span className="gold-italic">friction</span>.
-        </h1>
-        <p className="lead">
-          Vijf vragen over hoe je bureau werkt. Aan het eind: jouw profiel in één
-          oogopslag — en als het zin heeft, een gesprek. Geen nieuwsbrief, geen spam.
-        </p>
-        <div className="start-visual duo" aria-hidden="true"><img src="/images/px-team-hands.jpg" alt="" loading="lazy" /></div>
-        <Assessment />
-      </main>
-      
-      
+      <PageHero
+        kicker="Free assessment"
+        title="Find your friction."
+        lead="Eight questions about how your firm works. You get your profile, an indicative time-saving estimate and three things to look at first. If a conversation makes sense, you can book it at the end."
+        crumbs={[{ label: "Assessment", href: "/start" }]}
+      />
+      <Section size="tight" style={{ paddingTop: 0 }}>
+        <Assessment interest={interest} />
+      </Section>
     </>
   );
 }
