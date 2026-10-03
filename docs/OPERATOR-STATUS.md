@@ -1,22 +1,28 @@
 # The Outlier: gecontroleerde projectstand
 
-Operator-check: 2026-10-02T11:57:30.557268+00:00 (UTC). Dit is een gedateerd bewijsrecord, geen toestemming om te publiceren of berichten te sturen. Ververs de controles voor een nieuw statusantwoord.
+Operator-check: 2026-10-03 ~05:50 UTC. Dit is een gedateerd bewijsrecord, geen toestemming om te
+publiceren of berichten te sturen. Ververs de controles voor een nieuw statusantwoord.
+Werkvolgorde: `docs/FINISH-PLAN.md`. Werkwijze: `AGENTS.md`.
 
 ## Bron en daadwerkelijk gecontroleerd
-- Actuele checkout: /workspace/outlier-site, branch main. Actuele commit: b6e408e5. Een commitbericht is geen bewijs van live herstel.
-- https://theoutlier-site.vercel.app/: HTTP 200.
-- /contact, /start, /blog: HTTP 200. Dit bewijst bereikbaarheid, niet formulieropslag, e-mailbezorging of CMS-publicatie.
-- /admin en /admin/login: HTTP 500 bij de operator-check. CMS is niet geaccepteerd of klaar verklaard.
-- Bestaande CMS-worker is actief. De operator-audit verandert zijn repo-bestanden niet en start geen tweede CMS-worker.
+- Checkout /workspace/outlier-site, branch main, commit 8f33ac6 (fase 0).
+- `npx next build` groen; `bash scripts/qa-tests.sh` tegen https://theoutlier-site.vercel.app: 27 groen, 0 rood
+  (routes, content, SEO, formulieren in dry-run, footer, merk, CMS-loginpagina).
+- QA-formulierchecks schrijven sinds fase 0 niets meer naar Supabase (gecontroleerd: geen nieuwe
+  qa@theoutlier.test-rijen na de deploy). Er staan nog 29 oude QA-rijen in contact_submissions en
+  assessment_submissions en 1 in newsletter_optins.
+- Blog toont 2 gepubliceerde artikelen; het testartikel staat op concept.
+- Logo in nav, header, footer en OG via components/Brand.jsx; visueel gecontroleerd op desktop.
 
 ## Voor Fariza
-De website is wel verder ontwikkeld. De pagina's zijn bereikbaar, maar het beheer werkt nog niet goed. Er is daarom nog geen volledige oplevering.
+Het logo klopt nu met haar merk (THE naast OUTLIER, alleen IER cursief) en het testartikel is offline.
+De site is nog niet af: zie de fasen in docs/FINISH-PLAN.md.
 
-## Nog onafhankelijk te bewijzen
-- Werkende CMS-login en publiceren van een testartikel via het echte beheer.
-- Contact/assessment naar de juiste database, bevestiging en notificatie via de juiste verbonden e-mailaccount.
-- De resterende designfeedback tegen het oorspronkelijke akkoord en mobiele screenshots.
-- Definitieve domeinkoppeling uitsluitend onder het bestaande goedkeuringsbeleid.
+## Nog niet bewezen of nog niet gedaan
+- Nav, voortgangsbalk, WhatsApp-widget en footer alleen op de homepage (fase 1).
+- Subpagina's en footerteksten deels Nederlands; de webcopy moet Engels (fase 1b).
+- Agenda, mailverzending, compare, About/Team/Projects, ecosysteem, domein: fase 2 t/m 10.
+- Mobiele screenshots van fase 0 nog niet gemaakt (alleen desktop gecontroleerd).
 
 ## Statusdiscipline
-Lees projectbewijs voordat je een status geeft. Noem werk niet klaar op basis van een belofte, build of oude chat. Een persoonlijke pauze uit september rechtvaardigt geen bewering dat operatorwerk in oktober nooit plaatsvond. Behoud de scheiding tussen client en operator en alle bestaande beschermde-actieregels.
+Lees projectbewijs voordat je een status geeft. Noem werk niet klaar op basis van een belofte, build of oude chat.
